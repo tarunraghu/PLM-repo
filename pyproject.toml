@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plmgen"
+version = "0.1.0"
+description = "Synthetic PLM data generator for Databricks hands-on work: history, daily increments, CDC streams, documents."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["pillow>=10.1"]
+
+[project.optional-dependencies]
+# Used by the tests to check output with real parsers. The generator itself does not need them.
+dev = ["pypdf", "python-docx", "pglast"]
+
+[project.scripts]
+plmgen = "plmgen.cli:main"
+
+[tool.setuptools]
+packages = ["plmgen"]

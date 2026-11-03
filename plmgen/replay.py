@@ -1,0 +1,79 @@
+"""Read event streams back, apply them the way Silver should, and replay them over time.
+
+apply_cdc shows the target behaviour for a Silver MERGE: ignore corrupt lines, drop
+duplicate event ids, order by log sequence number, and apply creates, updates and deletes.
+stream_files re-releases a batch's events in small files at a chosen rate, so Auto Loader
+or a streaming job has something live to read.
+"""
+
+import json
+import time
+from pathlib import Path
+
+from .schema import TABLES, format_value, parse_value
+
+
+def read_events(paths):
+    """Yield (event, error) for every line. Corrupt lines yield (None, line)."""
+    for path in paths:
+        with Path(path).open(encoding="utf-8") as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    yield json.loads(line), None
+                except json.JSONDecodeError:
+                    yield None, line
+
+
+def apply_cdc(state, events):
+    """Apply CDC events to {table: {pk_tuple: row_json}} and return counts of what was ignored.
+
+    Events are deduplicated by event_id and applied in lsn order, whatever order they arrived in.
+    """
+    seen, ignored = set(), {"duplicates": 0, "corrupt": 0}
+    good = []
+    for event, bad in events:
+        if event is None:
+            ignored["corrupt"] += 1
+        elif event["event_id"] in seen:
+            ignored["duplicates"] += 1
+        else:
+            seen.add(event["event_id"])
+            good.append(event)
+    for event in sorted(good, key=lambda e: (e["source"], e["lsn"])):
+        table = state.setdefault(event["table"], {})
+        key = tuple(event["key"][c] for c in TABLES[event["table"]].pk)
+        if event["op"] == "d":
+            table.pop(key, None)
+        else:
+            table[key] = event["after"]
+    return ignored
+
+
+def rows_to_json_state(table, rows):
+    """Index typed rows by primary key in the same JSON form events use."""
+    from .outputs import json_key, json_row
+    spec = TABLES[table]
+    return {tuple(json_key(table, tuple(r[c] for c in spec.pk)).values()): json_row(table, r) for r in rows}
+
+
+def stream_files(source_file, target_dir, events_per_file=50, rate=None, shuffle_seed=None, prefix="events"):
+    """Split one JSONL file into small files in target_dir, pausing between files to hit `rate` events/second.
+
+    The original line order is kept. Returns the list of files written."""
+    lines = [ln for ln in Path(source_file).read_text(encoding="utf-8").splitlines() if ln.strip()]
+    target = Path(target_dir)
+    target.mkdir(parents=True, exist_ok=True)
+    written = []
+    for n, start in enumerate(range(0, len(lines), events_per_file), 1):
+        chunk = lines[start:start + events_per_file]
+        path = target / f"{prefix}-{n:06d}.jsonl"
+        tmp = path.with_suffix(".tmp")
+        tmp.write_text("\n".join(chunk) + "\n", encoding="utf-8")
+        tmp.replace(path)            # appears atomically, as a real landing process would
+        written.append(path)
+        if rate:
+            time.sleep(len(chunk) / rate)
+    return written
