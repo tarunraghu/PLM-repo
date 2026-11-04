@@ -15,117 +15,90 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 3970 >>
+<< /Length 3148 >>
 stream
-1 w 56.0 766.0 483.0 22.0 re S
-BT /F2 11 Tf 64.0 772.0 Td (EXPORT CONTROLLED - ECCN 3A001) Tj ET
-BT /F2 18 Tf 56.0 736.0 Td (DRAWING) Tj ET
-BT /F2 10 Tf 56.0 712.0 Td (Document ID:) Tj ET
-BT /F1 10 Tf 206.0 712.0 Td (DOC-0001406) Tj ET
-BT /F2 10 Tf 56.0 697.0 Td (Project:) Tj ET
-BT /F1 10 Tf 206.0 697.0 Td (PRJ-013) Tj ET
-BT /F2 10 Tf 56.0 682.0 Td (Uploaded on:) Tj ET
-BT /F1 10 Tf 206.0 682.0 Td (2024-09-09) Tj ET
-BT /F2 10 Tf 56.0 667.0 Td (Uploaded by:) Tj ET
-BT /F1 10 Tf 206.0 667.0 Td (user132) Tj ET
-BT /F2 10 Tf 56.0 652.0 Td (Export class:) Tj ET
-BT /F1 10 Tf 206.0 652.0 Td (ECCN-3A001) Tj ET
-BT /F2 12 Tf 56.0 621.0 Td (Drawing DWG-30666) Tj ET
-BT /F2 9.5 Tf 59.0 599.0 Td (Field) Tj ET
-BT /F2 9.5 Tf 300.5 599.0 Td (Value) Tj ET
-0.5 w 56.0 595.0 m 539.0 595.0 l S
-BT /F1 9.5 Tf 59.0 581.0 Td (Part Number) Tj ET
-BT /F1 9.5 Tf 300.5 581.0 Td (P-100727) Tj ET
-0.5 w 56.0 577.0 m 539.0 577.0 l S
-BT /F1 9.5 Tf 59.0 563.0 Td (Revision) Tj ET
-BT /F1 9.5 Tf 300.5 563.0 Td (A.1) Tj ET
-0.5 w 56.0 559.0 m 539.0 559.0 l S
-BT /F1 9.5 Tf 59.0 545.0 Td (Scale) Tj ET
-BT /F1 9.5 Tf 300.5 545.0 Td (1:1) Tj ET
-0.5 w 56.0 541.0 m 539.0 541.0 l S
-BT /F1 9.5 Tf 59.0 527.0 Td (Sheet) Tj ET
-BT /F1 9.5 Tf 300.5 527.0 Td (A3) Tj ET
-0.5 w 56.0 523.0 m 539.0 523.0 l S
-BT /F1 9.5 Tf 59.0 509.0 Td (Length \(mm\)) Tj ET
-BT /F1 9.5 Tf 300.5 509.0 Td (31.7) Tj ET
-0.5 w 56.0 505.0 m 539.0 505.0 l S
-BT /F1 9.5 Tf 59.0 491.0 Td (Width \(mm\)) Tj ET
-BT /F1 9.5 Tf 300.5 491.0 Td (193.4) Tj ET
-0.5 w 56.0 487.0 m 539.0 487.0 l S
-BT /F1 9.5 Tf 59.0 473.0 Td (Height \(mm\)) Tj ET
-BT /F1 9.5 Tf 300.5 473.0 Td (10.1) Tj ET
-0.5 w 56.0 469.0 m 539.0 469.0 l S
-BT /F1 9.5 Tf 59.0 455.0 Td (Mass \(kg\)) Tj ET
-BT /F1 9.5 Tf 300.5 455.0 Td (34.375) Tj ET
-0.5 w 56.0 451.0 m 539.0 451.0 l S
-BT /F2 12 Tf 56.0 421.0 Td (Drawing DWG-92688) Tj ET
-BT /F2 9.5 Tf 59.0 399.0 Td (Field) Tj ET
-BT /F2 9.5 Tf 300.5 399.0 Td (Value) Tj ET
-0.5 w 56.0 395.0 m 539.0 395.0 l S
-BT /F1 9.5 Tf 59.0 381.0 Td (Part Number) Tj ET
-BT /F1 9.5 Tf 300.5 381.0 Td (P-102296) Tj ET
-0.5 w 56.0 377.0 m 539.0 377.0 l S
-BT /F1 9.5 Tf 59.0 363.0 Td (Revision) Tj ET
-BT /F1 9.5 Tf 300.5 363.0 Td (A.1) Tj ET
-0.5 w 56.0 359.0 m 539.0 359.0 l S
-BT /F1 9.5 Tf 59.0 345.0 Td (Scale) Tj ET
-BT /F1 9.5 Tf 300.5 345.0 Td (2:1) Tj ET
-0.5 w 56.0 341.0 m 539.0 341.0 l S
-BT /F1 9.5 Tf 59.0 327.0 Td (Sheet) Tj ET
-BT /F1 9.5 Tf 300.5 327.0 Td (A2) Tj ET
-0.5 w 56.0 323.0 m 539.0 323.0 l S
-BT /F1 9.5 Tf 59.0 309.0 Td (Length \(mm\)) Tj ET
-BT /F1 9.5 Tf 300.5 309.0 Td (324.3) Tj ET
-0.5 w 56.0 305.0 m 539.0 305.0 l S
-BT /F1 9.5 Tf 59.0 291.0 Td (Width \(mm\)) Tj ET
-BT /F1 9.5 Tf 300.5 291.0 Td (171.5) Tj ET
-0.5 w 56.0 287.0 m 539.0 287.0 l S
-BT /F1 9.5 Tf 59.0 273.0 Td (Height \(mm\)) Tj ET
-BT /F1 9.5 Tf 300.5 273.0 Td (44.2) Tj ET
-0.5 w 56.0 269.0 m 539.0 269.0 l S
-BT /F1 9.5 Tf 59.0 255.0 Td (Mass \(kg\)) Tj ET
-BT /F1 9.5 Tf 300.5 255.0 Td (8.968) Tj ET
-0.5 w 56.0 251.0 m 539.0 251.0 l S
-BT /F2 12 Tf 56.0 221.0 Td (Drawing DWG-99913) Tj ET
-BT /F2 9.5 Tf 59.0 199.0 Td (Field) Tj ET
-BT /F2 9.5 Tf 300.5 199.0 Td (Value) Tj ET
-0.5 w 56.0 195.0 m 539.0 195.0 l S
-BT /F1 9.5 Tf 59.0 181.0 Td (Part Number) Tj ET
-BT /F1 9.5 Tf 300.5 181.0 Td (P-100134) Tj ET
-0.5 w 56.0 177.0 m 539.0 177.0 l S
-BT /F1 9.5 Tf 59.0 163.0 Td (Revision) Tj ET
-BT /F1 9.5 Tf 300.5 163.0 Td (B.1) Tj ET
-0.5 w 56.0 159.0 m 539.0 159.0 l S
-BT /F1 9.5 Tf 59.0 145.0 Td (Scale) Tj ET
-BT /F1 9.5 Tf 300.5 145.0 Td (1:1) Tj ET
-0.5 w 56.0 141.0 m 539.0 141.0 l S
-BT /F1 9.5 Tf 59.0 127.0 Td (Sheet) Tj ET
-BT /F1 9.5 Tf 300.5 127.0 Td (A2) Tj ET
-0.5 w 56.0 123.0 m 539.0 123.0 l S
-BT /F1 9.5 Tf 59.0 109.0 Td (Length \(mm\)) Tj ET
-BT /F1 9.5 Tf 300.5 109.0 Td (374.7) Tj ET
-0.5 w 56.0 105.0 m 539.0 105.0 l S
-BT /F1 9.5 Tf 59.0 91.0 Td (Width \(mm\)) Tj ET
-BT /F1 9.5 Tf 300.5 91.0 Td (167.3) Tj ET
-0.5 w 56.0 87.0 m 539.0 87.0 l S
-BT /F1 9.5 Tf 59.0 73.0 Td (Height \(mm\)) Tj ET
-BT /F1 9.5 Tf 300.5 73.0 Td (82.7) Tj ET
-0.5 w 56.0 69.0 m 539.0 69.0 l S
+BT /F2 18 Tf 56.0 770.0 Td (WORK INSTRUCTION) Tj ET
+BT /F2 10 Tf 56.0 746.0 Td (Document ID:) Tj ET
+BT /F1 10 Tf 206.0 746.0 Td (DOC-0001406) Tj ET
+BT /F2 10 Tf 56.0 731.0 Td (Project:) Tj ET
+BT /F1 10 Tf 206.0 731.0 Td (PRJ-033) Tj ET
+BT /F2 10 Tf 56.0 716.0 Td (Uploaded on:) Tj ET
+BT /F1 10 Tf 206.0 716.0 Td (2024-09-09) Tj ET
+BT /F2 10 Tf 56.0 701.0 Td (Uploaded by:) Tj ET
+BT /F1 10 Tf 206.0 701.0 Td (user196) Tj ET
+BT /F2 10 Tf 56.0 686.0 Td (Export class:) Tj ET
+BT /F1 10 Tf 206.0 686.0 Td (EAR99) Tj ET
+BT /F2 12 Tf 56.0 655.0 Td (Assembly of P-100743 at plant PLT01) Tj ET
+BT /F2 10 Tf 56.0 635.0 Td (Part Number:) Tj ET
+BT /F1 10 Tf 206.0 635.0 Td (P-100743) Tj ET
+BT /F2 10 Tf 56.0 620.0 Td (Revision:) Tj ET
+BT /F1 10 Tf 206.0 620.0 Td (A.1) Tj ET
+BT /F2 10 Tf 56.0 605.0 Td (Plant:) Tj ET
+BT /F1 10 Tf 206.0 605.0 Td (PLT01) Tj ET
+BT /F2 10 Tf 56.0 590.0 Td (Station:) Tj ET
+BT /F1 10 Tf 206.0 590.0 Td (ST-16) Tj ET
+BT /F2 10 Tf 56.0 575.0 Td (Torque \(Nm\):) Tj ET
+BT /F1 10 Tf 206.0 575.0 Td (5) Tj ET
+BT /F2 10 Tf 56.0 560.0 Td (Cycle time \(s\):) Tj ET
+BT /F1 10 Tf 206.0 560.0 Td (110) Tj ET
+BT /F1 10 Tf 56.0 539.0 Td (Step 1: Clean mating surface) Tj ET
+BT /F1 10 Tf 56.0 521.0 Td (Step 2: Move to next station) Tj ET
+BT /F1 10 Tf 56.0 503.0 Td (Step 3: Move to next station) Tj ET
+BT /F1 10 Tf 56.0 485.0 Td (Step 4: Visual check) Tj ET
+BT /F1 10 Tf 56.0 467.0 Td (Step 5: Torque to specification) Tj ET
+BT /F2 12 Tf 56.0 439.0 Td (Assembly of P-100134 at plant PLT01) Tj ET
+BT /F2 10 Tf 56.0 419.0 Td (Part Number:) Tj ET
+BT /F1 10 Tf 206.0 419.0 Td (P-100134) Tj ET
+BT /F2 10 Tf 56.0 404.0 Td (Revision:) Tj ET
+BT /F1 10 Tf 206.0 404.0 Td (B.1) Tj ET
+BT /F2 10 Tf 56.0 389.0 Td (Plant:) Tj ET
+BT /F1 10 Tf 206.0 389.0 Td (PLT01) Tj ET
+BT /F2 10 Tf 56.0 374.0 Td (Station:) Tj ET
+BT /F1 10 Tf 206.0 374.0 Td (ST-91) Tj ET
+BT /F2 10 Tf 56.0 359.0 Td (Torque \(Nm\):) Tj ET
+BT /F1 10 Tf 206.0 359.0 Td (2.5) Tj ET
+BT /F2 10 Tf 56.0 344.0 Td (Cycle time \(s\):) Tj ET
+BT /F1 10 Tf 206.0 344.0 Td (272) Tj ET
+BT /F1 10 Tf 56.0 323.0 Td (Step 1: Torque to specification) Tj ET
+BT /F1 10 Tf 56.0 305.0 Td (Step 2: Torque to specification) Tj ET
+BT /F1 10 Tf 56.0 287.0 Td (Step 3: Torque to specification) Tj ET
+BT /F1 10 Tf 56.0 269.0 Td (Step 4: Apply thread locker) Tj ET
+BT /F1 10 Tf 56.0 251.0 Td (Step 5: Clean mating surface) Tj ET
+BT /F1 10 Tf 56.0 233.0 Td (Step 6: Move to next station) Tj ET
+BT /F1 10 Tf 56.0 215.0 Td (Step 7: Apply thread locker) Tj ET
+BT /F1 10 Tf 56.0 197.0 Td (Step 8: Torque to specification) Tj ET
+BT /F2 12 Tf 56.0 169.0 Td (Assembly of P-100797 at plant PLT02) Tj ET
+BT /F2 10 Tf 56.0 149.0 Td (Part Number:) Tj ET
+BT /F1 10 Tf 206.0 149.0 Td (P-100797) Tj ET
+BT /F2 10 Tf 56.0 134.0 Td (Revision:) Tj ET
+BT /F1 10 Tf 206.0 134.0 Td (A.1) Tj ET
+BT /F2 10 Tf 56.0 119.0 Td (Plant:) Tj ET
+BT /F1 10 Tf 206.0 119.0 Td (PLT02) Tj ET
+BT /F2 10 Tf 56.0 104.0 Td (Station:) Tj ET
+BT /F1 10 Tf 206.0 104.0 Td (ST-94) Tj ET
+BT /F2 10 Tf 56.0 89.0 Td (Torque \(Nm\):) Tj ET
+BT /F1 10 Tf 206.0 89.0 Td (8) Tj ET
+BT /F2 10 Tf 56.0 74.0 Td (Cycle time \(s\):) Tj ET
+BT /F1 10 Tf 206.0 74.0 Td (100) Tj ET
 endstream
 endobj
 7 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
 endobj
 8 0 obj
-<< /Length 126 >>
+<< /Length 436 >>
 stream
-BT /F1 9.5 Tf 59.0 774.0 Td (Mass \(kg\)) Tj ET
-BT /F1 9.5 Tf 300.5 774.0 Td (26.849) Tj ET
-0.5 w 56.0 770.0 m 539.0 770.0 l S
+BT /F1 10 Tf 56.0 776.0 Td (Step 1: Visual check) Tj ET
+BT /F1 10 Tf 56.0 758.0 Td (Step 2: Torque to specification) Tj ET
+BT /F1 10 Tf 56.0 740.0 Td (Step 3: Move to next station) Tj ET
+BT /F1 10 Tf 56.0 722.0 Td (Step 4: Apply thread locker) Tj ET
+BT /F1 10 Tf 56.0 704.0 Td (Step 5: Visual check) Tj ET
+BT /F1 10 Tf 56.0 686.0 Td (Step 6: Clean mating surface) Tj ET
+BT /F1 10 Tf 56.0 668.0 Td (Step 7: Torque to specification) Tj ET
 endstream
 endobj
 9 0 obj
-<< /Title (Drawing DOC-0001406 for P-100727 rev A.1) /Producer (plmgen) >>
+<< /Title (Work Instruction DOC-0001406 for P-100743 rev A.1) /Producer (plmgen) >>
 endobj
 xref
 0 10
@@ -136,11 +109,11 @@ xref
 0000000218 00000 n 
 0000000320 00000 n 
 0000000456 00000 n 
-0000004478 00000 n 
-0000004614 00000 n 
-0000004791 00000 n 
+0000003656 00000 n 
+0000003792 00000 n 
+0000004279 00000 n 
 trailer
 << /Size 10 /Root 1 0 R /Info 9 0 R >>
 startxref
-4881
+4378
 %%EOF
