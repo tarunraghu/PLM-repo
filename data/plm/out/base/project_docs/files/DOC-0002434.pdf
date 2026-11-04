@@ -15,9 +15,9 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 2701 >>
+<< /Length 1512 >>
 stream
-BT /F2 18 Tf 56.0 770.0 Td (WORK INSTRUCTION) Tj ET
+BT /F2 18 Tf 56.0 770.0 Td (CERTIFICATE) Tj ET
 BT /F2 10 Tf 56.0 746.0 Td (Document ID:) Tj ET
 BT /F1 10 Tf 206.0 746.0 Td (DOC-0002434) Tj ET
 BT /F2 10 Tf 56.0 731.0 Td (Project:) Tj ET
@@ -28,52 +28,30 @@ BT /F2 10 Tf 56.0 701.0 Td (Uploaded by:) Tj ET
 BT /F1 10 Tf 206.0 701.0 Td (user188) Tj ET
 BT /F2 10 Tf 56.0 686.0 Td (Export class:) Tj ET
 BT /F1 10 Tf 206.0 686.0 Td (EAR99) Tj ET
-BT /F2 12 Tf 56.0 655.0 Td (Assembly of P-103862 at plant PLT01) Tj ET
-BT /F2 10 Tf 56.0 635.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 635.0 Td (P-103862) Tj ET
-BT /F2 10 Tf 56.0 620.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 620.0 Td (A.1) Tj ET
-BT /F2 10 Tf 56.0 605.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 605.0 Td (PLT01) Tj ET
-BT /F2 10 Tf 56.0 590.0 Td (Station:) Tj ET
-BT /F1 10 Tf 206.0 590.0 Td (ST-32) Tj ET
-BT /F2 10 Tf 56.0 575.0 Td (Torque \(Nm\):) Tj ET
-BT /F1 10 Tf 206.0 575.0 Td (2.5) Tj ET
-BT /F2 10 Tf 56.0 560.0 Td (Cycle time \(s\):) Tj ET
-BT /F1 10 Tf 206.0 560.0 Td (167) Tj ET
-BT /F1 10 Tf 56.0 539.0 Td (Step 1: Visual check) Tj ET
-BT /F1 10 Tf 56.0 521.0 Td (Step 2: Visual check) Tj ET
-BT /F1 10 Tf 56.0 503.0 Td (Step 3: Move to next station) Tj ET
-BT /F1 10 Tf 56.0 485.0 Td (Step 4: Fit fasteners) Tj ET
-BT /F1 10 Tf 56.0 467.0 Td (Step 5: Move to next station) Tj ET
-BT /F1 10 Tf 56.0 449.0 Td (Step 6: Torque to specification) Tj ET
-BT /F1 10 Tf 56.0 431.0 Td (Step 7: Move to next station) Tj ET
-BT /F1 10 Tf 56.0 413.0 Td (Step 8: Inspect incoming part) Tj ET
-BT /F2 12 Tf 56.0 385.0 Td (Assembly of P-100067 at plant PLT02) Tj ET
-BT /F2 10 Tf 56.0 365.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 365.0 Td (P-100067) Tj ET
-BT /F2 10 Tf 56.0 350.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 350.0 Td (C.1) Tj ET
-BT /F2 10 Tf 56.0 335.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 335.0 Td (PLT02) Tj ET
-BT /F2 10 Tf 56.0 320.0 Td (Station:) Tj ET
-BT /F1 10 Tf 206.0 320.0 Td (ST-85) Tj ET
-BT /F2 10 Tf 56.0 305.0 Td (Torque \(Nm\):) Tj ET
-BT /F1 10 Tf 206.0 305.0 Td (2.5) Tj ET
-BT /F2 10 Tf 56.0 290.0 Td (Cycle time \(s\):) Tj ET
-BT /F1 10 Tf 206.0 290.0 Td (289) Tj ET
-BT /F1 10 Tf 56.0 269.0 Td (Step 1: Visual check) Tj ET
-BT /F1 10 Tf 56.0 251.0 Td (Step 2: Inspect incoming part) Tj ET
-BT /F1 10 Tf 56.0 233.0 Td (Step 3: Apply thread locker) Tj ET
-BT /F1 10 Tf 56.0 215.0 Td (Step 4: Visual check) Tj ET
-BT /F1 10 Tf 56.0 197.0 Td (Step 5: Inspect incoming part) Tj ET
-BT /F1 10 Tf 56.0 179.0 Td (Step 6: Clean mating surface) Tj ET
-BT /F1 10 Tf 56.0 161.0 Td (Step 7: Inspect incoming part) Tj ET
-BT /F1 10 Tf 56.0 143.0 Td (Step 8: Record result) Tj ET
+BT /F1 10 Tf 56.0 665.0 Td (This certifies that the items listed below conform to the applicable drawing and specification.) Tj ET
+BT /F2 9.5 Tf 59.0 645.0 Td (Part Number) Tj ET
+BT /F2 9.5 Tf 155.6 645.0 Td (Revision) Tj ET
+BT /F2 9.5 Tf 252.2 645.0 Td (Lot) Tj ET
+BT /F2 9.5 Tf 348.8 645.0 Td (Quantity) Tj ET
+BT /F2 9.5 Tf 445.4 645.0 Td (Supplier) Tj ET
+0.5 w 56.0 641.0 m 539.0 641.0 l S
+BT /F1 9.5 Tf 59.0 627.0 Td (P-100067) Tj ET
+BT /F1 9.5 Tf 155.6 627.0 Td (C.1) Tj ET
+BT /F1 9.5 Tf 252.2 627.0 Td (LOT-987055) Tj ET
+BT /F1 9.5 Tf 348.8 627.0 Td (500) Tj ET
+BT /F1 9.5 Tf 445.4 627.0 Td (Harbor Systems 108) Tj ET
+0.5 w 56.0 623.0 m 539.0 623.0 l S
+BT /F1 9.5 Tf 59.0 609.0 Td (P-102286) Tj ET
+BT /F1 9.5 Tf 155.6 609.0 Td (A.1) Tj ET
+BT /F1 9.5 Tf 252.2 609.0 Td (LOT-891237) Tj ET
+BT /F1 9.5 Tf 348.8 609.0 Td (100) Tj ET
+BT /F1 9.5 Tf 445.4 609.0 Td (Apex Systems 75) Tj ET
+0.5 w 56.0 605.0 m 539.0 605.0 l S
+BT /F1 10 Tf 56.0 585.0 Td (Certificate No CERT-221191. Issued 2026-01-05.) Tj ET
 endstream
 endobj
 7 0 obj
-<< /Title (Work Instruction DOC-0002434 for P-103862 rev A.1) /Producer (plmgen) >>
+<< /Title (Certificate DOC-0002434 for P-100067 rev C.1) /Producer (plmgen) >>
 endobj
 xref
 0 8
@@ -84,9 +62,9 @@ xref
 0000000212 00000 n 
 0000000314 00000 n 
 0000000450 00000 n 
-0000003203 00000 n 
+0000002014 00000 n 
 trailer
 << /Size 8 /Root 1 0 R /Info 7 0 R >>
 startxref
-3302
+2108
 %%EOF
