@@ -15,7 +15,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 3762 >>
+<< /Length 3760 >>
 stream
 1 w 56.0 766.0 483.0 22.0 re S
 BT /F2 11 Tf 64.0 772.0 Td (EXPORT CONTROLLED - ECCN 3A001) Tj ET
@@ -53,19 +53,19 @@ BT /F2 10 Tf 56.0 466.0 Td (Tolerance:) Tj ET
 BT /F1 10 Tf 206.0 466.0 Td (+/- 0.1 mm) Tj ET
 BT /F2 10 Tf 56.0 451.0 Td (Operating Temperature:) Tj ET
 BT /F1 10 Tf 206.0 451.0 Td (-40 to 150 C) Tj ET
-BT /F2 12 Tf 56.0 420.0 Td (Part P-100400 - Bearing A) Tj ET
+BT /F2 12 Tf 56.0 420.0 Td (Part P-100403 - Harness C) Tj ET
 BT /F2 10 Tf 56.0 400.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 400.0 Td (P-100400) Tj ET
+BT /F1 10 Tf 206.0 400.0 Td (P-100403) Tj ET
 BT /F2 10 Tf 56.0 385.0 Td (Revision:) Tj ET
 BT /F1 10 Tf 206.0 385.0 Td (A.1) Tj ET
 BT /F2 10 Tf 56.0 370.0 Td (Lifecycle State:) Tj ET
 BT /F1 10 Tf 206.0 370.0 Td (Design) Tj ET
 BT /F2 10 Tf 56.0 355.0 Td (Mass \(kg\):) Tj ET
-BT /F1 10 Tf 206.0 355.0 Td (31.402) Tj ET
+BT /F1 10 Tf 206.0 355.0 Td (21.912) Tj ET
 BT /F2 10 Tf 56.0 340.0 Td (Unit of Measure:) Tj ET
-BT /F1 10 Tf 206.0 340.0 Td (M) Tj ET
+BT /F1 10 Tf 206.0 340.0 Td (L) Tj ET
 BT /F2 10 Tf 56.0 325.0 Td (Primary Supplier:) Tj ET
-BT /F1 10 Tf 206.0 325.0 Td (Summit Precision 119) Tj ET
+BT /F1 10 Tf 206.0 325.0 Td (Apex Components 176) Tj ET
 BT /F2 10 Tf 56.0 310.0 Td (Plant:) Tj ET
 BT /F1 10 Tf 206.0 310.0 Td (PLT01) Tj ET
 BT /F2 10 Tf 56.0 295.0 Td (Material:) Tj ET
@@ -76,19 +76,19 @@ BT /F2 10 Tf 56.0 265.0 Td (Tolerance:) Tj ET
 BT /F1 10 Tf 206.0 265.0 Td (+/- 0.2 mm) Tj ET
 BT /F2 10 Tf 56.0 250.0 Td (Operating Temperature:) Tj ET
 BT /F1 10 Tf 206.0 250.0 Td (-40 to 105 C) Tj ET
-BT /F2 12 Tf 56.0 219.0 Td (Part P-100343 - Fastener B) Tj ET
+BT /F2 12 Tf 56.0 219.0 Td (Part P-100346 - Gasket X2) Tj ET
 BT /F2 10 Tf 56.0 199.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 199.0 Td (P-100343) Tj ET
+BT /F1 10 Tf 206.0 199.0 Td (P-100346) Tj ET
 BT /F2 10 Tf 56.0 184.0 Td (Revision:) Tj ET
 BT /F1 10 Tf 206.0 184.0 Td (A.1) Tj ET
 BT /F2 10 Tf 56.0 169.0 Td (Lifecycle State:) Tj ET
-BT /F1 10 Tf 206.0 169.0 Td (In Review) Tj ET
+BT /F1 10 Tf 206.0 169.0 Td (Design) Tj ET
 BT /F2 10 Tf 56.0 154.0 Td (Mass \(kg\):) Tj ET
-BT /F1 10 Tf 206.0 154.0 Td (34.404) Tj ET
+BT /F1 10 Tf 206.0 154.0 Td (10.666) Tj ET
 BT /F2 10 Tf 56.0 139.0 Td (Unit of Measure:) Tj ET
-BT /F1 10 Tf 206.0 139.0 Td (L) Tj ET
+BT /F1 10 Tf 206.0 139.0 Td (KG) Tj ET
 BT /F2 10 Tf 56.0 124.0 Td (Primary Supplier:) Tj ET
-BT /F1 10 Tf 206.0 124.0 Td (Ironclad Systems 32) Tj ET
+BT /F1 10 Tf 206.0 124.0 Td (Harbor Industries 196) Tj ET
 BT /F2 10 Tf 56.0 109.0 Td (Plant:) Tj ET
 BT /F1 10 Tf 206.0 109.0 Td (PLT03) Tj ET
 BT /F2 10 Tf 56.0 94.0 Td (Material:) Tj ET
@@ -121,11 +121,11 @@ xref
 0000000218 00000 n 
 0000000320 00000 n 
 0000000456 00000 n 
-0000004270 00000 n 
-0000004406 00000 n 
-0000004563 00000 n 
+0000004268 00000 n 
+0000004404 00000 n 
+0000004561 00000 n 
 trailer
 << /Size 10 /Root 1 0 R /Info 9 0 R >>
 startxref
-4650
+4648
 %%EOF
