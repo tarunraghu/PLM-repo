@@ -3,7 +3,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+<< /Type /Pages /Kids [5 0 R] /Count 1 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
@@ -15,103 +15,123 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 3103 >>
+<< /Length 4477 >>
 stream
-BT /F2 18 Tf 56.0 770.0 Td (WORK INSTRUCTION) Tj ET
+BT /F2 18 Tf 56.0 770.0 Td (TEST REPORT) Tj ET
 BT /F2 10 Tf 56.0 746.0 Td (Document ID:) Tj ET
 BT /F1 10 Tf 206.0 746.0 Td (DOC-0003032) Tj ET
 BT /F2 10 Tf 56.0 731.0 Td (Project:) Tj ET
-BT /F1 10 Tf 206.0 731.0 Td (PRJ-006) Tj ET
+BT /F1 10 Tf 206.0 731.0 Td (PRJ-030) Tj ET
 BT /F2 10 Tf 56.0 716.0 Td (Uploaded on:) Tj ET
 BT /F1 10 Tf 206.0 716.0 Td (2026-10-23) Tj ET
 BT /F2 10 Tf 56.0 701.0 Td (Uploaded by:) Tj ET
-BT /F1 10 Tf 206.0 701.0 Td (user118) Tj ET
+BT /F1 10 Tf 206.0 701.0 Td (user102) Tj ET
 BT /F2 10 Tf 56.0 686.0 Td (Export class:) Tj ET
 BT /F1 10 Tf 206.0 686.0 Td (EAR99) Tj ET
-BT /F2 12 Tf 56.0 655.0 Td (Assembly of P-104810 at plant PLT02) Tj ET
-BT /F2 10 Tf 56.0 635.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 635.0 Td (P-104810) Tj ET
-BT /F2 10 Tf 56.0 620.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 620.0 Td (A.1) Tj ET
-BT /F2 10 Tf 56.0 605.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 605.0 Td (PLT02) Tj ET
-BT /F2 10 Tf 56.0 590.0 Td (Station:) Tj ET
-BT /F1 10 Tf 206.0 590.0 Td (ST-82) Tj ET
-BT /F2 10 Tf 56.0 575.0 Td (Torque \(Nm\):) Tj ET
-BT /F1 10 Tf 206.0 575.0 Td (20) Tj ET
-BT /F2 10 Tf 56.0 560.0 Td (Cycle time \(s\):) Tj ET
-BT /F1 10 Tf 206.0 560.0 Td (260) Tj ET
-BT /F1 10 Tf 56.0 539.0 Td (Step 1: Record result) Tj ET
-BT /F1 10 Tf 56.0 521.0 Td (Step 2: Apply thread locker) Tj ET
-BT /F1 10 Tf 56.0 503.0 Td (Step 3: Record result) Tj ET
-BT /F1 10 Tf 56.0 485.0 Td (Step 4: Apply thread locker) Tj ET
-BT /F1 10 Tf 56.0 467.0 Td (Step 5: Visual check) Tj ET
-BT /F1 10 Tf 56.0 449.0 Td (Step 6: Record result) Tj ET
-BT /F1 10 Tf 56.0 431.0 Td (Step 7: Visual check) Tj ET
-BT /F2 12 Tf 56.0 403.0 Td (Assembly of P-101654 at plant PLT01) Tj ET
-BT /F2 10 Tf 56.0 383.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 383.0 Td (P-101654) Tj ET
-BT /F2 10 Tf 56.0 368.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 368.0 Td (A.1) Tj ET
-BT /F2 10 Tf 56.0 353.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 353.0 Td (PLT01) Tj ET
-BT /F2 10 Tf 56.0 338.0 Td (Station:) Tj ET
-BT /F1 10 Tf 206.0 338.0 Td (ST-78) Tj ET
-BT /F2 10 Tf 56.0 323.0 Td (Torque \(Nm\):) Tj ET
-BT /F1 10 Tf 206.0 323.0 Td (20) Tj ET
-BT /F2 10 Tf 56.0 308.0 Td (Cycle time \(s\):) Tj ET
-BT /F1 10 Tf 206.0 308.0 Td (297) Tj ET
-BT /F1 10 Tf 56.0 287.0 Td (Step 1: Clean mating surface) Tj ET
-BT /F1 10 Tf 56.0 269.0 Td (Step 2: Torque to specification) Tj ET
-BT /F1 10 Tf 56.0 251.0 Td (Step 3: Move to next station) Tj ET
-BT /F1 10 Tf 56.0 233.0 Td (Step 4: Clean mating surface) Tj ET
-BT /F1 10 Tf 56.0 215.0 Td (Step 5: Torque to specification) Tj ET
-BT /F1 10 Tf 56.0 197.0 Td (Step 6: Record result) Tj ET
-BT /F2 12 Tf 56.0 169.0 Td (Assembly of P-101535 at plant PLT03) Tj ET
-BT /F2 10 Tf 56.0 149.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 149.0 Td (P-101535) Tj ET
-BT /F2 10 Tf 56.0 134.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 134.0 Td (B.1) Tj ET
-BT /F2 10 Tf 56.0 119.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 119.0 Td (PLT03) Tj ET
-BT /F2 10 Tf 56.0 104.0 Td (Station:) Tj ET
-BT /F1 10 Tf 206.0 104.0 Td (ST-11) Tj ET
-BT /F2 10 Tf 56.0 89.0 Td (Torque \(Nm\):) Tj ET
-BT /F1 10 Tf 206.0 89.0 Td (8) Tj ET
-BT /F2 10 Tf 56.0 74.0 Td (Cycle time \(s\):) Tj ET
-BT /F1 10 Tf 206.0 74.0 Td (293) Tj ET
+BT /F2 10 Tf 56.0 665.0 Td (Report No:) Tj ET
+BT /F1 10 Tf 206.0 665.0 Td (TR-363224) Tj ET
+BT /F2 10 Tf 56.0 650.0 Td (Laboratory:) Tj ET
+BT /F1 10 Tf 206.0 650.0 Td (Central Test) Tj ET
+BT /F2 10 Tf 56.0 635.0 Td (Test Date:) Tj ET
+BT /F1 10 Tf 206.0 635.0 Td (2026-10-23) Tj ET
+BT /F2 12 Tf 56.0 604.0 Td (Part P-101696 rev A.1) Tj ET
+BT /F2 9.5 Tf 59.0 582.0 Td (Test) Tj ET
+BT /F2 9.5 Tf 179.8 582.0 Td (Requirement) Tj ET
+BT /F2 9.5 Tf 300.5 582.0 Td (Measured) Tj ET
+BT /F2 9.5 Tf 421.2 582.0 Td (Result) Tj ET
+0.5 w 56.0 578.0 m 539.0 578.0 l S
+BT /F1 9.5 Tf 59.0 564.0 Td (Thermal cycle) Tj ET
+BT /F1 9.5 Tf 179.8 564.0 Td (50 - 500 cycles) Tj ET
+BT /F1 9.5 Tf 300.5 564.0 Td (225.276) Tj ET
+BT /F1 9.5 Tf 421.2 564.0 Td (PASS) Tj ET
+0.5 w 56.0 560.0 m 539.0 560.0 l S
+BT /F1 9.5 Tf 59.0 546.0 Td (Salt spray) Tj ET
+BT /F1 9.5 Tf 179.8 546.0 Td (48 - 500 hours) Tj ET
+BT /F1 9.5 Tf 300.5 546.0 Td (426.283) Tj ET
+BT /F1 9.5 Tf 421.2 546.0 Td (PASS) Tj ET
+0.5 w 56.0 542.0 m 539.0 542.0 l S
+BT /F1 9.5 Tf 59.0 528.0 Td (Flatness) Tj ET
+BT /F1 9.5 Tf 179.8 528.0 Td (0.01 - 0.2 mm) Tj ET
+BT /F1 9.5 Tf 300.5 528.0 Td (0.121) Tj ET
+BT /F1 9.5 Tf 421.2 528.0 Td (PASS) Tj ET
+0.5 w 56.0 524.0 m 539.0 524.0 l S
+BT /F1 9.5 Tf 59.0 510.0 Td (Tensile strength) Tj ET
+BT /F1 9.5 Tf 179.8 510.0 Td (250 - 520 MPa) Tj ET
+BT /F1 9.5 Tf 300.5 510.0 Td (547.891) Tj ET
+BT /F1 9.5 Tf 421.2 510.0 Td (FAIL) Tj ET
+0.5 w 56.0 506.0 m 539.0 506.0 l S
+BT /F1 10 Tf 56.0 486.0 Td (Overall result for P-101696: FAIL) Tj ET
+BT /F2 12 Tf 56.0 458.0 Td (Part P-101575 rev B.1) Tj ET
+BT /F2 9.5 Tf 59.0 436.0 Td (Test) Tj ET
+BT /F2 9.5 Tf 179.8 436.0 Td (Requirement) Tj ET
+BT /F2 9.5 Tf 300.5 436.0 Td (Measured) Tj ET
+BT /F2 9.5 Tf 421.2 436.0 Td (Result) Tj ET
+0.5 w 56.0 432.0 m 539.0 432.0 l S
+BT /F1 9.5 Tf 59.0 418.0 Td (Flatness) Tj ET
+BT /F1 9.5 Tf 179.8 418.0 Td (0.01 - 0.2 mm) Tj ET
+BT /F1 9.5 Tf 300.5 418.0 Td (0.19) Tj ET
+BT /F1 9.5 Tf 421.2 418.0 Td (PASS) Tj ET
+0.5 w 56.0 414.0 m 539.0 414.0 l S
+BT /F1 9.5 Tf 59.0 400.0 Td (Thermal cycle) Tj ET
+BT /F1 9.5 Tf 179.8 400.0 Td (50 - 500 cycles) Tj ET
+BT /F1 9.5 Tf 300.5 400.0 Td (354.118) Tj ET
+BT /F1 9.5 Tf 421.2 400.0 Td (PASS) Tj ET
+0.5 w 56.0 396.0 m 539.0 396.0 l S
+BT /F1 9.5 Tf 59.0 382.0 Td (Salt spray) Tj ET
+BT /F1 9.5 Tf 179.8 382.0 Td (48 - 500 hours) Tj ET
+BT /F1 9.5 Tf 300.5 382.0 Td (462.258) Tj ET
+BT /F1 9.5 Tf 421.2 382.0 Td (PASS) Tj ET
+0.5 w 56.0 378.0 m 539.0 378.0 l S
+BT /F1 9.5 Tf 59.0 364.0 Td (Tensile strength) Tj ET
+BT /F1 9.5 Tf 179.8 364.0 Td (250 - 520 MPa) Tj ET
+BT /F1 9.5 Tf 300.5 364.0 Td (457.908) Tj ET
+BT /F1 9.5 Tf 421.2 364.0 Td (PASS) Tj ET
+0.5 w 56.0 360.0 m 539.0 360.0 l S
+BT /F1 10 Tf 56.0 340.0 Td (Overall result for P-101575: PASS) Tj ET
+BT /F2 12 Tf 56.0 312.0 Td (Part P-104898 rev A.1) Tj ET
+BT /F2 9.5 Tf 59.0 290.0 Td (Test) Tj ET
+BT /F2 9.5 Tf 179.8 290.0 Td (Requirement) Tj ET
+BT /F2 9.5 Tf 300.5 290.0 Td (Measured) Tj ET
+BT /F2 9.5 Tf 421.2 290.0 Td (Result) Tj ET
+0.5 w 56.0 286.0 m 539.0 286.0 l S
+BT /F1 9.5 Tf 59.0 272.0 Td (Thermal cycle) Tj ET
+BT /F1 9.5 Tf 179.8 272.0 Td (50 - 500 cycles) Tj ET
+BT /F1 9.5 Tf 300.5 272.0 Td (327.42) Tj ET
+BT /F1 9.5 Tf 421.2 272.0 Td (PASS) Tj ET
+0.5 w 56.0 268.0 m 539.0 268.0 l S
+BT /F1 9.5 Tf 59.0 254.0 Td (Dimensional check) Tj ET
+BT /F1 9.5 Tf 179.8 254.0 Td (0.05 - 0.5 mm) Tj ET
+BT /F1 9.5 Tf 300.5 254.0 Td (0.314) Tj ET
+BT /F1 9.5 Tf 421.2 254.0 Td (PASS) Tj ET
+0.5 w 56.0 250.0 m 539.0 250.0 l S
+BT /F1 9.5 Tf 59.0 236.0 Td (Tensile strength) Tj ET
+BT /F1 9.5 Tf 179.8 236.0 Td (250 - 520 MPa) Tj ET
+BT /F1 9.5 Tf 300.5 236.0 Td (566.317) Tj ET
+BT /F1 9.5 Tf 421.2 236.0 Td (FAIL) Tj ET
+0.5 w 56.0 232.0 m 539.0 232.0 l S
+BT /F1 9.5 Tf 59.0 218.0 Td (Hardness) Tj ET
+BT /F1 9.5 Tf 179.8 218.0 Td (20 - 60 HRC) Tj ET
+BT /F1 9.5 Tf 300.5 218.0 Td (58.202) Tj ET
+BT /F1 9.5 Tf 421.2 218.0 Td (PASS) Tj ET
+0.5 w 56.0 214.0 m 539.0 214.0 l S
+BT /F1 10 Tf 56.0 194.0 Td (Overall result for P-104898: FAIL) Tj ET
 endstream
 endobj
 7 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
-endobj
-8 0 obj
-<< /Length 295 >>
-stream
-BT /F1 10 Tf 56.0 776.0 Td (Step 1: Move to next station) Tj ET
-BT /F1 10 Tf 56.0 758.0 Td (Step 2: Apply thread locker) Tj ET
-BT /F1 10 Tf 56.0 740.0 Td (Step 3: Visual check) Tj ET
-BT /F1 10 Tf 56.0 722.0 Td (Step 4: Visual check) Tj ET
-BT /F1 10 Tf 56.0 704.0 Td (Step 5: Record result) Tj ET
-endstream
-endobj
-9 0 obj
-<< /Title (Work Instruction DOC-0003032 for P-104810 rev A.1) /Producer (plmgen) >>
+<< /Title (Test Report DOC-0003032 for P-101696 rev A.1) /Producer (plmgen) >>
 endobj
 xref
-0 10
+0 8
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
-0000000121 00000 n 
-0000000218 00000 n 
-0000000320 00000 n 
-0000000456 00000 n 
-0000003611 00000 n 
-0000003747 00000 n 
-0000004093 00000 n 
+0000000115 00000 n 
+0000000212 00000 n 
+0000000314 00000 n 
+0000000450 00000 n 
+0000004979 00000 n 
 trailer
-<< /Size 10 /Root 1 0 R /Info 9 0 R >>
+<< /Size 8 /Root 1 0 R /Info 7 0 R >>
 startxref
-4192
+5073
 %%EOF
