@@ -15,7 +15,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 2789 >>
+<< /Length 2787 >>
 stream
 1 w 56.0 766.0 483.0 22.0 re S
 BT /F2 11 Tf 64.0 772.0 Td (EXPORT CONTROLLED - ECCN 3A001) Tj ET
@@ -59,7 +59,7 @@ BT /F1 10 Tf 206.0 400.0 Td (P-100045) Tj ET
 BT /F2 10 Tf 56.0 385.0 Td (Revision:) Tj ET
 BT /F1 10 Tf 206.0 385.0 Td (A.1) Tj ET
 BT /F2 10 Tf 56.0 370.0 Td (Lifecycle State:) Tj ET
-BT /F1 10 Tf 206.0 370.0 Td (Released) Tj ET
+BT /F1 10 Tf 206.0 370.0 Td (Design) Tj ET
 BT /F2 10 Tf 56.0 355.0 Td (Mass \(kg\):) Tj ET
 BT /F1 10 Tf 206.0 355.0 Td (35.248) Tj ET
 BT /F2 10 Tf 56.0 340.0 Td (Unit of Measure:) Tj ET
@@ -90,9 +90,9 @@ xref
 0000000212 00000 n 
 0000000314 00000 n 
 0000000450 00000 n 
-0000003291 00000 n 
+0000003289 00000 n 
 trailer
 << /Size 8 /Root 1 0 R /Info 7 0 R >>
 startxref
-3378
+3376
 %%EOF
