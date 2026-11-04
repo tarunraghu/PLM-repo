@@ -3,7 +3,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+<< /Type /Pages /Kids [5 0 R] /Count 1 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
@@ -15,107 +15,120 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 3016 >>
+<< /Length 3997 >>
 stream
-BT /F2 18 Tf 56.0 770.0 Td (WORK INSTRUCTION) Tj ET
+BT /F2 18 Tf 56.0 770.0 Td (DRAWING) Tj ET
 BT /F2 10 Tf 56.0 746.0 Td (Document ID:) Tj ET
 BT /F1 10 Tf 206.0 746.0 Td (DOC-0002561) Tj ET
 BT /F2 10 Tf 56.0 731.0 Td (Project:) Tj ET
-BT /F1 10 Tf 206.0 731.0 Td (PRJ-020) Tj ET
+BT /F1 10 Tf 206.0 731.0 Td (PRJ-015) Tj ET
 BT /F2 10 Tf 56.0 716.0 Td (Uploaded on:) Tj ET
 BT /F1 10 Tf 206.0 716.0 Td (2026-03-04) Tj ET
 BT /F2 10 Tf 56.0 701.0 Td (Uploaded by:) Tj ET
-BT /F1 10 Tf 206.0 701.0 Td (user049) Tj ET
+BT /F1 10 Tf 206.0 701.0 Td (user186) Tj ET
 BT /F2 10 Tf 56.0 686.0 Td (Export class:) Tj ET
 BT /F1 10 Tf 206.0 686.0 Td (EAR99) Tj ET
-BT /F2 12 Tf 56.0 655.0 Td (Assembly of P-101369 at plant PLT04) Tj ET
-BT /F2 10 Tf 56.0 635.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 635.0 Td (P-101369) Tj ET
-BT /F2 10 Tf 56.0 620.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 620.0 Td (A.1) Tj ET
-BT /F2 10 Tf 56.0 605.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 605.0 Td (PLT04) Tj ET
-BT /F2 10 Tf 56.0 590.0 Td (Station:) Tj ET
-BT /F1 10 Tf 206.0 590.0 Td (ST-45) Tj ET
-BT /F2 10 Tf 56.0 575.0 Td (Torque \(Nm\):) Tj ET
-BT /F1 10 Tf 206.0 575.0 Td (20) Tj ET
-BT /F2 10 Tf 56.0 560.0 Td (Cycle time \(s\):) Tj ET
-BT /F1 10 Tf 206.0 560.0 Td (69) Tj ET
-BT /F1 10 Tf 56.0 539.0 Td (Step 1: Apply thread locker) Tj ET
-BT /F1 10 Tf 56.0 521.0 Td (Step 2: Fit fasteners) Tj ET
-BT /F1 10 Tf 56.0 503.0 Td (Step 3: Torque to specification) Tj ET
-BT /F1 10 Tf 56.0 485.0 Td (Step 4: Visual check) Tj ET
-BT /F1 10 Tf 56.0 467.0 Td (Step 5: Apply thread locker) Tj ET
-BT /F1 10 Tf 56.0 449.0 Td (Step 6: Visual check) Tj ET
-BT /F1 10 Tf 56.0 431.0 Td (Step 7: Move to next station) Tj ET
-BT /F1 10 Tf 56.0 413.0 Td (Step 8: Apply thread locker) Tj ET
-BT /F2 12 Tf 56.0 385.0 Td (Assembly of P-100855 at plant PLT03) Tj ET
-BT /F2 10 Tf 56.0 365.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 365.0 Td (P-100855) Tj ET
-BT /F2 10 Tf 56.0 350.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 350.0 Td (A.1) Tj ET
-BT /F2 10 Tf 56.0 335.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 335.0 Td (PLT03) Tj ET
-BT /F2 10 Tf 56.0 320.0 Td (Station:) Tj ET
-BT /F1 10 Tf 206.0 320.0 Td (ST-39) Tj ET
-BT /F2 10 Tf 56.0 305.0 Td (Torque \(Nm\):) Tj ET
-BT /F1 10 Tf 206.0 305.0 Td (20) Tj ET
-BT /F2 10 Tf 56.0 290.0 Td (Cycle time \(s\):) Tj ET
-BT /F1 10 Tf 206.0 290.0 Td (241) Tj ET
-BT /F1 10 Tf 56.0 269.0 Td (Step 1: Record result) Tj ET
-BT /F1 10 Tf 56.0 251.0 Td (Step 2: Fit fasteners) Tj ET
-BT /F1 10 Tf 56.0 233.0 Td (Step 3: Visual check) Tj ET
-BT /F1 10 Tf 56.0 215.0 Td (Step 4: Fit fasteners) Tj ET
-BT /F1 10 Tf 56.0 197.0 Td (Step 5: Clean mating surface) Tj ET
-BT /F1 10 Tf 56.0 179.0 Td (Step 6: Clean mating surface) Tj ET
-BT /F1 10 Tf 56.0 161.0 Td (Step 7: Torque to specification) Tj ET
-BT /F1 10 Tf 56.0 143.0 Td (Step 8: Move to next station) Tj ET
-BT /F2 12 Tf 56.0 115.0 Td (Assembly of P-101380 at plant PLT02) Tj ET
-BT /F2 10 Tf 56.0 95.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 95.0 Td (P-101380) Tj ET
-BT /F2 10 Tf 56.0 80.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 80.0 Td (A.1) Tj ET
-BT /F2 10 Tf 56.0 65.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 65.0 Td (PLT02) Tj ET
+BT /F2 12 Tf 56.0 655.0 Td (Drawing DWG-20162) Tj ET
+BT /F2 9.5 Tf 59.0 633.0 Td (Field) Tj ET
+BT /F2 9.5 Tf 300.5 633.0 Td (Value) Tj ET
+0.5 w 56.0 629.0 m 539.0 629.0 l S
+BT /F1 9.5 Tf 59.0 615.0 Td (Part Number) Tj ET
+BT /F1 9.5 Tf 300.5 615.0 Td (P-100701) Tj ET
+0.5 w 56.0 611.0 m 539.0 611.0 l S
+BT /F1 9.5 Tf 59.0 597.0 Td (Revision) Tj ET
+BT /F1 9.5 Tf 300.5 597.0 Td (B.1) Tj ET
+0.5 w 56.0 593.0 m 539.0 593.0 l S
+BT /F1 9.5 Tf 59.0 579.0 Td (Scale) Tj ET
+BT /F1 9.5 Tf 300.5 579.0 Td (1:2) Tj ET
+0.5 w 56.0 575.0 m 539.0 575.0 l S
+BT /F1 9.5 Tf 59.0 561.0 Td (Sheet) Tj ET
+BT /F1 9.5 Tf 300.5 561.0 Td (A4) Tj ET
+0.5 w 56.0 557.0 m 539.0 557.0 l S
+BT /F1 9.5 Tf 59.0 543.0 Td (Length \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 543.0 Td (218.1) Tj ET
+0.5 w 56.0 539.0 m 539.0 539.0 l S
+BT /F1 9.5 Tf 59.0 525.0 Td (Width \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 525.0 Td (91.9) Tj ET
+0.5 w 56.0 521.0 m 539.0 521.0 l S
+BT /F1 9.5 Tf 59.0 507.0 Td (Height \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 507.0 Td (63.0) Tj ET
+0.5 w 56.0 503.0 m 539.0 503.0 l S
+BT /F1 9.5 Tf 59.0 489.0 Td (Mass \(kg\)) Tj ET
+BT /F1 9.5 Tf 300.5 489.0 Td (35.662) Tj ET
+0.5 w 56.0 485.0 m 539.0 485.0 l S
+BT /F2 12 Tf 56.0 455.0 Td (Drawing DWG-89919) Tj ET
+BT /F2 9.5 Tf 59.0 433.0 Td (Field) Tj ET
+BT /F2 9.5 Tf 300.5 433.0 Td (Value) Tj ET
+0.5 w 56.0 429.0 m 539.0 429.0 l S
+BT /F1 9.5 Tf 59.0 415.0 Td (Part Number) Tj ET
+BT /F1 9.5 Tf 300.5 415.0 Td (P-100435) Tj ET
+0.5 w 56.0 411.0 m 539.0 411.0 l S
+BT /F1 9.5 Tf 59.0 397.0 Td (Revision) Tj ET
+BT /F1 9.5 Tf 300.5 397.0 Td (A.1) Tj ET
+0.5 w 56.0 393.0 m 539.0 393.0 l S
+BT /F1 9.5 Tf 59.0 379.0 Td (Scale) Tj ET
+BT /F1 9.5 Tf 300.5 379.0 Td (1:5) Tj ET
+0.5 w 56.0 375.0 m 539.0 375.0 l S
+BT /F1 9.5 Tf 59.0 361.0 Td (Sheet) Tj ET
+BT /F1 9.5 Tf 300.5 361.0 Td (A4) Tj ET
+0.5 w 56.0 357.0 m 539.0 357.0 l S
+BT /F1 9.5 Tf 59.0 343.0 Td (Length \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 343.0 Td (119.5) Tj ET
+0.5 w 56.0 339.0 m 539.0 339.0 l S
+BT /F1 9.5 Tf 59.0 325.0 Td (Width \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 325.0 Td (33.9) Tj ET
+0.5 w 56.0 321.0 m 539.0 321.0 l S
+BT /F1 9.5 Tf 59.0 307.0 Td (Height \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 307.0 Td (42.6) Tj ET
+0.5 w 56.0 303.0 m 539.0 303.0 l S
+BT /F1 9.5 Tf 59.0 289.0 Td (Mass \(kg\)) Tj ET
+BT /F1 9.5 Tf 300.5 289.0 Td (34.984) Tj ET
+0.5 w 56.0 285.0 m 539.0 285.0 l S
+BT /F2 12 Tf 56.0 255.0 Td (Drawing DWG-64088) Tj ET
+BT /F2 9.5 Tf 59.0 233.0 Td (Field) Tj ET
+BT /F2 9.5 Tf 300.5 233.0 Td (Value) Tj ET
+0.5 w 56.0 229.0 m 539.0 229.0 l S
+BT /F1 9.5 Tf 59.0 215.0 Td (Part Number) Tj ET
+BT /F1 9.5 Tf 300.5 215.0 Td (P-103778) Tj ET
+0.5 w 56.0 211.0 m 539.0 211.0 l S
+BT /F1 9.5 Tf 59.0 197.0 Td (Revision) Tj ET
+BT /F1 9.5 Tf 300.5 197.0 Td (A.1) Tj ET
+0.5 w 56.0 193.0 m 539.0 193.0 l S
+BT /F1 9.5 Tf 59.0 179.0 Td (Scale) Tj ET
+BT /F1 9.5 Tf 300.5 179.0 Td (2:1) Tj ET
+0.5 w 56.0 175.0 m 539.0 175.0 l S
+BT /F1 9.5 Tf 59.0 161.0 Td (Sheet) Tj ET
+BT /F1 9.5 Tf 300.5 161.0 Td (A4) Tj ET
+0.5 w 56.0 157.0 m 539.0 157.0 l S
+BT /F1 9.5 Tf 59.0 143.0 Td (Length \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 143.0 Td (381.1) Tj ET
+0.5 w 56.0 139.0 m 539.0 139.0 l S
+BT /F1 9.5 Tf 59.0 125.0 Td (Width \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 125.0 Td (99.0) Tj ET
+0.5 w 56.0 121.0 m 539.0 121.0 l S
+BT /F1 9.5 Tf 59.0 107.0 Td (Height \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 107.0 Td (27.2) Tj ET
+0.5 w 56.0 103.0 m 539.0 103.0 l S
+BT /F1 9.5 Tf 59.0 89.0 Td (Mass \(kg\)) Tj ET
+BT /F1 9.5 Tf 300.5 89.0 Td (2.255) Tj ET
+0.5 w 56.0 85.0 m 539.0 85.0 l S
 endstream
 endobj
 7 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
-endobj
-8 0 obj
-<< /Length 646 >>
-stream
-BT /F2 10 Tf 56.0 776.0 Td (Station:) Tj ET
-BT /F1 10 Tf 206.0 776.0 Td (ST-51) Tj ET
-BT /F2 10 Tf 56.0 761.0 Td (Torque \(Nm\):) Tj ET
-BT /F1 10 Tf 206.0 761.0 Td (8) Tj ET
-BT /F2 10 Tf 56.0 746.0 Td (Cycle time \(s\):) Tj ET
-BT /F1 10 Tf 206.0 746.0 Td (31) Tj ET
-BT /F1 10 Tf 56.0 725.0 Td (Step 1: Apply thread locker) Tj ET
-BT /F1 10 Tf 56.0 707.0 Td (Step 2: Fit fasteners) Tj ET
-BT /F1 10 Tf 56.0 689.0 Td (Step 3: Inspect incoming part) Tj ET
-BT /F1 10 Tf 56.0 671.0 Td (Step 4: Inspect incoming part) Tj ET
-BT /F1 10 Tf 56.0 653.0 Td (Step 5: Clean mating surface) Tj ET
-BT /F1 10 Tf 56.0 635.0 Td (Step 6: Torque to specification) Tj ET
-endstream
-endobj
-9 0 obj
-<< /Title (Work Instruction DOC-0002561 for P-101369 rev A.1) /Producer (plmgen) >>
+<< /Title (Drawing DOC-0002561 for P-100701 rev B.1) /Producer (plmgen) >>
 endobj
 xref
-0 10
+0 8
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
-0000000121 00000 n 
-0000000218 00000 n 
-0000000320 00000 n 
-0000000456 00000 n 
-0000003524 00000 n 
-0000003660 00000 n 
-0000004357 00000 n 
+0000000115 00000 n 
+0000000212 00000 n 
+0000000314 00000 n 
+0000000450 00000 n 
+0000004499 00000 n 
 trailer
-<< /Size 10 /Root 1 0 R /Info 9 0 R >>
+<< /Size 8 /Root 1 0 R /Info 7 0 R >>
 startxref
-4456
+4589
 %%EOF

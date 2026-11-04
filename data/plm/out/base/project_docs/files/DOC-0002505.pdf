@@ -15,64 +15,66 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 2633 >>
+<< /Length 2743 >>
 stream
-BT /F2 18 Tf 56.0 770.0 Td (WORK INSTRUCTION) Tj ET
-BT /F2 10 Tf 56.0 746.0 Td (Document ID:) Tj ET
-BT /F1 10 Tf 206.0 746.0 Td (DOC-0002505) Tj ET
-BT /F2 10 Tf 56.0 731.0 Td (Project:) Tj ET
-BT /F1 10 Tf 206.0 731.0 Td (PRJ-022) Tj ET
-BT /F2 10 Tf 56.0 716.0 Td (Uploaded on:) Tj ET
-BT /F1 10 Tf 206.0 716.0 Td (2026-02-07) Tj ET
-BT /F2 10 Tf 56.0 701.0 Td (Uploaded by:) Tj ET
-BT /F1 10 Tf 206.0 701.0 Td (user007) Tj ET
-BT /F2 10 Tf 56.0 686.0 Td (Export class:) Tj ET
-BT /F1 10 Tf 206.0 686.0 Td (EAR99) Tj ET
-BT /F2 12 Tf 56.0 655.0 Td (Assembly of P-104012 at plant PLT01) Tj ET
-BT /F2 10 Tf 56.0 635.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 635.0 Td (P-104012) Tj ET
-BT /F2 10 Tf 56.0 620.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 620.0 Td (A.1) Tj ET
-BT /F2 10 Tf 56.0 605.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 605.0 Td (PLT01) Tj ET
-BT /F2 10 Tf 56.0 590.0 Td (Station:) Tj ET
-BT /F1 10 Tf 206.0 590.0 Td (ST-59) Tj ET
-BT /F2 10 Tf 56.0 575.0 Td (Torque \(Nm\):) Tj ET
-BT /F1 10 Tf 206.0 575.0 Td (20) Tj ET
-BT /F2 10 Tf 56.0 560.0 Td (Cycle time \(s\):) Tj ET
-BT /F1 10 Tf 206.0 560.0 Td (261) Tj ET
-BT /F1 10 Tf 56.0 539.0 Td (Step 1: Fit fasteners) Tj ET
-BT /F1 10 Tf 56.0 521.0 Td (Step 2: Apply thread locker) Tj ET
-BT /F1 10 Tf 56.0 503.0 Td (Step 3: Fit fasteners) Tj ET
-BT /F1 10 Tf 56.0 485.0 Td (Step 4: Clean mating surface) Tj ET
-BT /F1 10 Tf 56.0 467.0 Td (Step 5: Visual check) Tj ET
-BT /F1 10 Tf 56.0 449.0 Td (Step 6: Torque to specification) Tj ET
-BT /F1 10 Tf 56.0 431.0 Td (Step 7: Inspect incoming part) Tj ET
-BT /F1 10 Tf 56.0 413.0 Td (Step 8: Clean mating surface) Tj ET
-BT /F2 12 Tf 56.0 385.0 Td (Assembly of P-101978 at plant PLT03) Tj ET
-BT /F2 10 Tf 56.0 365.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 365.0 Td (P-101978) Tj ET
-BT /F2 10 Tf 56.0 350.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 350.0 Td (A.1) Tj ET
-BT /F2 10 Tf 56.0 335.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 335.0 Td (PLT03) Tj ET
-BT /F2 10 Tf 56.0 320.0 Td (Station:) Tj ET
-BT /F1 10 Tf 206.0 320.0 Td (ST-45) Tj ET
-BT /F2 10 Tf 56.0 305.0 Td (Torque \(Nm\):) Tj ET
-BT /F1 10 Tf 206.0 305.0 Td (12) Tj ET
-BT /F2 10 Tf 56.0 290.0 Td (Cycle time \(s\):) Tj ET
-BT /F1 10 Tf 206.0 290.0 Td (277) Tj ET
-BT /F1 10 Tf 56.0 269.0 Td (Step 1: Clean mating surface) Tj ET
-BT /F1 10 Tf 56.0 251.0 Td (Step 2: Record result) Tj ET
-BT /F1 10 Tf 56.0 233.0 Td (Step 3: Apply thread locker) Tj ET
-BT /F1 10 Tf 56.0 215.0 Td (Step 4: Fit fasteners) Tj ET
-BT /F1 10 Tf 56.0 197.0 Td (Step 5: Clean mating surface) Tj ET
-BT /F1 10 Tf 56.0 179.0 Td (Step 6: Apply thread locker) Tj ET
-BT /F1 10 Tf 56.0 161.0 Td (Step 7: Fit fasteners) Tj ET
+1 w 56.0 766.0 483.0 22.0 re S
+BT /F2 11 Tf 64.0 772.0 Td (ITAR CONTROLLED - USML CATEGORY XIX) Tj ET
+BT /F2 18 Tf 56.0 736.0 Td (WORK INSTRUCTION) Tj ET
+BT /F2 10 Tf 56.0 712.0 Td (Document ID:) Tj ET
+BT /F1 10 Tf 206.0 712.0 Td (DOC-0002505) Tj ET
+BT /F2 10 Tf 56.0 697.0 Td (Project:) Tj ET
+BT /F1 10 Tf 206.0 697.0 Td (PRJ-022) Tj ET
+BT /F2 10 Tf 56.0 682.0 Td (Uploaded on:) Tj ET
+BT /F1 10 Tf 206.0 682.0 Td (2026-02-07) Tj ET
+BT /F2 10 Tf 56.0 667.0 Td (Uploaded by:) Tj ET
+BT /F1 10 Tf 206.0 667.0 Td (user007) Tj ET
+BT /F2 10 Tf 56.0 652.0 Td (Export class:) Tj ET
+BT /F1 10 Tf 206.0 652.0 Td (ITAR-USML-XIX) Tj ET
+BT /F2 12 Tf 56.0 621.0 Td (Assembly of P-102027 at plant PLT01) Tj ET
+BT /F2 10 Tf 56.0 601.0 Td (Part Number:) Tj ET
+BT /F1 10 Tf 206.0 601.0 Td (P-102027) Tj ET
+BT /F2 10 Tf 56.0 586.0 Td (Revision:) Tj ET
+BT /F1 10 Tf 206.0 586.0 Td (A.1) Tj ET
+BT /F2 10 Tf 56.0 571.0 Td (Plant:) Tj ET
+BT /F1 10 Tf 206.0 571.0 Td (PLT01) Tj ET
+BT /F2 10 Tf 56.0 556.0 Td (Station:) Tj ET
+BT /F1 10 Tf 206.0 556.0 Td (ST-59) Tj ET
+BT /F2 10 Tf 56.0 541.0 Td (Torque \(Nm\):) Tj ET
+BT /F1 10 Tf 206.0 541.0 Td (20) Tj ET
+BT /F2 10 Tf 56.0 526.0 Td (Cycle time \(s\):) Tj ET
+BT /F1 10 Tf 206.0 526.0 Td (261) Tj ET
+BT /F1 10 Tf 56.0 505.0 Td (Step 1: Fit fasteners) Tj ET
+BT /F1 10 Tf 56.0 487.0 Td (Step 2: Apply thread locker) Tj ET
+BT /F1 10 Tf 56.0 469.0 Td (Step 3: Fit fasteners) Tj ET
+BT /F1 10 Tf 56.0 451.0 Td (Step 4: Clean mating surface) Tj ET
+BT /F1 10 Tf 56.0 433.0 Td (Step 5: Visual check) Tj ET
+BT /F1 10 Tf 56.0 415.0 Td (Step 6: Torque to specification) Tj ET
+BT /F1 10 Tf 56.0 397.0 Td (Step 7: Inspect incoming part) Tj ET
+BT /F1 10 Tf 56.0 379.0 Td (Step 8: Clean mating surface) Tj ET
+BT /F2 12 Tf 56.0 351.0 Td (Assembly of P-104018 at plant PLT03) Tj ET
+BT /F2 10 Tf 56.0 331.0 Td (Part Number:) Tj ET
+BT /F1 10 Tf 206.0 331.0 Td (P-104018) Tj ET
+BT /F2 10 Tf 56.0 316.0 Td (Revision:) Tj ET
+BT /F1 10 Tf 206.0 316.0 Td (A.1) Tj ET
+BT /F2 10 Tf 56.0 301.0 Td (Plant:) Tj ET
+BT /F1 10 Tf 206.0 301.0 Td (PLT03) Tj ET
+BT /F2 10 Tf 56.0 286.0 Td (Station:) Tj ET
+BT /F1 10 Tf 206.0 286.0 Td (ST-45) Tj ET
+BT /F2 10 Tf 56.0 271.0 Td (Torque \(Nm\):) Tj ET
+BT /F1 10 Tf 206.0 271.0 Td (12) Tj ET
+BT /F2 10 Tf 56.0 256.0 Td (Cycle time \(s\):) Tj ET
+BT /F1 10 Tf 206.0 256.0 Td (277) Tj ET
+BT /F1 10 Tf 56.0 235.0 Td (Step 1: Clean mating surface) Tj ET
+BT /F1 10 Tf 56.0 217.0 Td (Step 2: Record result) Tj ET
+BT /F1 10 Tf 56.0 199.0 Td (Step 3: Apply thread locker) Tj ET
+BT /F1 10 Tf 56.0 181.0 Td (Step 4: Fit fasteners) Tj ET
+BT /F1 10 Tf 56.0 163.0 Td (Step 5: Clean mating surface) Tj ET
+BT /F1 10 Tf 56.0 145.0 Td (Step 6: Apply thread locker) Tj ET
+BT /F1 10 Tf 56.0 127.0 Td (Step 7: Fit fasteners) Tj ET
 endstream
 endobj
 7 0 obj
-<< /Title (Work Instruction DOC-0002505 for P-104012 rev A.1) /Producer (plmgen) >>
+<< /Title (Work Instruction DOC-0002505 for P-102027 rev A.1) /Producer (plmgen) >>
 endobj
 xref
 0 8
@@ -83,9 +85,9 @@ xref
 0000000212 00000 n 
 0000000314 00000 n 
 0000000450 00000 n 
-0000003135 00000 n 
+0000003245 00000 n 
 trailer
 << /Size 8 /Root 1 0 R /Info 7 0 R >>
 startxref
-3234
+3344
 %%EOF
