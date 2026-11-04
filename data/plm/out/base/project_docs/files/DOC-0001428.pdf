@@ -38,7 +38,7 @@ BT /F1 9.5 Tf 59.0 581.0 Td (Part Number) Tj ET
 BT /F1 9.5 Tf 300.5 581.0 Td (P-100051) Tj ET
 0.5 w 56.0 577.0 m 539.0 577.0 l S
 BT /F1 9.5 Tf 59.0 563.0 Td (Revision) Tj ET
-BT /F1 9.5 Tf 300.5 563.0 Td (D.1) Tj ET
+BT /F1 9.5 Tf 300.5 563.0 Td (C.1) Tj ET
 0.5 w 56.0 559.0 m 539.0 559.0 l S
 BT /F1 9.5 Tf 59.0 545.0 Td (Scale) Tj ET
 BT /F1 9.5 Tf 300.5 545.0 Td (1:1) Tj ET
@@ -63,7 +63,7 @@ BT /F2 9.5 Tf 59.0 399.0 Td (Field) Tj ET
 BT /F2 9.5 Tf 300.5 399.0 Td (Value) Tj ET
 0.5 w 56.0 395.0 m 539.0 395.0 l S
 BT /F1 9.5 Tf 59.0 381.0 Td (Part Number) Tj ET
-BT /F1 9.5 Tf 300.5 381.0 Td (P-102261) Tj ET
+BT /F1 9.5 Tf 300.5 381.0 Td (P-102316) Tj ET
 0.5 w 56.0 377.0 m 539.0 377.0 l S
 BT /F1 9.5 Tf 59.0 363.0 Td (Revision) Tj ET
 BT /F1 9.5 Tf 300.5 363.0 Td (A.1) Tj ET
@@ -84,12 +84,12 @@ BT /F1 9.5 Tf 59.0 273.0 Td (Height \(mm\)) Tj ET
 BT /F1 9.5 Tf 300.5 273.0 Td (23.3) Tj ET
 0.5 w 56.0 269.0 m 539.0 269.0 l S
 BT /F1 9.5 Tf 59.0 255.0 Td (Mass \(kg\)) Tj ET
-BT /F1 9.5 Tf 300.5 255.0 Td (27.687) Tj ET
+BT /F1 9.5 Tf 300.5 255.0 Td (27.322) Tj ET
 0.5 w 56.0 251.0 m 539.0 251.0 l S
 endstream
 endobj
 7 0 obj
-<< /Title (Drawing DOC-0001428 for P-100051 rev D.1) /Producer (plmgen) >>
+<< /Title (Drawing DOC-0001428 for P-100051 rev C.1) /Producer (plmgen) >>
 endobj
 xref
 0 8
