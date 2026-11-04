@@ -3,7 +3,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+<< /Type /Pages /Kids [5 0 R] /Count 1 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
@@ -15,104 +15,62 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 3087 >>
+<< /Length 1779 >>
 stream
-BT /F2 18 Tf 56.0 770.0 Td (WORK INSTRUCTION) Tj ET
+BT /F2 18 Tf 56.0 770.0 Td (CERTIFICATE) Tj ET
 BT /F2 10 Tf 56.0 746.0 Td (Document ID:) Tj ET
 BT /F1 10 Tf 206.0 746.0 Td (DOC-0000665) Tj ET
 BT /F2 10 Tf 56.0 731.0 Td (Project:) Tj ET
-BT /F1 10 Tf 206.0 731.0 Td (PRJ-012) Tj ET
+BT /F1 10 Tf 206.0 731.0 Td (PRJ-038) Tj ET
 BT /F2 10 Tf 56.0 716.0 Td (Uploaded on:) Tj ET
 BT /F1 10 Tf 206.0 716.0 Td (2023-09-08) Tj ET
 BT /F2 10 Tf 56.0 701.0 Td (Uploaded by:) Tj ET
-BT /F1 10 Tf 206.0 701.0 Td (user011) Tj ET
+BT /F1 10 Tf 206.0 701.0 Td (user074) Tj ET
 BT /F2 10 Tf 56.0 686.0 Td (Export class:) Tj ET
 BT /F1 10 Tf 206.0 686.0 Td (EAR99) Tj ET
-BT /F2 12 Tf 56.0 655.0 Td (Assembly of P-100854 at plant PLT03) Tj ET
-BT /F2 10 Tf 56.0 635.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 635.0 Td (P-100854) Tj ET
-BT /F2 10 Tf 56.0 620.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 620.0 Td (A.1) Tj ET
-BT /F2 10 Tf 56.0 605.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 605.0 Td (PLT03) Tj ET
-BT /F2 10 Tf 56.0 590.0 Td (Station:) Tj ET
-BT /F1 10 Tf 206.0 590.0 Td (ST-36) Tj ET
-BT /F2 10 Tf 56.0 575.0 Td (Torque \(Nm\):) Tj ET
-BT /F1 10 Tf 206.0 575.0 Td (20) Tj ET
-BT /F2 10 Tf 56.0 560.0 Td (Cycle time \(s\):) Tj ET
-BT /F1 10 Tf 206.0 560.0 Td (104) Tj ET
-BT /F1 10 Tf 56.0 539.0 Td (Step 1: Torque to specification) Tj ET
-BT /F1 10 Tf 56.0 521.0 Td (Step 2: Visual check) Tj ET
-BT /F1 10 Tf 56.0 503.0 Td (Step 3: Clean mating surface) Tj ET
-BT /F1 10 Tf 56.0 485.0 Td (Step 4: Clean mating surface) Tj ET
-BT /F1 10 Tf 56.0 467.0 Td (Step 5: Record result) Tj ET
-BT /F1 10 Tf 56.0 449.0 Td (Step 6: Move to next station) Tj ET
-BT /F1 10 Tf 56.0 431.0 Td (Step 7: Clean mating surface) Tj ET
-BT /F2 12 Tf 56.0 403.0 Td (Assembly of P-100710 at plant PLT03) Tj ET
-BT /F2 10 Tf 56.0 383.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 383.0 Td (P-100710) Tj ET
-BT /F2 10 Tf 56.0 368.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 368.0 Td (A.1) Tj ET
-BT /F2 10 Tf 56.0 353.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 353.0 Td (PLT03) Tj ET
-BT /F2 10 Tf 56.0 338.0 Td (Station:) Tj ET
-BT /F1 10 Tf 206.0 338.0 Td (ST-59) Tj ET
-BT /F2 10 Tf 56.0 323.0 Td (Torque \(Nm\):) Tj ET
-BT /F1 10 Tf 206.0 323.0 Td (5) Tj ET
-BT /F2 10 Tf 56.0 308.0 Td (Cycle time \(s\):) Tj ET
-BT /F1 10 Tf 206.0 308.0 Td (247) Tj ET
-BT /F1 10 Tf 56.0 287.0 Td (Step 1: Visual check) Tj ET
-BT /F1 10 Tf 56.0 269.0 Td (Step 2: Apply thread locker) Tj ET
-BT /F1 10 Tf 56.0 251.0 Td (Step 3: Clean mating surface) Tj ET
-BT /F1 10 Tf 56.0 233.0 Td (Step 4: Visual check) Tj ET
-BT /F1 10 Tf 56.0 215.0 Td (Step 5: Move to next station) Tj ET
-BT /F1 10 Tf 56.0 197.0 Td (Step 6: Inspect incoming part) Tj ET
-BT /F1 10 Tf 56.0 179.0 Td (Step 7: Move to next station) Tj ET
-BT /F2 12 Tf 56.0 151.0 Td (Assembly of P-100590 at plant PLT04) Tj ET
-BT /F2 10 Tf 56.0 131.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 131.0 Td (P-100590) Tj ET
-BT /F2 10 Tf 56.0 116.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 116.0 Td (A.1) Tj ET
-BT /F2 10 Tf 56.0 101.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 101.0 Td (PLT04) Tj ET
-BT /F2 10 Tf 56.0 86.0 Td (Station:) Tj ET
-BT /F1 10 Tf 206.0 86.0 Td (ST-43) Tj ET
-BT /F2 10 Tf 56.0 71.0 Td (Torque \(Nm\):) Tj ET
-BT /F1 10 Tf 206.0 71.0 Td (2.5) Tj ET
+BT /F1 10 Tf 56.0 665.0 Td (This certifies that the items listed below conform to the applicable drawing and specification.) Tj ET
+BT /F2 9.5 Tf 59.0 645.0 Td (Part Number) Tj ET
+BT /F2 9.5 Tf 155.6 645.0 Td (Revision) Tj ET
+BT /F2 9.5 Tf 252.2 645.0 Td (Lot) Tj ET
+BT /F2 9.5 Tf 348.8 645.0 Td (Quantity) Tj ET
+BT /F2 9.5 Tf 445.4 645.0 Td (Supplier) Tj ET
+0.5 w 56.0 641.0 m 539.0 641.0 l S
+BT /F1 9.5 Tf 59.0 627.0 Td (P-100587) Tj ET
+BT /F1 9.5 Tf 155.6 627.0 Td (A.1) Tj ET
+BT /F1 9.5 Tf 252.2 627.0 Td (LOT-372874) Tj ET
+BT /F1 9.5 Tf 348.8 627.0 Td (100) Tj ET
+BT /F1 9.5 Tf 445.4 627.0 Td (Summit Components ) Tj ET
+0.5 w 56.0 623.0 m 539.0 623.0 l S
+BT /F1 9.5 Tf 59.0 609.0 Td (P-100558) Tj ET
+BT /F1 9.5 Tf 155.6 609.0 Td (A.1) Tj ET
+BT /F1 9.5 Tf 252.2 609.0 Td (LOT-651921) Tj ET
+BT /F1 9.5 Tf 348.8 609.0 Td (100) Tj ET
+BT /F1 9.5 Tf 445.4 609.0 Td (Apex Systems 57) Tj ET
+0.5 w 56.0 605.0 m 539.0 605.0 l S
+BT /F1 9.5 Tf 59.0 591.0 Td (P-100968) Tj ET
+BT /F1 9.5 Tf 155.6 591.0 Td (A.1) Tj ET
+BT /F1 9.5 Tf 252.2 591.0 Td (LOT-397273) Tj ET
+BT /F1 9.5 Tf 348.8 591.0 Td (1000) Tj ET
+BT /F1 9.5 Tf 445.4 591.0 Td (Vector Precision 3) Tj ET
+0.5 w 56.0 587.0 m 539.0 587.0 l S
+BT /F1 10 Tf 56.0 567.0 Td (Certificate No CERT-831781. Issued 2023-09-08.) Tj ET
 endstream
 endobj
 7 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
-endobj
-8 0 obj
-<< /Length 408 >>
-stream
-BT /F2 10 Tf 56.0 776.0 Td (Cycle time \(s\):) Tj ET
-BT /F1 10 Tf 206.0 776.0 Td (159) Tj ET
-BT /F1 10 Tf 56.0 755.0 Td (Step 1: Clean mating surface) Tj ET
-BT /F1 10 Tf 56.0 737.0 Td (Step 2: Torque to specification) Tj ET
-BT /F1 10 Tf 56.0 719.0 Td (Step 3: Move to next station) Tj ET
-BT /F1 10 Tf 56.0 701.0 Td (Step 4: Move to next station) Tj ET
-BT /F1 10 Tf 56.0 683.0 Td (Step 5: Fit fasteners) Tj ET
-endstream
-endobj
-9 0 obj
-<< /Title (Work Instruction DOC-0000665 for P-100854 rev A.1) /Producer (plmgen) >>
+<< /Title (Certificate DOC-0000665 for P-100587 rev A.1) /Producer (plmgen) >>
 endobj
 xref
-0 10
+0 8
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
-0000000121 00000 n 
-0000000218 00000 n 
-0000000320 00000 n 
-0000000456 00000 n 
-0000003595 00000 n 
-0000003731 00000 n 
-0000004190 00000 n 
+0000000115 00000 n 
+0000000212 00000 n 
+0000000314 00000 n 
+0000000450 00000 n 
+0000002281 00000 n 
 trailer
-<< /Size 10 /Root 1 0 R /Info 9 0 R >>
+<< /Size 8 /Root 1 0 R /Info 7 0 R >>
 startxref
-4289
+2375
 %%EOF
