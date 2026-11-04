@@ -30,13 +30,13 @@ BT /F2 10 Tf 56.0 667.0 Td (Uploaded by:) Tj ET
 BT /F1 10 Tf 206.0 667.0 Td (user178) Tj ET
 BT /F2 10 Tf 56.0 652.0 Td (Export class:) Tj ET
 BT /F1 10 Tf 206.0 652.0 Td (ECCN-3A001) Tj ET
-BT /F2 12 Tf 56.0 621.0 Td (Assembly of P-100493 at plant PLT01) Tj ET
+BT /F2 12 Tf 56.0 621.0 Td (Assembly of P-100500 at plant PLT04) Tj ET
 BT /F2 10 Tf 56.0 601.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 601.0 Td (P-100493) Tj ET
+BT /F1 10 Tf 206.0 601.0 Td (P-100500) Tj ET
 BT /F2 10 Tf 56.0 586.0 Td (Revision:) Tj ET
 BT /F1 10 Tf 206.0 586.0 Td (A.1) Tj ET
 BT /F2 10 Tf 56.0 571.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 571.0 Td (PLT01) Tj ET
+BT /F1 10 Tf 206.0 571.0 Td (PLT04) Tj ET
 BT /F2 10 Tf 56.0 556.0 Td (Station:) Tj ET
 BT /F1 10 Tf 206.0 556.0 Td (ST-56) Tj ET
 BT /F2 10 Tf 56.0 541.0 Td (Torque \(Nm\):) Tj ET
@@ -51,13 +51,13 @@ BT /F1 10 Tf 56.0 433.0 Td (Step 5: Fit fasteners) Tj ET
 BT /F1 10 Tf 56.0 415.0 Td (Step 6: Visual check) Tj ET
 BT /F1 10 Tf 56.0 397.0 Td (Step 7: Record result) Tj ET
 BT /F1 10 Tf 56.0 379.0 Td (Step 8: Move to next station) Tj ET
-BT /F2 12 Tf 56.0 351.0 Td (Assembly of P-100402 at plant PLT02) Tj ET
+BT /F2 12 Tf 56.0 351.0 Td (Assembly of P-100408 at plant PLT04) Tj ET
 BT /F2 10 Tf 56.0 331.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 331.0 Td (P-100402) Tj ET
+BT /F1 10 Tf 206.0 331.0 Td (P-100408) Tj ET
 BT /F2 10 Tf 56.0 316.0 Td (Revision:) Tj ET
 BT /F1 10 Tf 206.0 316.0 Td (A.1) Tj ET
 BT /F2 10 Tf 56.0 301.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 301.0 Td (PLT02) Tj ET
+BT /F1 10 Tf 206.0 301.0 Td (PLT04) Tj ET
 BT /F2 10 Tf 56.0 286.0 Td (Station:) Tj ET
 BT /F1 10 Tf 206.0 286.0 Td (ST-48) Tj ET
 BT /F2 10 Tf 56.0 271.0 Td (Torque \(Nm\):) Tj ET
@@ -69,9 +69,9 @@ BT /F1 10 Tf 56.0 217.0 Td (Step 2: Apply thread locker) Tj ET
 BT /F1 10 Tf 56.0 199.0 Td (Step 3: Inspect incoming part) Tj ET
 BT /F1 10 Tf 56.0 181.0 Td (Step 4: Apply thread locker) Tj ET
 BT /F1 10 Tf 56.0 163.0 Td (Step 5: Fit fasteners) Tj ET
-BT /F2 12 Tf 56.0 135.0 Td (Assembly of P-100343 at plant PLT03) Tj ET
+BT /F2 12 Tf 56.0 135.0 Td (Assembly of P-100346 at plant PLT03) Tj ET
 BT /F2 10 Tf 56.0 115.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 115.0 Td (P-100343) Tj ET
+BT /F1 10 Tf 206.0 115.0 Td (P-100346) Tj ET
 BT /F2 10 Tf 56.0 100.0 Td (Revision:) Tj ET
 BT /F1 10 Tf 206.0 100.0 Td (A.1) Tj ET
 BT /F2 10 Tf 56.0 85.0 Td (Plant:) Tj ET
@@ -101,7 +101,7 @@ BT /F1 10 Tf 56.0 614.0 Td (Step 8: Fit fasteners) Tj ET
 endstream
 endobj
 9 0 obj
-<< /Title (Work Instruction DOC-0000345 for P-100493 rev A.1) /Producer (plmgen) >>
+<< /Title (Work Instruction DOC-0000345 for P-100500 rev A.1) /Producer (plmgen) >>
 endobj
 xref
 0 10
