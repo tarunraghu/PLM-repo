@@ -32,7 +32,7 @@ BT /F2 12 Tf 56.0 655.0 Td (Part P-100175 - Harness A) Tj ET
 BT /F2 10 Tf 56.0 635.0 Td (Part Number:) Tj ET
 BT /F1 10 Tf 206.0 635.0 Td (P-100175) Tj ET
 BT /F2 10 Tf 56.0 620.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 620.0 Td (A.1) Tj ET
+BT /F1 10 Tf 206.0 620.0 Td (C.1) Tj ET
 BT /F2 10 Tf 56.0 605.0 Td (Lifecycle State:) Tj ET
 BT /F1 10 Tf 206.0 605.0 Td (Released) Tj ET
 BT /F2 10 Tf 56.0 590.0 Td (Mass \(kg\):) Tj ET
@@ -54,7 +54,7 @@ BT /F1 10 Tf 206.0 485.0 Td (-20 to 85 C) Tj ET
 endstream
 endobj
 7 0 obj
-<< /Title (Spec DOC-0002976 for P-100175 rev A.1) /Producer (plmgen) >>
+<< /Title (Spec DOC-0002976 for P-100175 rev C.1) /Producer (plmgen) >>
 endobj
 xref
 0 8
