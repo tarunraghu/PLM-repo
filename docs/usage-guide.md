@@ -17,11 +17,21 @@ To get files into a Unity Catalog volume you can use the Databricks CLI, for exa
 
 ## Scenarios
 
-### 1. Bronze batch load
+### 1. Bronze batch load, all at once or in parts
 
-Land `out/base/<source>/*.csv` in a volume and load each table into Bronze. The CSVs are plain text, so declare types: `python -m plmgen schema --format ddl-spark` gives Spark DDL, and `--format spark-json` gives a schema per table. Empty fields are nulls.
+Each table in `out/base/<source>/<table>/` is split into numbered files (`part-00001.csv`, `part-00002.csv`, ...) of 2,000 rows each (`init --base-part-rows N` changes that, and `0` writes one file per table). Every part has a header, and rows run oldest first, so each part is a later slice of the same table. The CSVs are plain text, so declare types: `python -m plmgen schema --format ddl-spark` gives Spark DDL, and `--format spark-json` gives a schema per table. Empty fields are nulls.
 
-Check: row counts equal `row_counts` in `out/base/_base.json`. Join through `master_part_xref` and confirm every foreign key resolves.
+To load incrementally, point a folder-based reader at a landing folder and let the parts arrive over time:
+
+```bash
+python -m plmgen drip --source data/plm/out/base --target data/plm/landing --interval 30
+```
+
+Round 1 delivers `part-00001.csv` of every table, round 2 delivers `part-00002.csv`, and so on. Files appear atomically. A reader that tracks which files it has already loaded, such as Auto Loader or `COPY INTO`, will then pick up only the new files each time.
+
+Be aware that a part load is not a change feed. Parts are slices of one snapshot taken at the end of the history. They show what the data looks like when built up gradually, which is useful for testing file-tracking, idempotency and growing tables, but later parts do not update earlier rows. For true changes, use the daily batches from `advance`.
+
+Check: row counts across all parts equal `row_counts` in `out/base/_base.json`. After the last round, join through `master_part_xref` and confirm every foreign key resolves. Partway through, foreign keys may legitimately be unresolved, because a child part can arrive before its parent.
 
 ### 2. Streaming CDC from SAP
 

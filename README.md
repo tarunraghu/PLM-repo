@@ -29,7 +29,7 @@ Python 3.12 was used for development and testing.
 ```
 data/plm/
   state/                     the truth: one typed CSV per table, plus manifest.json
-  out/base/<source>/         the initial extract each source would deliver (CSV, JSON)
+  out/base/<source>/<table>/ the initial extract, split into part-00001.csv, part-00002.csv, ... (2,000 rows each)
   out/base/project_docs/     document files (PDF, DOCX, scanned PNG) plus a metadata JSONL
   out/batches/batch=DATE/    one folder per advanced day (see below)
   truth/questions.jsonl      questions with known answers, for Genie and RAG benchmarks
@@ -56,6 +56,7 @@ Each source reaches the lakehouse the way the diagram describes:
 | `validate` | check keys, time order and business rules on the truth, or on the delivered extract (`--base`) |
 | `status` | summary of the workspace and its batches |
 | `serve` | mock Windchill REST/OData API with paging, a modified-since filter, bearer auth, throttling and errors |
+| `drip` | deliver the base extract's part files in rounds (one part of every table per round), to load it incrementally |
 | `replay` | release a batch's events in small files at a chosen rate, to feed a streaming job |
 | `questions` | regenerate the ground-truth question set |
 | `schema` | emit Spark or Postgres DDL, Spark schemas, or the data dictionary |
@@ -86,7 +87,7 @@ pip install -e .[dev]
 python -m unittest discover -s tests
 ```
 
-40 tests, about a minute. They cover the properties above, the validator against deliberate corruption, event replay, document content, the mock API, and the CLI.
+45 tests, about 90 seconds. They cover the properties above, the validator against deliberate corruption, event replay, document content, the mock API, and the CLI.
 
 ## 3-week plan
 

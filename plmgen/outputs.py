@@ -201,18 +201,47 @@ class Emitter:
 
 # ---- base extract ---------------------------------------------------------------------------------
 
-def write_base(tables, cfg, out_dir, dirty=False):
-    """Write the full snapshot, one folder per source. Returns what was injected."""
+# Primary keys are creation-ordered for most tables, so oldest rows come first. These are not.
+BASE_ORDER = {
+    "master_part_lifecycle_history": ("effective_from", "part_number"),
+    "windchill_part_revision": ("effective_from", "wt_id"),
+    "master_part_xref": ("part_number", "source_system"),
+    "master_supplier_part": ("part_number", "supplier_id"),
+}
+
+
+def ordered_rows(name, rows):
+    keys = BASE_ORDER.get(name)
+    return sorted(rows, key=lambda r: tuple(r[k] for k in keys)) if keys else rows
+
+
+def write_base(tables, cfg, out_dir, dirty=False, part_rows=0):
+    """Write the full snapshot, one folder per source. Returns what was injected.
+
+    With part_rows > 0 each table becomes a folder of numbered part files
+    (<source>/<table>/part-00001.csv, ...), oldest rows first, each with a header, so the
+    initial load can be done a piece at a time. With 0 each table is a single CSV file."""
     out_dir = Path(out_dir)
     issues = Counter()
     snapshot = tables
     if dirty:
         snapshot, issues = inject_snapshot_problems(tables, cfg)
+    parts = {}
     for name, spec in TABLES.items():
-        (out_dir / spec.source).mkdir(parents=True, exist_ok=True)
-        write_rows(out_dir / spec.source / f"{name}.csv", spec, snapshot[name])
+        folder = out_dir / spec.source
+        folder.mkdir(parents=True, exist_ok=True)
+        rows = ordered_rows(name, snapshot[name])
+        if part_rows > 0:
+            count = max(1, -(-len(rows) // part_rows))
+            for n in range(count):
+                (folder / name).mkdir(exist_ok=True)
+                write_rows(folder / name / f"part-{n + 1:05d}.csv", spec, rows[n * part_rows:(n + 1) * part_rows])
+            parts[name] = count
+        else:
+            write_rows(folder / f"{name}.csv", spec, rows)
+            parts[name] = 1
     (out_dir / "_base.json").write_text(json.dumps({
-        "as_of": cfg.as_of, "dirty": dirty, "injected": dict(issues),
+        "as_of": cfg.as_of, "dirty": dirty, "injected": dict(issues), "part_rows": part_rows, "parts": parts,
         "row_counts": {name: len(rows) for name, rows in snapshot.items()}}, indent=2), encoding="utf-8")
     return dict(issues), snapshot
 

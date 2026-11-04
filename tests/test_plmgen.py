@@ -27,11 +27,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from plmgen import cli, docs, schema
 from plmgen.api import make_server
 from plmgen.config import Config
-from plmgen.db import Database
+from plmgen.db import Database, read_rows
 from plmgen.engine import Workspace, simulate_days, simulate_history
 from plmgen.outputs import Emitter, inject_snapshot_problems, write_base
 from plmgen.questions import build_questions
-from plmgen.replay import apply_cdc, read_events, rows_to_json_state
+from plmgen.replay import apply_cdc, drip, read_events, rows_to_json_state
 from plmgen.util import idx_from_bom_key, pn_of, rev_index, rev_label
 from plmgen.validate import tables_from_db, tables_from_dir, validate
 
@@ -275,6 +275,65 @@ class OutputTests(unittest.TestCase):
         report = validate(tables_from_dir(self.root / "base"), self.cfg.as_of_date, self.cfg.bom_depth)
         self.assertEqual(report["total_violations"], 0, report)
 
+    def test_part_files_reassemble_to_exactly_the_single_file_extract(self):
+        db, _ = simulate_history(self.cfg)
+        tables = tables_from_db(db)
+        write_base(tables, self.cfg, self.root / "single", part_rows=0)
+        write_base(tables, self.cfg, self.root / "parts", part_rows=50)
+        single, parts = tables_from_dir(self.root / "single"), tables_from_dir(self.root / "parts")
+        meta = json.loads((self.root / "parts" / "_base.json").read_text())
+        for name, spec in schema.TABLES.items():
+            key = lambda r: tuple(str(r[c]) for c in spec.pk)
+            self.assertEqual(sorted(single[name], key=key), sorted(parts[name], key=key), name)
+            files = sorted((self.root / "parts" / spec.source / name).glob("part-*.csv"))
+            self.assertEqual(len(files), meta["parts"][name], name)
+            self.assertEqual([f.name for f in files], [f"part-{n:05d}.csv" for n in range(1, len(files) + 1)])
+            for f in files:
+                lines = f.read_text().splitlines()
+                self.assertEqual(lines[0].split(","), spec.col_names)
+                self.assertLessEqual(len(lines) - 1, 50)
+        self.assertGreater(meta["parts"]["master_part_xref"], 5)
+
+    def test_parts_are_ordered_oldest_first(self):
+        db, _ = simulate_history(self.cfg)
+        write_base(tables_from_db(db), self.cfg, self.root / "parts", part_rows=40)
+        rows = tables_from_dir(self.root / "parts")      # concatenated in part order
+        for table, column in (("master_part", "created_date"), ("windchill_part", "created_on"),
+                              ("windchill_change_notice", "created_on"), ("project_docs_document", "uploaded_on"),
+                              ("master_part_lifecycle_history", "effective_from"),
+                              ("windchill_part_revision", "effective_from")):
+            values = [r[column] for r in rows[table]]
+            self.assertEqual(values, sorted(values), table)
+
+    def test_part_layout_validates_clean_and_dirty(self):
+        db, _ = simulate_history(self.cfg)
+        tables = tables_from_db(db)
+        write_base(tables, self.cfg, self.root / "clean", part_rows=60)
+        self.assertEqual(validate(tables_from_dir(self.root / "clean"), self.cfg.as_of_date)["total_violations"], 0)
+        write_base(tables, self.cfg, self.root / "dirty", dirty=True, part_rows=60)
+        self.assertGreater(validate(tables_from_dir(self.root / "dirty"), self.cfg.as_of_date)["total_violations"], 0)
+
+    def test_drip_delivers_one_part_of_every_table_per_round(self):
+        db, _ = simulate_history(self.cfg)
+        write_base(tables_from_db(db), self.cfg, self.root / "base", part_rows=100)
+        landing = self.root / "landing"
+        rounds = drip(self.root / "base", landing, max_ticks=1)
+        self.assertEqual(len(rounds), 1)
+        self.assertTrue(all(p.name == "part-00001.csv" for p in rounds[0]))
+        self.assertEqual(len(rounds[0]), len(schema.TABLES))
+        everything = drip(self.root / "base", self.root / "all")
+        self.assertGreater(len(everything), 3)
+        self.assertEqual(sorted(p.relative_to(self.root / "all") for r in everything for p in r),
+                         sorted(p.relative_to(self.root / "base") for p in (self.root / "base").rglob("part-*.csv")))
+        # Loading round by round only ever adds rows, and the last round has everything.
+        counts = []
+        for n in range(1, len(everything) + 1):
+            loaded = sum(len(list(read_rows(p, schema.TABLES[p.parent.name])))
+                         for r in everything[:n] for p in r)
+            counts.append(loaded)
+        self.assertEqual(counts, sorted(counts))
+        self.assertEqual(counts[-1], sum(len(rows) for rows in tables_from_db(db).values()))
+
     def test_dirty_base_extract_contains_exactly_what_was_injected(self):
         db, _ = simulate_history(self.cfg)
         issues, _ = write_base(tables_from_db(db), self.cfg, self.root / "base", dirty=True)
@@ -511,6 +570,26 @@ class CliTests(unittest.TestCase):
             self.assertEqual(status["batches"], 7)
             self.assertEqual(status["as_of"], "2026-11-10")
             self.assertTrue((Path(ws) / "truth" / "questions.jsonl").exists())
+
+    def test_init_splits_the_base_extract_into_parts_by_default(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            ws = Path(tmp) / "ws"
+            self.assertEqual(run_cli("init", "--profile", "tiny", "--workspace", str(ws), "--no-docs",
+                                     "--base-part-rows", "100")[0], 0)
+            self.assertTrue((ws / "out" / "base" / "master" / "master_part" / "part-00001.csv").exists())
+            self.assertFalse((ws / "out" / "base" / "master" / "master_part.csv").exists())
+            self.assertEqual(run_cli("validate", "--workspace", str(ws), "--base")[0], 0)
+            code, out, _ = run_cli("drip", "--source", str(ws / "out" / "base"), "--target", str(ws / "landing"),
+                                   "--max-ticks", "2")
+            self.assertEqual(code, 0)
+            self.assertEqual(json.loads(out)["rounds"], 2)
+            self.assertTrue((ws / "landing" / "master" / "master_part" / "part-00002.csv").exists())
+            # One file per table is still available.
+            ws2 = Path(tmp) / "ws2"
+            self.assertEqual(run_cli("init", "--profile", "tiny", "--workspace", str(ws2), "--no-docs",
+                                     "--base-part-rows", "0")[0], 0)
+            self.assertTrue((ws2 / "out" / "base" / "master" / "master_part.csv").exists())
+            self.assertEqual(run_cli("validate", "--workspace", str(ws2), "--base")[0], 0)
 
     def test_existing_workspace_is_protected(self):
         with tempfile.TemporaryDirectory() as tmp:

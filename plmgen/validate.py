@@ -34,12 +34,22 @@ def tables_from_db(db):
 
 
 def tables_from_dir(directory):
-    """Read every table from a folder, either flat (state/) or one subfolder per source (out/base/)."""
+    """Read every table from a folder. Three layouts are understood:
+    flat files (state/), one file per table under a source folder, or a folder of part files per table."""
     directory = Path(directory)
     tables = {}
     for name, spec in TABLES.items():
         flat = directory / f"{name}.csv"
-        tables[name] = list(read_rows(flat if flat.exists() else directory / spec.source / f"{name}.csv", spec))
+        single = directory / spec.source / f"{name}.csv"
+        parts = directory / spec.source / name
+        if flat.exists():
+            tables[name] = list(read_rows(flat, spec))
+        elif single.exists():
+            tables[name] = list(read_rows(single, spec))
+        elif parts.is_dir():
+            tables[name] = [row for part in sorted(parts.glob("part-*.csv")) for row in read_rows(part, spec)]
+        else:
+            raise FileNotFoundError(f"no data for {name} under {directory}")
     return tables
 
 

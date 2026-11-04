@@ -1,0 +1,9 @@
+# Code and docs: store and check out with LF on every platform.
+* text=auto eol=lf
+
+# Generated data is never rewritten. Document metadata holds a sha256 of each file and PDFs
+# record their own byte lengths, so any line-ending change would corrupt them.
+data/** -text
+*.pdf binary
+*.docx binary
+*.png binary

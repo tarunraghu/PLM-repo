@@ -59,6 +59,38 @@ def rows_to_json_state(table, rows):
     return {tuple(json_key(table, tuple(r[c] for c in spec.pk)).values()): json_row(table, r) for r in rows}
 
 
+def drip(source_dir, target_dir, interval=0.0, pattern="part-*.csv", max_ticks=None):
+    """Deliver part files into target_dir in rounds, keeping the folder structure.
+
+    Round 1 delivers the first part of every table, round 2 the second part, and so on, so each
+    round adds a slice of every table, as an incremental initial load would. Files appear atomically.
+    Returns the list of files delivered in each round."""
+    import shutil
+    source = Path(source_dir)
+    groups = {}
+    for path in sorted(source.rglob(pattern)):
+        groups.setdefault(path.parent, []).append(path)
+    rounds = max((len(files) for files in groups.values()), default=0)
+    if max_ticks is not None:
+        rounds = min(rounds, max_ticks)
+    delivered = []
+    for tick in range(rounds):
+        batch = []
+        for parent in sorted(groups):
+            if tick < len(groups[parent]):
+                path = groups[parent][tick]
+                dest = Path(target_dir) / path.relative_to(source)
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                tmp = dest.with_suffix(".tmp")
+                shutil.copyfile(path, tmp)
+                tmp.replace(dest)
+                batch.append(dest)
+        delivered.append(batch)
+        if interval and tick < rounds - 1:
+            time.sleep(interval)
+    return delivered
+
+
 def stream_files(source_file, target_dir, events_per_file=50, rate=None, shuffle_seed=None, prefix="events"):
     """Split one JSONL file into small files in target_dir, pausing between files to hit `rate` events/second.
 

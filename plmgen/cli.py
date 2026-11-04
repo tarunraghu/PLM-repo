@@ -83,7 +83,7 @@ def cmd_init(args):
     if pending and not args.no_docs:
         _write_doc_jobs(pending, base_docs, cfg, args.dirty, facts_file, totals)
 
-    issues, _ = write_base(tables_from_db(db), cfg, ws.out / "base", args.dirty)
+    issues, _ = write_base(tables_from_db(db), cfg, ws.out / "base", args.dirty, args.base_part_rows)
     ws.save(db, cfg, manifest)
     n_questions = _refresh_truth(ws, db, cfg)
     report = validate(tables_from_db(db), cfg.as_of_date, cfg.bom_depth)
@@ -231,6 +231,14 @@ def cmd_serve(args):
     return 0
 
 
+def cmd_drip(args):
+    from .replay import drip
+    rounds = drip(args.source, args.target, args.interval, args.pattern, args.max_ticks)
+    print(json.dumps({"rounds": len(rounds), "files_delivered": sum(len(r) for r in rounds),
+                      "files_per_round": [len(r) for r in rounds], "target": str(args.target)}, indent=2))
+    return 0
+
+
 def cmd_replay(args):
     from .replay import stream_files
     files = stream_files(args.source, args.target, args.events_per_file, args.rate)
@@ -261,6 +269,8 @@ def build_parser():
     i.add_argument("--max-children", type=int)
     i.add_argument("--activity", type=float, help="multiplier on arrival rates")
     i.add_argument("--scan-share", type=float, help="share of documents that are scanned images (default 0.10; slow)")
+    i.add_argument("--base-part-rows", type=int, default=2000,
+                   help="rows per part file in the base extract (default 2000); 0 writes one file per table")
     i.add_argument("--dirty", action="store_true", help="inject known problems into the delivered data")
     i.add_argument("--no-docs", action="store_true", help="skip writing document files")
     i.add_argument("--history-events", action="store_true", help="also write the whole history as daily event batches")
@@ -308,6 +318,14 @@ def build_parser():
     sv.add_argument("--latency-ms", type=int, default=0)
     sv.add_argument("--page-size", type=int, default=100)
     sv.set_defaults(func=cmd_serve)
+
+    d = sub.add_parser("drip", help="deliver the base extract's part files in rounds, to load it incrementally")
+    d.add_argument("--source", required=True, help="a folder of part files, for example data/plm/out/base")
+    d.add_argument("--target", required=True, help="landing folder to deliver into")
+    d.add_argument("--interval", type=float, default=0.0, help="seconds between rounds (default: no pause)")
+    d.add_argument("--pattern", default="part-*.csv")
+    d.add_argument("--max-ticks", type=int, help="stop after this many rounds")
+    d.set_defaults(func=cmd_drip)
 
     r = sub.add_parser("replay", help="release an events file in small files over time, to feed a streaming job")
     r.add_argument("--source", required=True, help="a JSONL events file, for example from out/batches/")
