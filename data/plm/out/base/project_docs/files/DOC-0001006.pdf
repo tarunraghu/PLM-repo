@@ -15,58 +15,56 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 2120 >>
+<< /Length 2018 >>
 stream
-1 w 56.0 766.0 483.0 22.0 re S
-BT /F2 11 Tf 64.0 772.0 Td (EXPORT CONTROLLED - ECCN 3A001) Tj ET
-BT /F2 18 Tf 56.0 736.0 Td (TEST REPORT) Tj ET
-BT /F2 10 Tf 56.0 712.0 Td (Document ID:) Tj ET
-BT /F1 10 Tf 206.0 712.0 Td (DOC-0001006) Tj ET
-BT /F2 10 Tf 56.0 697.0 Td (Project:) Tj ET
-BT /F1 10 Tf 206.0 697.0 Td (PRJ-021) Tj ET
-BT /F2 10 Tf 56.0 682.0 Td (Uploaded on:) Tj ET
-BT /F1 10 Tf 206.0 682.0 Td (2024-03-09) Tj ET
-BT /F2 10 Tf 56.0 667.0 Td (Uploaded by:) Tj ET
-BT /F1 10 Tf 206.0 667.0 Td (user048) Tj ET
-BT /F2 10 Tf 56.0 652.0 Td (Export class:) Tj ET
-BT /F1 10 Tf 206.0 652.0 Td (ECCN-3A001) Tj ET
-BT /F2 10 Tf 56.0 631.0 Td (Report No:) Tj ET
-BT /F1 10 Tf 206.0 631.0 Td (TR-833904) Tj ET
-BT /F2 10 Tf 56.0 616.0 Td (Laboratory:) Tj ET
-BT /F1 10 Tf 206.0 616.0 Td (Central Test) Tj ET
-BT /F2 10 Tf 56.0 601.0 Td (Test Date:) Tj ET
-BT /F1 10 Tf 206.0 601.0 Td (2024-03-09) Tj ET
-BT /F2 12 Tf 56.0 570.0 Td (Part P-101039 rev A.1) Tj ET
-BT /F2 9.5 Tf 59.0 548.0 Td (Test) Tj ET
-BT /F2 9.5 Tf 179.8 548.0 Td (Requirement) Tj ET
-BT /F2 9.5 Tf 300.5 548.0 Td (Measured) Tj ET
-BT /F2 9.5 Tf 421.2 548.0 Td (Result) Tj ET
-0.5 w 56.0 544.0 m 539.0 544.0 l S
-BT /F1 9.5 Tf 59.0 530.0 Td (Tensile strength) Tj ET
-BT /F1 9.5 Tf 179.8 530.0 Td (250 - 520 MPa) Tj ET
-BT /F1 9.5 Tf 300.5 530.0 Td (337.7) Tj ET
-BT /F1 9.5 Tf 421.2 530.0 Td (PASS) Tj ET
-0.5 w 56.0 526.0 m 539.0 526.0 l S
-BT /F1 9.5 Tf 59.0 512.0 Td (Dimensional check) Tj ET
-BT /F1 9.5 Tf 179.8 512.0 Td (0.05 - 0.5 mm) Tj ET
-BT /F1 9.5 Tf 300.5 512.0 Td (0.456) Tj ET
-BT /F1 9.5 Tf 421.2 512.0 Td (PASS) Tj ET
-0.5 w 56.0 508.0 m 539.0 508.0 l S
-BT /F1 9.5 Tf 59.0 494.0 Td (Hardness) Tj ET
-BT /F1 9.5 Tf 179.8 494.0 Td (20 - 60 HRC) Tj ET
-BT /F1 9.5 Tf 300.5 494.0 Td (18.17) Tj ET
-BT /F1 9.5 Tf 421.2 494.0 Td (FAIL) Tj ET
-0.5 w 56.0 490.0 m 539.0 490.0 l S
-BT /F1 9.5 Tf 59.0 476.0 Td (Thermal cycle) Tj ET
-BT /F1 9.5 Tf 179.8 476.0 Td (50 - 500 cycles) Tj ET
-BT /F1 9.5 Tf 300.5 476.0 Td (456.715) Tj ET
-BT /F1 9.5 Tf 421.2 476.0 Td (PASS) Tj ET
-0.5 w 56.0 472.0 m 539.0 472.0 l S
-BT /F1 10 Tf 56.0 452.0 Td (Overall result for P-101039: FAIL) Tj ET
+BT /F2 18 Tf 56.0 770.0 Td (TEST REPORT) Tj ET
+BT /F2 10 Tf 56.0 746.0 Td (Document ID:) Tj ET
+BT /F1 10 Tf 206.0 746.0 Td (DOC-0001006) Tj ET
+BT /F2 10 Tf 56.0 731.0 Td (Project:) Tj ET
+BT /F1 10 Tf 206.0 731.0 Td (PRJ-021) Tj ET
+BT /F2 10 Tf 56.0 716.0 Td (Uploaded on:) Tj ET
+BT /F1 10 Tf 206.0 716.0 Td (2024-03-09) Tj ET
+BT /F2 10 Tf 56.0 701.0 Td (Uploaded by:) Tj ET
+BT /F1 10 Tf 206.0 701.0 Td (user048) Tj ET
+BT /F2 10 Tf 56.0 686.0 Td (Export class:) Tj ET
+BT /F1 10 Tf 206.0 686.0 Td (EAR99) Tj ET
+BT /F2 10 Tf 56.0 665.0 Td (Report No:) Tj ET
+BT /F1 10 Tf 206.0 665.0 Td (TR-833904) Tj ET
+BT /F2 10 Tf 56.0 650.0 Td (Laboratory:) Tj ET
+BT /F1 10 Tf 206.0 650.0 Td (Central Test) Tj ET
+BT /F2 10 Tf 56.0 635.0 Td (Test Date:) Tj ET
+BT /F1 10 Tf 206.0 635.0 Td (2024-03-09) Tj ET
+BT /F2 12 Tf 56.0 604.0 Td (Part P-101067 rev A.1) Tj ET
+BT /F2 9.5 Tf 59.0 582.0 Td (Test) Tj ET
+BT /F2 9.5 Tf 179.8 582.0 Td (Requirement) Tj ET
+BT /F2 9.5 Tf 300.5 582.0 Td (Measured) Tj ET
+BT /F2 9.5 Tf 421.2 582.0 Td (Result) Tj ET
+0.5 w 56.0 578.0 m 539.0 578.0 l S
+BT /F1 9.5 Tf 59.0 564.0 Td (Tensile strength) Tj ET
+BT /F1 9.5 Tf 179.8 564.0 Td (250 - 520 MPa) Tj ET
+BT /F1 9.5 Tf 300.5 564.0 Td (337.7) Tj ET
+BT /F1 9.5 Tf 421.2 564.0 Td (PASS) Tj ET
+0.5 w 56.0 560.0 m 539.0 560.0 l S
+BT /F1 9.5 Tf 59.0 546.0 Td (Dimensional check) Tj ET
+BT /F1 9.5 Tf 179.8 546.0 Td (0.05 - 0.5 mm) Tj ET
+BT /F1 9.5 Tf 300.5 546.0 Td (0.456) Tj ET
+BT /F1 9.5 Tf 421.2 546.0 Td (PASS) Tj ET
+0.5 w 56.0 542.0 m 539.0 542.0 l S
+BT /F1 9.5 Tf 59.0 528.0 Td (Hardness) Tj ET
+BT /F1 9.5 Tf 179.8 528.0 Td (20 - 60 HRC) Tj ET
+BT /F1 9.5 Tf 300.5 528.0 Td (18.17) Tj ET
+BT /F1 9.5 Tf 421.2 528.0 Td (FAIL) Tj ET
+0.5 w 56.0 524.0 m 539.0 524.0 l S
+BT /F1 9.5 Tf 59.0 510.0 Td (Thermal cycle) Tj ET
+BT /F1 9.5 Tf 179.8 510.0 Td (50 - 500 cycles) Tj ET
+BT /F1 9.5 Tf 300.5 510.0 Td (456.715) Tj ET
+BT /F1 9.5 Tf 421.2 510.0 Td (PASS) Tj ET
+0.5 w 56.0 506.0 m 539.0 506.0 l S
+BT /F1 10 Tf 56.0 486.0 Td (Overall result for P-101067: FAIL) Tj ET
 endstream
 endobj
 7 0 obj
-<< /Title (Test Report DOC-0001006 for P-101039 rev A.1) /Producer (plmgen) >>
+<< /Title (Test Report DOC-0001006 for P-101067 rev A.1) /Producer (plmgen) >>
 endobj
 xref
 0 8
@@ -77,9 +75,9 @@ xref
 0000000212 00000 n 
 0000000314 00000 n 
 0000000450 00000 n 
-0000002622 00000 n 
+0000002520 00000 n 
 trailer
 << /Size 8 /Root 1 0 R /Info 7 0 R >>
 startxref
-2716
+2614
 %%EOF

@@ -15,7 +15,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 3994 >>
+<< /Length 3996 >>
 stream
 BT /F2 18 Tf 56.0 770.0 Td (DRAWING) Tj ET
 BT /F2 10 Tf 56.0 746.0 Td (Document ID:) Tj ET
@@ -33,7 +33,7 @@ BT /F2 9.5 Tf 59.0 633.0 Td (Field) Tj ET
 BT /F2 9.5 Tf 300.5 633.0 Td (Value) Tj ET
 0.5 w 56.0 629.0 m 539.0 629.0 l S
 BT /F1 9.5 Tf 59.0 615.0 Td (Part Number) Tj ET
-BT /F1 9.5 Tf 300.5 615.0 Td (P-101100) Tj ET
+BT /F1 9.5 Tf 300.5 615.0 Td (P-101128) Tj ET
 0.5 w 56.0 611.0 m 539.0 611.0 l S
 BT /F1 9.5 Tf 59.0 597.0 Td (Revision) Tj ET
 BT /F1 9.5 Tf 300.5 597.0 Td (A.1) Tj ET
@@ -54,14 +54,14 @@ BT /F1 9.5 Tf 59.0 507.0 Td (Height \(mm\)) Tj ET
 BT /F1 9.5 Tf 300.5 507.0 Td (65.1) Tj ET
 0.5 w 56.0 503.0 m 539.0 503.0 l S
 BT /F1 9.5 Tf 59.0 489.0 Td (Mass \(kg\)) Tj ET
-BT /F1 9.5 Tf 300.5 489.0 Td (2.355) Tj ET
+BT /F1 9.5 Tf 300.5 489.0 Td (33.079) Tj ET
 0.5 w 56.0 485.0 m 539.0 485.0 l S
 BT /F2 12 Tf 56.0 455.0 Td (Drawing DWG-53074) Tj ET
 BT /F2 9.5 Tf 59.0 433.0 Td (Field) Tj ET
 BT /F2 9.5 Tf 300.5 433.0 Td (Value) Tj ET
 0.5 w 56.0 429.0 m 539.0 429.0 l S
 BT /F1 9.5 Tf 59.0 415.0 Td (Part Number) Tj ET
-BT /F1 9.5 Tf 300.5 415.0 Td (P-100979) Tj ET
+BT /F1 9.5 Tf 300.5 415.0 Td (P-101006) Tj ET
 0.5 w 56.0 411.0 m 539.0 411.0 l S
 BT /F1 9.5 Tf 59.0 397.0 Td (Revision) Tj ET
 BT /F1 9.5 Tf 300.5 397.0 Td (A.1) Tj ET
@@ -82,14 +82,14 @@ BT /F1 9.5 Tf 59.0 307.0 Td (Height \(mm\)) Tj ET
 BT /F1 9.5 Tf 300.5 307.0 Td (42.1) Tj ET
 0.5 w 56.0 303.0 m 539.0 303.0 l S
 BT /F1 9.5 Tf 59.0 289.0 Td (Mass \(kg\)) Tj ET
-BT /F1 9.5 Tf 300.5 289.0 Td (9.707) Tj ET
+BT /F1 9.5 Tf 300.5 289.0 Td (12.221) Tj ET
 0.5 w 56.0 285.0 m 539.0 285.0 l S
 BT /F2 12 Tf 56.0 255.0 Td (Drawing DWG-49933) Tj ET
 BT /F2 9.5 Tf 59.0 233.0 Td (Field) Tj ET
 BT /F2 9.5 Tf 300.5 233.0 Td (Value) Tj ET
 0.5 w 56.0 229.0 m 539.0 229.0 l S
 BT /F1 9.5 Tf 59.0 215.0 Td (Part Number) Tj ET
-BT /F1 9.5 Tf 300.5 215.0 Td (P-101016) Tj ET
+BT /F1 9.5 Tf 300.5 215.0 Td (P-101044) Tj ET
 0.5 w 56.0 211.0 m 539.0 211.0 l S
 BT /F1 9.5 Tf 59.0 197.0 Td (Revision) Tj ET
 BT /F1 9.5 Tf 300.5 197.0 Td (A.1) Tj ET
@@ -110,12 +110,12 @@ BT /F1 9.5 Tf 59.0 107.0 Td (Height \(mm\)) Tj ET
 BT /F1 9.5 Tf 300.5 107.0 Td (21.3) Tj ET
 0.5 w 56.0 103.0 m 539.0 103.0 l S
 BT /F1 9.5 Tf 59.0 89.0 Td (Mass \(kg\)) Tj ET
-BT /F1 9.5 Tf 300.5 89.0 Td (8.035) Tj ET
+BT /F1 9.5 Tf 300.5 89.0 Td (5.664) Tj ET
 0.5 w 56.0 85.0 m 539.0 85.0 l S
 endstream
 endobj
 7 0 obj
-<< /Title (Drawing DOC-0001041 for P-101100 rev A.1) /Producer (plmgen) >>
+<< /Title (Drawing DOC-0001041 for P-101128 rev A.1) /Producer (plmgen) >>
 endobj
 xref
 0 8
@@ -126,9 +126,9 @@ xref
 0000000212 00000 n 
 0000000314 00000 n 
 0000000450 00000 n 
-0000004496 00000 n 
+0000004498 00000 n 
 trailer
 << /Size 8 /Root 1 0 R /Info 7 0 R >>
 startxref
-4586
+4588
 %%EOF
