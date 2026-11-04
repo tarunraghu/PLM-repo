@@ -23,5 +23,16 @@
     "activity": 1.0,
     "scan_share": 0.1,
     "volume_path": "/Volumes/plm_poc/raw/project_docs"
+  },
+  "counters": {
+    "part": 4982,
+    "ebom": 5574,
+    "mbom": 5518,
+    "task": 2206,
+    "release": 1295,
+    "change": 779,
+    "doc": 3059,
+    "cad": 4484,
+    "supplier": 223
   }
 }
