@@ -28,13 +28,13 @@ BT /F2 10 Tf 56.0 701.0 Td (Uploaded by:) Tj ET
 BT /F1 10 Tf 206.0 701.0 Td (user160) Tj ET
 BT /F2 10 Tf 56.0 686.0 Td (Export class:) Tj ET
 BT /F1 10 Tf 206.0 686.0 Td (EAR99) Tj ET
-BT /F2 12 Tf 56.0 655.0 Td (Assembly of P-101108 at plant PLT02) Tj ET
+BT /F2 12 Tf 56.0 655.0 Td (Assembly of P-101136 at plant PLT03) Tj ET
 BT /F2 10 Tf 56.0 635.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 635.0 Td (P-101108) Tj ET
+BT /F1 10 Tf 206.0 635.0 Td (P-101136) Tj ET
 BT /F2 10 Tf 56.0 620.0 Td (Revision:) Tj ET
 BT /F1 10 Tf 206.0 620.0 Td (B.1) Tj ET
 BT /F2 10 Tf 56.0 605.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 605.0 Td (PLT02) Tj ET
+BT /F1 10 Tf 206.0 605.0 Td (PLT03) Tj ET
 BT /F2 10 Tf 56.0 590.0 Td (Station:) Tj ET
 BT /F1 10 Tf 206.0 590.0 Td (ST-41) Tj ET
 BT /F2 10 Tf 56.0 575.0 Td (Torque \(Nm\):) Tj ET
@@ -48,9 +48,9 @@ BT /F1 10 Tf 56.0 485.0 Td (Step 4: Visual check) Tj ET
 BT /F1 10 Tf 56.0 467.0 Td (Step 5: Visual check) Tj ET
 BT /F1 10 Tf 56.0 449.0 Td (Step 6: Record result) Tj ET
 BT /F1 10 Tf 56.0 431.0 Td (Step 7: Record result) Tj ET
-BT /F2 12 Tf 56.0 403.0 Td (Assembly of P-102426 at plant PLT02) Tj ET
+BT /F2 12 Tf 56.0 403.0 Td (Assembly of P-102488 at plant PLT02) Tj ET
 BT /F2 10 Tf 56.0 383.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 383.0 Td (P-102426) Tj ET
+BT /F1 10 Tf 206.0 383.0 Td (P-102488) Tj ET
 BT /F2 10 Tf 56.0 368.0 Td (Revision:) Tj ET
 BT /F1 10 Tf 206.0 368.0 Td (A.1) Tj ET
 BT /F2 10 Tf 56.0 353.0 Td (Plant:) Tj ET
@@ -68,13 +68,13 @@ BT /F1 10 Tf 56.0 233.0 Td (Step 4: Torque to specification) Tj ET
 BT /F1 10 Tf 56.0 215.0 Td (Step 5: Inspect incoming part) Tj ET
 BT /F1 10 Tf 56.0 197.0 Td (Step 6: Apply thread locker) Tj ET
 BT /F1 10 Tf 56.0 179.0 Td (Step 7: Torque to specification) Tj ET
-BT /F2 12 Tf 56.0 151.0 Td (Assembly of P-102225 at plant PLT03) Tj ET
+BT /F2 12 Tf 56.0 151.0 Td (Assembly of P-102281 at plant PLT04) Tj ET
 BT /F2 10 Tf 56.0 131.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 131.0 Td (P-102225) Tj ET
+BT /F1 10 Tf 206.0 131.0 Td (P-102281) Tj ET
 BT /F2 10 Tf 56.0 116.0 Td (Revision:) Tj ET
 BT /F1 10 Tf 206.0 116.0 Td (A.1) Tj ET
 BT /F2 10 Tf 56.0 101.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 101.0 Td (PLT03) Tj ET
+BT /F1 10 Tf 206.0 101.0 Td (PLT04) Tj ET
 BT /F2 10 Tf 56.0 86.0 Td (Station:) Tj ET
 BT /F1 10 Tf 206.0 86.0 Td (ST-32) Tj ET
 BT /F2 10 Tf 56.0 71.0 Td (Torque \(Nm\):) Tj ET
@@ -100,7 +100,7 @@ BT /F1 10 Tf 56.0 629.0 Td (Step 8: Torque to specification) Tj ET
 endstream
 endobj
 9 0 obj
-<< /Title (Work Instruction DOC-0002165 for P-101108 rev B.1) /Producer (plmgen) >>
+<< /Title (Work Instruction DOC-0002165 for P-101136 rev B.1) /Producer (plmgen) >>
 endobj
 xref
 0 10
