@@ -34,6 +34,20 @@ Source: [Lakehouse Real-Time](https://docs.databricks.com/aws/en/compute/sql-war
 - **Write-back to Delta needs Lakehouse Sync.** Change orders written to Lakebase reach Gold through Lakehouse Sync, not synced tables. Lag depends on the sync mode, and no official latency figure was found. **Verify** before writing it into a client SLA.
 - **Read-your-writes goes to Lakebase.** Anything written and read back through the API must read from Lakebase, not from Gold, or users see stale data.
 
+## Micro-batch ingestion and immediate lifecycle changes
+
+The requirement is micro-batches (not continuous streaming) with lifecycle updates and deletes reflected immediately in Lakebase. These are the points that decide whether that holds.
+
+- **"Immediate" needs a number.** In a micro-batch design the delay of a change is the window length, plus delivery, plus apply time. A 15-minute window cannot be "immediate". Agree a target (for example, visible within two minutes) and set the window below it. The harness in `plmgen/lakebase.py` measures apply time; the window is your setting.
+- **Row-level writes are the reason to use Lakebase.** It is PostgreSQL, so a committed `UPDATE` or `DELETE` is visible to the next read. Delta tables rewrite files for the same change, which is why they are the wrong place to prove immediacy. This is general PostgreSQL behaviour, not something verified on a Lakebase instance here.
+- **Apply each window in one transaction, with guards.** Dedupe by event id, skip corrupt lines, apply in time order, and keep the last applied log sequence number on each row. An upsert wins only if newer, and a delete removes only a row that is not newer. Without these, duplicates and out-of-order delivery silently corrupt the target. The harness implements this and the tests cover it.
+- **Late data after a delete is not guarded.** Without tombstones, an older update arriving after a delete would recreate the row. Add tombstones if your sources can deliver that way.
+- **Credentials expire.** Lakebase OAuth tokens last one hour, and connections have a 24-hour idle timeout and a 3-day maximum life (see the Lakebase section above). A long-running applier must refresh its token and reconnect.
+- **First write after idle can be slow** if scale-to-zero is on (**verify** the default). Retry, and keep it out of lag figures.
+- **The lakehouse side lags separately.** Lakebase to Delta goes through Lakehouse Sync, which needs replica identity `FULL`. **Verify** how it represents deletes in the history table and what latency it gives, because "reflected immediately" may be asked of the lakehouse too.
+- **Ingestion options differ in trigger, not in correctness.** A stream triggered on an interval or run with an `availableNow` trigger both process files as micro-batches (**verify** the exact options on your runtime). The correctness rules above apply either way.
+- **Local rehearsal is not a benchmark.** Lag figures from SQLite or a local PostgreSQL are useful for checking the logic and nothing else. Measure on Lakebase.
+
 ## Lakehouse RT (SQL warehouse, Beta)
 
 - **Beta, and the feature set will change.** Databricks says performance and supported features will change before general availability. Access requires the account team. Source: [Lakehouse Real-Time](https://docs.databricks.com/aws/en/compute/sql-warehouse/real-time).

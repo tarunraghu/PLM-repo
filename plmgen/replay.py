@@ -109,3 +109,75 @@ def stream_files(source_file, target_dir, events_per_file=50, rate=None, shuffle
         if rate:
             time.sleep(len(chunk) / rate)
     return written
+
+
+# ---- delivering micro-batches in real time ---------------------------------------------------------
+
+def _now_iso():
+    from datetime import datetime, timezone
+    return datetime.now(timezone.utc).replace(tzinfo=None).isoformat(timespec="milliseconds") + "Z"
+
+
+def retime_jsonl(text, stamp):
+    """Set every event's time to `stamp`, keeping the original in orig_<field>. Corrupt lines pass through."""
+    out = []
+    for line in text.splitlines():
+        try:
+            event = json.loads(line)
+        except json.JSONDecodeError:
+            out.append(line)
+            continue
+        if isinstance(event, dict):
+            for field in ("ts", "modified_at", "occurred_at"):
+                if field in event:
+                    event.setdefault(f"orig_{field}", event[field])
+                    event[field] = stamp
+            line = json.dumps(event, separators=(",", ":"))
+        out.append(line)
+    return "\n".join(out) + "\n"
+
+
+def retime_csv(text, stamp):
+    """Set the _ts column of a delta extract to `stamp`."""
+    import csv
+    import io
+    rows = list(csv.reader(io.StringIO(text)))
+    if not rows or "_ts" not in rows[0]:
+        return text
+    at = rows[0].index("_ts")
+    for row in rows[1:]:
+        row[at] = stamp
+    out = io.StringIO()
+    csv.writer(out, lineterminator="\n").writerows(rows)
+    return out.getvalue()
+
+
+def release_batch(batch_dir, target_dir, interval=0.0, retime=False, max_windows=None):
+    """Deliver one batch folder window by window, as a micro-batch feed would.
+
+    Files land under target_dir/<batch folder name>/..., each atomically, and every file of a window
+    arrives before the pause. With retime=True the events are restamped to the moment of release, so a
+    consumer can measure its own apply lag. Returns [(window, [files delivered])]."""
+    from .lakebase import window_groups
+    batch = Path(batch_dir)
+    groups = list(window_groups(batch).items())
+    if max_windows is not None:
+        groups = groups[:max_windows]
+    delivered = []
+    for n, (window, files) in enumerate(groups):
+        stamp = _now_iso()
+        landed = []
+        for path in files:
+            dest = Path(target_dir) / batch.name / path.relative_to(batch)
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            tmp = dest.with_name(dest.name + ".tmp")
+            text = path.read_text(encoding="utf-8")
+            if retime:
+                text = retime_jsonl(text, stamp) if path.suffix == ".jsonl" else retime_csv(text, stamp)
+            tmp.write_text(text, encoding="utf-8", newline="\n")
+            tmp.replace(dest)
+            landed.append(dest)
+        delivered.append((window or "day", landed))
+        if interval and n < len(groups) - 1:
+            time.sleep(interval)
+    return delivered

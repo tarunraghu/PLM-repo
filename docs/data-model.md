@@ -35,18 +35,22 @@ Joins between sources go through the cross-reference tables. For example, `sap_p
 | Released | FREI | RELEASED |
 | Obsolete | OBSO | OBSOLETE |
 
-Parts move one way: Design, In Review, Released, Obsolete. The history is in `master_part_lifecycle_history`, where the open row is the current state.
+Parts normally move forward: Design, In Review, Released, Obsolete. The one move backwards is a review that sends a part back to Design, which is allowed only while every active parent is itself in Design. The history is in `master_part_lifecycle_history`, where the open row is the current state.
+
+A part that is still in Design and that nothing refers to yet (it is not a child in any BOM, not on a change, not linked to a document, not a replacement) can be cancelled. That is a real delete: its rows are removed from SAP, Windchill, the BOM tool and the master tables, children first, and it is recorded in `truth/withdrawn_parts.jsonl`. Its part number is never reused, because the workspace saves its ID counters.
 
 ## How the simulation behaves
 
 It runs one day at a time. Each day:
 
 1. **Parts arrive** at a steady rate. About 12% are assemblies, built from existing parts, favouring older and shared parts, so structures grow bottom-up and reach `--bom-depth` levels.
-2. **Parts progress.** A part waits a randomised time in each state. It can only move to In Review when its children are Released or In Review, and to Released when all its children are Released. A Released part may later be obsoleted, but only by replacing it in every active parent with another Released part. That writes a supersession row and end-dates the old BOM lines.
+2. **Parts progress.** A part waits a randomised time in each state. It can only move to In Review when its children are Released or In Review, and to Released when all its children are Released. About 4% of Design parts are cancelled and deleted if nothing refers to them, and about 8% of reviews send the part back to Design. A Released part may later be obsoleted, but only by replacing it in every active parent with another Released part. That writes a supersession row and end-dates the old BOM lines.
 3. **Changes arrive** against Released parts, one change at a time per part. A change goes Open, then In Approval (two to four sequential tasks, with a chance of rejection), then Approved, then Implemented. Implementing it creates the next revision of each part, writes a release, and applies any BOM deltas that are still valid.
 4. **Design-state assemblies are edited freely**, with no change control.
 5. **Master data drifts:** mass updates, primary-supplier swaps, alternate approvals, new suppliers, and the occasional SAP delete-and-recreate.
 6. **Documents arrive**, linked to one to three parts, each recording the revision current at upload.
+
+Changes are timestamped across the working day (06:00 to midnight): the average gap between changes is derived from the configured rates, so a typical day spreads over many hours and micro-batch windows hold a realistic number of events. Within a day, the order is fixed (due lifecycle moves, then due changes, then arrivals), so event types cluster by time of day rather than interleaving freely.
 
 Every random draw comes from a stream keyed on the seed and either the day or one entity. Nothing depends on how many days were run before, which is why incremental runs equal one-shot runs.
 
@@ -56,7 +60,7 @@ Every random draw comes from a stream keyed on the seed and either the day or on
 - No record is dated after the as-of date.
 - Each part has exactly one approved primary supplier, matching the master and SAP.
 - SAP status, SAP mass and Windchill state agree with the master lifecycle. Mass in grams with unit `G` is valid, given the conversion.
-- Lifecycle history is contiguous, starts at creation, and follows only legal moves. Revision history is a gap-free chain, with one current revision matching the part.
+- Lifecycle history is contiguous, starts at creation, and follows only legal moves (including the revert from In Review to Design). Revision history is a gap-free chain, with one current revision matching the part.
 - Obsolete parts have a supersession row dated on the day they became obsolete.
 - The active EBOM is acyclic and within the depth limit. A parent only contains child states it allows: Released contains Released; In Review contains Released or In Review; Design contains any active state; Obsolete contains anything.
 - MBOM lines that cite an EBOM line match an active one.

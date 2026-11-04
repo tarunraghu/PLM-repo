@@ -45,16 +45,20 @@ class Workspace:
         (self.state / MANIFEST).write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 
     # ---- state --------------------------------------------------------------------------
-    def save(self, db, cfg, manifest):
+    def save(self, db, cfg, manifest, world=None):
+        """Write the truth. Pass the world so its id counters are saved: once rows can be deleted, the
+        highest key in the tables is no longer the highest key ever issued."""
         db.save(self.state)
         manifest = {**manifest, "version": FORMAT_VERSION, "config": cfg.to_json()}
+        if world is not None:
+            manifest["counters"] = dict(world.counters)
         self.write_manifest(manifest)
 
     def load(self):
         manifest = self.read_manifest()
         cfg = Config.from_json(manifest["config"])
         db = Database.load(self.state)
-        return db, World(db, cfg), cfg, manifest
+        return db, World(db, cfg, manifest.get("counters")), cfg, manifest
 
 
 def simulate_history(cfg, on_day=None):

@@ -29,14 +29,19 @@ UOM = [("EA", "Each", "count"), ("KG", "Kilogram", "mass"), ("G", "Gram", "mass"
        ("M", "Metre", "length"), ("L", "Litre", "volume")]
 UOM_CONVERSIONS = [("EA", "EA", 1.0), ("KG", "KG", 1.0), ("G", "KG", 0.001), ("M", "M", 1.0), ("L", "L", 1.0)]
 OBSOLETE_SHARE = 0.12   # share of parts that will eventually be obsoleted
+WITHDRAW_SHARE = 0.04   # share of Design parts that are cancelled and deleted, if nothing refers to them yet
+REVERT_SHARE = 0.08     # share of reviews that send a part back to Design
 
 
 class World:
-    def __init__(self, db, cfg):
+    def __init__(self, db, cfg, counters=None):
+        """counters: saved id counters. They matter once rows can be deleted, so a deleted key is never reused."""
         self.db = db
         self.cfg = cfg
         self.seed = cfg.seed
         self.doc_jobs = []
+        self.withdrawn = []      # parts deleted since last drained, for the truth log
+        self._saved_counters = dict(counters or {})
         self.rebuild()
 
     # ---- derived state (rebuilt from tables, so a loaded database behaves like a live one) ----
@@ -64,6 +69,7 @@ class World:
                 for item in db.find("windchill_change_affected_item", "by_change", change["change_number"]):
                     self.in_flight.add(pn_of(item["wt_id"] - 1_000_000))
         self.counters = {
+            "part": max((pn_idx(pn) for pn in self.parts_order), default=0),
             "ebom": self._max_seq("bom_mgmt_ebom_line", "ebom_line_id"),
             "mbom": self._max_seq("bom_mgmt_mbom_line", "mbom_line_id"),
             "task": self._max_seq("part_release_task", "task_id"),
@@ -73,7 +79,8 @@ class World:
             "cad": self._max_seq("windchill_cad_document", "cad_doc_id"),
             "supplier": self._max_seq("master_supplier", "supplier_id"),
         }
-        self.next_part_idx = (pn_idx(self.parts_order[-1]) + 1) if self.parts_order else 1
+        for kind, saved in self._saved_counters.items():
+            self.counters[kind] = max(self.counters.get(kind, 0), saved)
         self.heap = []
         for pn in self.parts_order:
             self._schedule_part(pn)
@@ -132,9 +139,16 @@ class World:
         self.db.insert("sap_pdm_vendor", {"lifnr": sap_lifnr(n), "name1": name, "land1": country})
 
     # ---- one day ---------------------------------------------------------------------------
+    def _mean_gap(self):
+        """Average seconds between recorded changes, so a typical day spreads over the working hours.
+        Derived from the configured rates only, never from history, so runs stay reproducible."""
+        cfg = self.cfg
+        expected = 20 * (cfg.parts_per_day + cfg.changes_per_day + cfg.documents_per_day) * cfg.activity
+        return min(900.0, max(0.05, 14 * 3600 / max(expected, 1.0)))
+
     def step_day(self, day):
         db, cfg = self.db, self.cfg
-        db.begin_day(day, self.erng(day, "clock"))
+        db.begin_day(day, self.erng(day, "clock"), self._mean_gap())
         arr = self.erng(day, "arrivals")
         mult = cfg.activity
         n_cur = len(self.parts_order)
@@ -184,8 +198,7 @@ class World:
     # ---- parts -----------------------------------------------------------------------------
     def create_part(self, day):
         db = self.db
-        idx = self.next_part_idx
-        self.next_part_idx += 1
+        idx = self.nid("part")
         g = self.erng("part", idx)
         pn = pn_of(idx)
         name = f"{g.choice(COMPONENTS)} {g.choice(PART_SUFFIXES)}"
@@ -257,6 +270,8 @@ class World:
 
     def part_due(self, pn):
         row = self.db.get("master_part", pn)
+        if row is None:          # withdrawn
+            return None
         state, since = row["canonical_lifecycle"], row["lifecycle_since"]
         if state == "Design":
             return since + timedelta(days=self.erng(pn, "dwell", state, since).randint(10, 60))
@@ -274,19 +289,85 @@ class World:
             heapq.heappush(self.heap, (due, "part", pn))
 
     def process_part(self, pn, day):
+        if self.db.get("master_part", pn) is None:      # withdrawn since it was scheduled
+            return
         due = self.part_due(pn)
         if due is None or due > day:
             return
         state = self.state(pn)
+        since = self.db.get("master_part", pn)["lifecycle_since"]
         kid_states = {self.state(c) for c in sorted(self.children.get(pn, {}))}
-        if state == "Design" and kid_states <= {"Released", "In Review"}:
-            self.set_state(pn, "In Review", day)
-        elif state == "In Review" and kid_states <= {"Released"}:
-            self.set_state(pn, "Released", day)
+        if state == "Design":
+            if self.erng(pn, "withdraw").random() < WITHDRAW_SHARE and not self.is_referenced(pn):
+                self.withdraw_part(pn, day)
+            elif kid_states <= {"Released", "In Review"}:
+                self.set_state(pn, "In Review", day)
+            else:
+                heapq.heappush(self.heap, (day + timedelta(days=1), "part", pn))
+        elif state == "In Review":
+            # A review can send the part back to Design, but only while no review-or-later parent depends on it.
+            parents_ok = all(self.state(p) == "Design" for p in sorted(self.parents.get(pn, {})))
+            if self.erng(pn, "revert", since).random() < REVERT_SHARE and parents_ok:
+                self.set_state(pn, "Design", day)
+            elif kid_states <= {"Released"}:
+                self.set_state(pn, "Released", day)
+            else:
+                heapq.heappush(self.heap, (day + timedelta(days=1), "part", pn))
         elif state == "Released" and self.obsolete(pn, day):
             pass
         else:
             heapq.heappush(self.heap, (day + timedelta(days=1), "part", pn))
+
+    def is_referenced(self, pn):
+        """True when anything else points at the part, so deleting it would leave a dangling reference."""
+        idx = pn_idx(pn)
+        key, wt = bom_key(idx), wt_id_of(idx)
+        db = self.db
+        return bool(db.find("bom_mgmt_ebom_line", "by_child", key) or db.find("bom_mgmt_mbom_line", "by_child", key)
+                    or db.find("windchill_change_affected_item", "by_part", wt)
+                    or db.find("windchill_change_bom_delta", "by_parent", pn)
+                    or db.find("windchill_change_bom_delta", "by_child", pn)
+                    or db.find("project_docs_document_part_link", "by_part", pn)
+                    or db.find("windchill_part_supersession", "by_new", wt)
+                    or db.get("windchill_part_supersession", wt) is not None)
+
+    def withdraw_part(self, pn, day):
+        """Cancel and delete a part that nothing refers to yet, removing it from every source.
+        Children are removed before parents, as a CDC consumer would want to see them."""
+        db = self.db
+        idx = pn_idx(pn)
+        key, wt, matnr = bom_key(idx), wt_id_of(idx), sap_matnr(idx)
+        for line in db.find("bom_mgmt_ebom_line", "by_parent", key):
+            for eff in db.find("bom_mgmt_ebom_line_effectivity", "by_line", line["ebom_line_id"]):
+                db.delete("bom_mgmt_ebom_line_effectivity", (eff["ebom_line_id"], eff["seq"]))
+            for m in db.find("bom_mgmt_mbom_line", "by_source", line["ebom_line_id"]):
+                db.delete("bom_mgmt_mbom_line", m["mbom_line_id"])
+            db.delete("bom_mgmt_ebom_line", line["ebom_line_id"])
+        for m in db.find("bom_mgmt_mbom_line", "by_parent", key):
+            db.delete("bom_mgmt_mbom_line", m["mbom_line_id"])
+        for cad in db.find("windchill_cad_document", "by_part", wt):
+            db.delete("windchill_cad_document", cad["cad_doc_id"])
+        for rev in db.find("windchill_part_revision", "by_part", wt):
+            db.delete("windchill_part_revision", (wt, rev["version"]))
+        for sp in db.find("master_supplier_part", "by_part", pn):
+            db.delete("master_supplier_part", (sp["supplier_id"], pn))
+        db.delete("windchill_part", wt)
+        db.delete("sap_pdm_material", matnr)
+        for x in db.find("master_part_xref", "by_part", pn):
+            db.delete("master_part_xref", (x["source_system"], x["native_key"]))
+        for h in db.find("master_part_lifecycle_history", "by_part", pn):
+            db.delete("master_part_lifecycle_history", (pn, h["effective_from"]))
+        db.delete("master_part", pn)
+
+        for child in sorted(self.children.pop(pn, {})):
+            self.parents[child].pop(pn, None)
+        self.height.pop(pn, None)
+        self.parts_order.remove(pn)
+        if pn in self.asm_set:
+            self.asm_set.discard(pn)
+            self.asm_order.remove(pn)
+        self.withdrawn.append({"part_number": pn, "withdrawn_on": day.isoformat(), "matnr": matnr, "wt_id": wt,
+                               "bom_item_key": key, "state": "Design"})
 
     def set_state(self, pn, new_state, day):
         db = self.db

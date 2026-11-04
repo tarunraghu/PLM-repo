@@ -32,6 +32,17 @@ def _write_doc_jobs(jobs, target, cfg, dirty, facts_file, totals):
     return summary
 
 
+def _log_withdrawn(world, path):
+    """Append parts deleted since the last call to the truth log, so a target's missing rows can be checked."""
+    gone, world.withdrawn = world.withdrawn, []
+    if gone:
+        Path(path).parent.mkdir(parents=True, exist_ok=True)
+        with Path(path).open("a", encoding="utf-8", newline="\n") as fh:
+            for record in gone:
+                fh.write(json.dumps(record, separators=(",", ":")) + "\n")
+    return len(gone)
+
+
 def _refresh_truth(ws, db, cfg):
     facts = read_doc_facts(ws.truth / "doc_facts.jsonl")
     questions = build_questions(db, cfg, facts)
@@ -64,7 +75,7 @@ def cmd_init(args):
     world = World(db, cfg)
     world.bootstrap(cfg.start_date)
     manifest = {"lsn": {}, "event_seq": 0, "history": {"events": bool(args.history_events), "dirty": bool(args.dirty)}}
-    emitter = Emitter(ws.out, manifest, cfg.seed, args.dirty)
+    emitter = Emitter(ws.out, manifest, cfg.seed, args.dirty, args.micro_batch_minutes)
     base_docs = ws.out / "base" / "project_docs"
     facts_file = ws.truth / "doc_facts.jsonl"
     totals, pending = Counter(), []
@@ -75,6 +86,7 @@ def cmd_init(args):
             emitter.emit_day(day, changes, folder=ws.out / "history" / f"batch={day.isoformat()}")
         pending += world.doc_jobs
         world.doc_jobs = []
+        _log_withdrawn(world, ws.truth / "withdrawn_parts.jsonl")
         if len(pending) >= DOC_CHUNK and not args.no_docs:
             _write_doc_jobs(pending, base_docs, cfg, args.dirty, facts_file, totals)
             pending = []
@@ -84,7 +96,7 @@ def cmd_init(args):
         _write_doc_jobs(pending, base_docs, cfg, args.dirty, facts_file, totals)
 
     issues, _ = write_base(tables_from_db(db), cfg, ws.out / "base", args.dirty, args.base_part_rows)
-    ws.save(db, cfg, manifest)
+    ws.save(db, cfg, manifest, world)
     n_questions = _refresh_truth(ws, db, cfg)
     report = validate(tables_from_db(db), cfg.as_of_date, cfg.bom_depth)
     result = {"workspace": str(ws.root), "as_of": cfg.as_of, "profile": cfg.profile, "dirty": bool(args.dirty),
@@ -105,7 +117,7 @@ def cmd_advance(args):
     db, world, cfg, manifest = ws.load()
     first = cfg.as_of_date + timedelta(days=1)
     last = cfg.as_of_date + timedelta(days=args.days)
-    emitter = Emitter(ws.out, manifest, cfg.seed, args.dirty)
+    emitter = Emitter(ws.out, manifest, cfg.seed, args.dirty, args.micro_batch_minutes)
     facts_file = ws.truth / "doc_facts.jsonl"
     saved_activity = cfg.activity
     if args.activity:
@@ -115,6 +127,7 @@ def cmd_advance(args):
         world.step_day(day)
         changes = db.drain()
         jobs, world.doc_jobs = world.doc_jobs, []
+        _log_withdrawn(world, ws.truth / "withdrawn_parts.jsonl")
         folder = ws.out / "batches" / f"batch={day.isoformat()}"
         extra = {}
         if jobs and not args.no_docs:
@@ -127,7 +140,7 @@ def cmd_advance(args):
     cfg.as_of = last.isoformat()
     manifest.setdefault("runs", []).append({"from": first.isoformat(), "to": last.isoformat(), "dirty": bool(args.dirty),
                                             "activity": args.activity or saved_activity})
-    ws.save(db, cfg, manifest)
+    ws.save(db, cfg, manifest, world)
     n_questions = _refresh_truth(ws, db, cfg)
     report = validate(tables_from_db(db), cfg.as_of_date, cfg.bom_depth)
     print(json.dumps({"advanced": {"from": first.isoformat(), "to": last.isoformat(), "days": len(days)},
@@ -239,6 +252,98 @@ def cmd_drip(args):
     return 0
 
 
+def _lb_tables(text):
+    from .lakebase import LIFECYCLE_TABLES
+    if text == "lifecycle":
+        return list(LIFECYCLE_TABLES)
+    if text == "all":
+        return list(schema_mod.TABLES)
+    names = [t.strip() for t in text.split(",") if t.strip()]
+    unknown = [t for t in names if t not in schema_mod.TABLES]
+    if unknown:
+        raise SystemExit(f"unknown tables: {', '.join(unknown)}")
+    return names
+
+
+def _lb_totals(summaries):
+    keys = ("events", "upserts", "deletes", "duplicates", "corrupt")
+    return {"windows": len(summaries), **{k: sum(s[k] for s in summaries) for k in keys}}
+
+
+def cmd_lb_init(args):
+    from .lakebase import Target, create_tables
+    target = Target(args.url, args.schema)
+    tables = _lb_tables(args.tables)
+    create_tables(target, tables)
+    target.close()
+    print(json.dumps({"created": tables, "target": args.url.split("@")[-1]}, indent=2))
+    return 0
+
+
+def cmd_lb_load(args):
+    from .lakebase import Target, create_tables, load_base
+    ws = Workspace(args.workspace)
+    if not ws.exists():
+        _say(f"No workspace at {ws.root}.")
+        return 2
+    target = Target(args.url, args.schema)
+    tables = _lb_tables(args.tables)
+    create_tables(target, tables)
+    loaded = load_base(target, tables, ws.out / "base")
+    target.close()
+    print(json.dumps({"loaded_rows": loaded}, indent=2))
+    return 0
+
+
+def cmd_lb_apply(args):
+    from .lakebase import Target, apply_batches, create_tables
+    ws = Workspace(args.workspace)
+    if not ws.exists():
+        _say(f"No workspace at {ws.root}.")
+        return 2
+    target = Target(args.url, args.schema)
+    tables = _lb_tables(args.tables)
+    create_tables(target, tables)
+    summaries = apply_batches(target, ws.out / "batches", tables, args.first, args.last)
+    target.close()
+    print(json.dumps(_lb_totals(summaries), indent=2))
+    return 0
+
+
+def cmd_lb_watch(args):
+    from .lakebase import Target, create_tables, lag_summary, watch
+    target = Target(args.url, args.schema)
+    tables = _lb_tables(args.tables)
+    create_tables(target, tables)
+    summaries = watch(target, args.landing, tables, args.interval, args.idle_polls, args.max_seconds)
+    lag = lag_summary(target)
+    target.close()
+    print(json.dumps({**_lb_totals(summaries), "lag": lag}, indent=2))
+    return 0
+
+
+def cmd_lb_verify(args):
+    from .lakebase import Target, lag_summary, verify
+    ws = Workspace(args.workspace)
+    if not ws.exists():
+        _say(f"No workspace at {ws.root}.")
+        return 2
+    target = Target(args.url, args.schema)
+    report = verify(target, _lb_tables(args.tables), ws.state, ws.truth / "withdrawn_parts.jsonl")
+    report["lag"] = lag_summary(target)
+    target.close()
+    print(json.dumps(report, indent=2, default=str))
+    return 0 if report["problems"] == 0 else 1
+
+
+def cmd_release(args):
+    from .replay import release_batch
+    delivered = release_batch(args.batch, args.target, args.interval, args.retime, args.max_windows)
+    print(json.dumps({"windows": len(delivered), "files": sum(len(f) for _, f in delivered),
+                      "windows_delivered": [w for w, _ in delivered], "retimed": bool(args.retime)}, indent=2))
+    return 0
+
+
 def cmd_replay(args):
     from .replay import stream_files
     files = stream_files(args.source, args.target, args.events_per_file, args.rate)
@@ -274,6 +379,8 @@ def build_parser():
     i.add_argument("--dirty", action="store_true", help="inject known problems into the delivered data")
     i.add_argument("--no-docs", action="store_true", help="skip writing document files")
     i.add_argument("--history-events", action="store_true", help="also write the whole history as daily event batches")
+    i.add_argument("--micro-batch-minutes", type=int, default=0,
+                   help="with --history-events, split each day's events into windows of this many minutes")
     i.add_argument("--force", action="store_true", help="replace an existing workspace")
     i.set_defaults(func=cmd_init)
 
@@ -283,6 +390,8 @@ def build_parser():
     a.add_argument("--activity", type=float, help="activity multiplier for this run only (a burst)")
     a.add_argument("--dirty", action="store_true")
     a.add_argument("--no-docs", action="store_true")
+    a.add_argument("--micro-batch-minutes", type=int, default=0,
+                   help="split each day's events into one file per window of this many minutes (0: one file per day)")
     a.set_defaults(func=cmd_advance)
 
     v = sub.add_parser("validate", help="check keys, time order and business rules")
@@ -326,6 +435,49 @@ def build_parser():
     d.add_argument("--pattern", default="part-*.csv")
     d.add_argument("--max-ticks", type=int, help="stop after this many rounds")
     d.set_defaults(func=cmd_drip)
+
+    rl = sub.add_parser("release", help="deliver one batch window by window, as a micro-batch feed would")
+    rl.add_argument("--batch", required=True, help="a batch folder, for example data/plm/out/batches/batch=2026-11-04")
+    rl.add_argument("--target", required=True, help="landing folder; files land under <target>/<batch folder name>/")
+    rl.add_argument("--interval", type=float, default=0.0, help="seconds between windows (default: no pause)")
+    rl.add_argument("--retime", action="store_true",
+                    help="restamp events to the moment of release, so a consumer can measure its own lag")
+    rl.add_argument("--max-windows", type=int)
+    rl.set_defaults(func=cmd_release)
+
+    lb = sub.add_parser("lakebase", help="apply micro-batches to a Postgres-compatible target and verify it")
+    lbs = lb.add_subparsers(dest="action", required=True)
+
+    def lb_common(parser, workspace=True):
+        parser.add_argument("--url", required=True,
+                            help="sqlite:///file.db or postgresql://user:password@host:5432/database")
+        parser.add_argument("--schema", default="plm_mirror", help="PostgreSQL schema for the mirror tables")
+        parser.add_argument("--tables", default="lifecycle",
+                            help="'lifecycle' (default), 'all', or a comma-separated list of table names")
+        if workspace:
+            parser.add_argument("--workspace", default="data/plm")
+
+    x = lbs.add_parser("init", help="create the mirror tables")
+    lb_common(x, workspace=False)
+    x.set_defaults(func=cmd_lb_init)
+    x = lbs.add_parser("load", help="load the base extract into the mirror tables")
+    lb_common(x)
+    x.set_defaults(func=cmd_lb_load)
+    x = lbs.add_parser("apply", help="apply the workspace's batches, one transaction per micro-batch window")
+    lb_common(x)
+    x.add_argument("--first", help="first batch date to apply (YYYY-MM-DD)")
+    x.add_argument("--last", help="last batch date to apply")
+    x.set_defaults(func=cmd_lb_apply)
+    x = lbs.add_parser("watch", help="apply windows as they land in a folder (see the release command)")
+    lb_common(x, workspace=False)
+    x.add_argument("--landing", required=True)
+    x.add_argument("--interval", type=float, default=1.0, help="seconds between polls")
+    x.add_argument("--idle-polls", type=int, default=3, help="stop after this many polls with nothing new")
+    x.add_argument("--max-seconds", type=float, default=600)
+    x.set_defaults(func=cmd_lb_watch)
+    x = lbs.add_parser("verify", help="compare the mirror with the truth, including deleted parts")
+    lb_common(x)
+    x.set_defaults(func=cmd_lb_verify)
 
     r = sub.add_parser("replay", help="release an events file in small files over time, to feed a streaming job")
     r.add_argument("--source", required=True, help="a JSONL events file, for example from out/batches/")

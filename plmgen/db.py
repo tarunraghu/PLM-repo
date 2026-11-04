@@ -62,17 +62,24 @@ class Database:
         self.changes = []
         self.now = datetime(2000, 1, 1)
         self._clock_rng = None
+        self._mean_gap = 0.045
+        self._day_end = None
         self._seq = 0
 
     # ---- clock ------------------------------------------------------------------------------
-    def begin_day(self, day, clock_rng):
-        """Start a simulated day. Timestamps move forward from 06:00 in small random steps."""
+    def begin_day(self, day, clock_rng, mean_gap=0.045):
+        """Start a simulated day. Timestamps move forward from 06:00 with random gaps averaging
+        mean_gap seconds, so a day's activity spreads across the working day when the mean is large."""
         self.now = datetime.combine(day, time(6, 0))
         self._clock_rng = clock_rng
+        self._mean_gap = mean_gap
+        self._day_end = datetime.combine(day, time(23, 59, 59))
 
     def _stamp(self):
         if self._clock_rng is not None:
-            self.now += timedelta(microseconds=self._clock_rng.randint(1_000, 90_000))
+            step = timedelta(seconds=max(0.001, self._clock_rng.expovariate(1.0 / self._mean_gap)))
+            # Past the end of the day, keep ordering with microsecond steps instead of spilling into tomorrow.
+            self.now = self.now + step if self.now + step <= self._day_end else self.now + timedelta(microseconds=1)
 
     # ---- validation -------------------------------------------------------------------------
     def _normalise(self, table, row):

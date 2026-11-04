@@ -19,7 +19,7 @@ import urllib.error
 import urllib.request
 import zipfile
 from contextlib import redirect_stderr, redirect_stdout
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -29,10 +29,11 @@ from plmgen.api import make_server
 from plmgen.config import Config
 from plmgen.db import Database, read_rows
 from plmgen.engine import Workspace, simulate_days, simulate_history
+from plmgen.lakebase import (LIFECYCLE_TABLES, Target, apply_records, create_tables, lag_summary, verify, watch)
 from plmgen.outputs import Emitter, inject_snapshot_problems, write_base
 from plmgen.questions import build_questions
-from plmgen.replay import apply_cdc, drip, read_events, rows_to_json_state
-from plmgen.util import idx_from_bom_key, pn_of, rev_index, rev_label
+from plmgen.replay import apply_cdc, drip, read_events, release_batch, rows_to_json_state
+from plmgen.util import idx_from_bom_key, pn_idx as pn_idx_of, pn_of, rev_index, rev_label
 from plmgen.validate import tables_from_db, tables_from_dir, validate
 
 
@@ -180,10 +181,10 @@ class SimulationTests(TinyWorld):
                 full.as_of = (full.as_of_date + timedelta(days=extra)).isoformat()
                 db_a, _ = simulate_history(full)
                 part = Config.from_json({**full.to_json(), "as_of": (full.as_of_date - timedelta(days=extra)).isoformat()})
-                db_b, _ = simulate_history(part)
+                db_b, world_b = simulate_history(part)
                 with tempfile.TemporaryDirectory() as tmp:
                     ws = Workspace(tmp)
-                    ws.save(db_b, part, {})
+                    ws.save(db_b, part, {}, world_b)
                     db_c, world_c, _, _ = ws.load()
                     simulate_days(world_c, part.as_of_date + timedelta(days=1), full.as_of_date)
                     db_a.save(Path(tmp) / "a")
@@ -623,6 +624,223 @@ class CliTests(unittest.TestCase):
             self.assertEqual(run_cli("validate", "--workspace", ws)[0], 0)
             self.assertEqual(run_cli("validate", "--workspace", ws, "--base")[0], 1)
             self.assertEqual(run_cli("validate", "--workspace", ws, "--base", "--allow-violations")[0], 0)
+
+
+class LifecycleChangeTests(unittest.TestCase):
+    """Real deletes and corrections to the product lifecycle, and a realistic intraday clock."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.cfg = Config.from_profile("small")
+        cls.db, cls.world = simulate_history(cls.cfg)
+        cls.tables = tables_from_db(cls.db)
+
+    def test_withdrawn_parts_are_gone_from_every_table(self):
+        gone = [w["part_number"] for w in self.world.withdrawn]
+        self.assertGreater(len(gone), 50)
+        wts = {w["wt_id"] for w in self.world.withdrawn}
+        for table, spec in schema.TABLES.items():
+            for row in self.tables[table]:
+                for col in spec.col_names:
+                    value = row[col]
+                    self.assertNotIn(value, gone, f"{table}.{col}")
+                    if col in ("wt_id", "old_wt_id", "new_wt_id"):
+                        self.assertNotIn(value, wts, f"{table}.{col}")
+        self.assertEqual(validate(self.tables, self.cfg.as_of_date, self.cfg.bom_depth)["total_violations"], 0)
+
+    def test_only_unused_design_parts_are_withdrawn(self):
+        for w in self.world.withdrawn:
+            self.assertEqual(w["state"], "Design")
+
+    def test_review_can_send_a_part_back_to_design(self):
+        history = {}
+        for h in self.tables["master_part_lifecycle_history"]:
+            history.setdefault(h["part_number"], []).append(h)
+        reverts = 0
+        for rows in history.values():
+            rows.sort(key=lambda h: h["effective_from"])
+            reverts += sum(1 for a, b in zip(rows, rows[1:])
+                           if (a["lifecycle_state"], b["lifecycle_state"]) == ("In Review", "Design"))
+        self.assertGreater(reverts, 20)
+
+    def test_deleted_part_numbers_are_never_reused(self):
+        cfg = Config.from_profile("tiny")
+        db, world = simulate_history(cfg)
+        day = cfg.as_of_date + timedelta(days=1)
+        db.begin_day(day, world.erng(day, "clock"))
+        world.create_part(day)
+        newest = world.parts_order[-1]
+        world.withdraw_part(newest, day)
+        issued = world.counters["part"]
+        with tempfile.TemporaryDirectory() as tmp:
+            ws = Workspace(tmp)
+            ws.save(db, cfg, {}, world)
+            _, reloaded, _, _ = ws.load()
+        self.assertEqual(reloaded.counters["part"], issued)
+        day2 = day + timedelta(days=1)
+        reloaded.db.begin_day(day2, reloaded.erng(day2, "clock"))
+        reloaded.create_part(day2)
+        self.assertEqual(pn_idx_of(reloaded.parts_order[-1]), issued + 1)
+
+    def test_events_are_spread_across_the_working_day(self):
+        cfg = Config.from_profile("small")
+        db, world = simulate_history(cfg, on_day=None)
+        busy, hours = 0, set()
+        day = cfg.as_of_date
+        for offset in range(1, 61):
+            world.step_day(day + timedelta(days=offset))
+            changes = world.db.drain()
+            hours.update(c.ts.hour for c in changes)
+            if len(changes) > 5 and (changes[-1].ts - changes[0].ts) > timedelta(hours=4):
+                busy += 1
+        self.assertGreaterEqual(len(hours), 12)
+        self.assertGreater(busy, 30)
+
+    def test_micro_batch_files_hold_exactly_the_days_events(self):
+        cfg = Config.from_profile("tiny")
+        db, world = simulate_history(cfg)
+        world.cfg.activity = 8.0
+        with tempfile.TemporaryDirectory() as tmp:
+            daily, windows = Emitter(Path(tmp) / "d", {}, cfg.seed), Emitter(Path(tmp) / "w", {}, cfg.seed, micro_minutes=15)
+            first = cfg.as_of_date + timedelta(days=1)
+            captured = []
+            simulate_days(world, first, first + timedelta(days=10), on_day=lambda d, ch: captured.append((d, ch)))
+            for day, changes in captured:
+                daily.emit_day(day, changes)
+                windows.emit_day(day, changes)
+
+            def event_ids(root, pattern):
+                return sorted(json.loads(line)["event_id"] for p in Path(root).glob(pattern)
+                              for line in p.read_text().splitlines())
+
+            self.assertEqual(event_ids(Path(tmp) / "d", "batches/*/sap_pdm/cdc/*.jsonl"),
+                             event_ids(Path(tmp) / "w", "batches/*/sap_pdm/cdc/*.jsonl"))
+            for p in (Path(tmp) / "w").glob("batches/*/sap_pdm/cdc/events-*.jsonl"):
+                start = int(p.stem.split("-")[1][:2]) * 60 + int(p.stem.split("-")[1][2:])
+                for line in p.read_text().splitlines():
+                    ts = datetime.fromisoformat(json.loads(line)["ts"].rstrip("Z"))
+                    self.assertTrue(start <= ts.hour * 60 + ts.minute < start + 15, p.name)
+            many = list((Path(tmp) / "w").glob("batches/*/sap_pdm/cdc/events-*.jsonl"))
+            self.assertGreater(len(many), len(list((Path(tmp) / "d").glob("batches/*/sap_pdm/cdc/events.jsonl"))))
+
+
+class LakebaseHarnessTests(unittest.TestCase):
+    """Applying micro-batches to a Postgres-compatible target must reproduce the truth exactly."""
+
+    def build(self, root, dirty, days=20, window=15, profile="tiny", activity=15):
+        ws = str(Path(root) / "ws")
+        for args in (("init", "--profile", profile, "--workspace", ws, "--no-docs") + (("--dirty",) if dirty else ()),
+                     ("advance", "--workspace", ws, "--days", str(days), "--no-docs", "--micro-batch-minutes", str(window),
+                      "--activity", str(activity)) + (("--dirty",) if dirty else ())):
+            self.assertEqual(run_cli(*args)[0], 0)
+        return ws
+
+    def test_clean_and_dirty_micro_batches_converge_on_the_truth(self):
+        for dirty in (False, True):
+            with self.subTest(dirty=dirty), tempfile.TemporaryDirectory() as tmp:
+                ws = self.build(tmp, dirty)
+                url = f"sqlite:///{Path(tmp) / 't.db'}"
+                self.assertEqual(run_cli("lakebase", "load", "--url", url, "--workspace", ws)[0], 0)
+                code, out, _ = run_cli("lakebase", "apply", "--url", url, "--workspace", ws)
+                totals = json.loads(out)
+                self.assertEqual(code, 0)
+                self.assertGreater(totals["deletes"], 0)
+                if dirty:
+                    self.assertGreater(totals["duplicates"], 0)
+                    self.assertGreater(totals["corrupt"], 0)
+                code, out, _ = run_cli("lakebase", "verify", "--url", url, "--workspace", ws)
+                report = json.loads(out)
+                self.assertEqual(code, 0, report)
+                self.assertEqual(report["problems"], 0)
+                self.assertGreater(report["withdrawn_parts"]["deleted_in_source"], 0)
+                self.assertEqual(report["withdrawn_parts"]["still_present_in_target"], 0)
+
+    def test_verify_notices_a_row_that_never_reflected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            ws = self.build(tmp, False, days=3, window=60)
+            url = f"sqlite:///{Path(tmp) / 't.db'}"
+            run_cli("lakebase", "load", "--url", url, "--workspace", ws)
+            run_cli("lakebase", "apply", "--url", url, "--workspace", ws)
+            target = Target(url)
+            victim = target.execute("SELECT part_number FROM master_part LIMIT 1").fetchone()[0]
+            target.execute("UPDATE master_part SET canonical_lifecycle = 'Obsolete' WHERE part_number = ?", [victim])
+            target.execute("DELETE FROM windchill_part WHERE number = ?", [victim])
+            target.commit()
+            target.close()
+            code, out, _ = run_cli("lakebase", "verify", "--url", url, "--workspace", ws)
+            report = json.loads(out)
+            self.assertEqual(code, 1)
+            self.assertGreaterEqual(report["master_part"]["different"], 1)
+            self.assertGreaterEqual(report["windchill_part"]["missing"], 1)
+
+    def test_replaying_a_batch_twice_or_late_changes_nothing(self):
+        cfg = Config.from_profile("tiny")
+        db, _ = simulate_history(cfg)
+        part = db.rows("master_part")[0]
+        target = Target("sqlite:///:memory:")
+        create_tables(target, ["master_part"])
+        newer = {**part, "canonical_lifecycle": "Released"}
+        older = {**part, "canonical_lifecycle": "Design"}
+        when = datetime(2026, 11, 4, 9, 0)
+
+        def record(row, lsn, op="u"):
+            return {"table": "master_part", "op": op, "key": (part["part_number"],), "lsn": lsn, "ts": when,
+                    "row": None if op == "d" else row, "uid": f"e{lsn}"}
+
+        def stored():
+            return target.execute("SELECT canonical_lifecycle, _lsn FROM master_part").fetchall()
+
+        apply_records(target, [record(newer, 10)])
+        apply_records(target, [record(newer, 10)])                 # the same event again
+        apply_records(target, [record(older, 5)])                  # an older event arriving late
+        self.assertEqual(stored(), [("Released", 10)])
+        apply_records(target, [record(newer, 4, "d")])             # a stale delete must not remove the row
+        self.assertEqual(stored(), [("Released", 10)])
+        apply_records(target, [record(newer, 11, "d")])            # a current delete does
+        self.assertEqual(stored(), [])
+
+    def test_released_micro_batches_are_applied_as_they_land_and_lag_is_measured(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            ws = self.build(tmp, False, days=3, window=60)
+            url = f"sqlite:///{Path(tmp) / 't.db'}"
+            run_cli("lakebase", "load", "--url", url, "--workspace", ws)
+            batches = sorted((Path(ws) / "out" / "batches").glob("batch=*"))
+            delivered = [release_batch(b, Path(tmp) / "landing", retime=True) for b in batches]
+            self.assertGreater(sum(len(d) for d in delivered), 10)
+            target = Target(url)
+            summaries = watch(target, Path(tmp) / "landing", list(LIFECYCLE_TABLES), interval=0.02, idle_polls=2)
+            self.assertGreater(len(summaries), 10)
+            lag = lag_summary(target)
+            self.assertLess(lag["apply_lag_seconds_oldest_event"]["max"], 30)
+            self.assertGreaterEqual(lag["apply_lag_seconds_oldest_event"]["p50"], 0)
+            self.assertEqual(verify(target, list(LIFECYCLE_TABLES), Path(ws) / "state")["problems"], 0)
+            target.close()
+            sample = next((Path(tmp) / "landing").rglob("cdc/events-*.jsonl")).read_text().splitlines()[0]
+            event = json.loads(sample)
+            self.assertIn("orig_ts", event)
+            self.assertNotEqual(event["ts"], event["orig_ts"])
+
+    def test_postgres_runs_the_lakebase_ddl_and_the_applier_when_available(self):
+        try:
+            import pgserver
+            import psycopg
+        except ImportError:
+            self.skipTest("pgserver / psycopg not installed")
+        with tempfile.TemporaryDirectory() as tmp:
+            ws = self.build(tmp, True, days=7, window=30)
+            server = pgserver.get_server(Path(tmp) / "pg", cleanup_mode="stop")
+            try:
+                uri = server.get_uri()
+                with psycopg.connect(uri) as conn:       # the curated Lakebase schema must execute as written
+                    conn.execute((Path(__file__).resolve().parent.parent / "sql" / "lakebase" / "001_schema.sql").read_text(encoding="utf-8"))
+                    self.assertGreaterEqual(conn.execute("SELECT count(*) FROM information_schema.tables "
+                                                         "WHERE table_schema = 'plm'").fetchone()[0], 20)
+                self.assertEqual(run_cli("lakebase", "load", "--url", uri, "--workspace", ws)[0], 0)
+                self.assertEqual(run_cli("lakebase", "apply", "--url", uri, "--workspace", ws)[0], 0)
+                code, out, _ = run_cli("lakebase", "verify", "--url", uri, "--workspace", ws)
+                self.assertEqual(code, 0, out)
+            finally:
+                server.cleanup()
 
 
 if __name__ == "__main__":

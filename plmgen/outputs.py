@@ -75,18 +75,41 @@ def write_delta_csv(path, table, records):
 
 # ---- per-day delivery ---------------------------------------------------------------------------
 
+def _expected_count(drng, expected):
+    """Round an expected number of events to a whole number, randomly, so small files add up correctly."""
+    whole = int(expected)
+    return whole + (1 if drng.random() < expected - whole else 0)
+
+
 class Emitter:
-    def __init__(self, out_dir, manifest, seed, dirty=False):
+    def __init__(self, out_dir, manifest, seed, dirty=False, micro_minutes=0):
+        """micro_minutes > 0 splits each day's output into one file per time window of that many minutes
+        (events-0615.jsonl holds 06:15 up to the next window). 0 writes one file per source per day."""
         self.out = Path(out_dir)
         self.manifest = manifest
         self.seed = seed
         self.dirty = dirty
+        self.micro_minutes = micro_minutes
         self.manifest.setdefault("lsn", {})
         self.manifest.setdefault("event_seq", 0)
 
     def _next_lsn(self, source):
         self.manifest["lsn"][source] = self.manifest["lsn"].get(source, 0) + 1
         return self.manifest["lsn"][source]
+
+    def _window(self, ts):
+        if not self.micro_minutes:
+            return ""
+        minutes = ts.hour * 60 + ts.minute
+        start = minutes - minutes % self.micro_minutes
+        return f"{start // 60:02d}{start % 60:02d}"
+
+    def _grouped(self, items):
+        """items: [(ts, payload)] in time order. Returns {window label: [payload]} in time order."""
+        groups = {}
+        for ts, payload in items:
+            groups.setdefault(self._window(ts), []).append(payload)
+        return dict(sorted(groups.items()))
 
     def emit_day(self, day, changes, folder=None, extra=None):
         """Write one day's deliveries. Returns a summary dict (also written as _batch.json).
@@ -99,62 +122,65 @@ class Emitter:
         for change in changes:
             by_source.setdefault(TABLES[change.table].source, []).append(change)
 
+        def write_events(items, subfolder, stem, kind, label=None):
+            for window, events in self._grouped(items).items():
+                lines = self._degrade_events(events, drng, injected, label) if label else events
+                name = f"{stem}-{window}.jsonl" if window else f"{stem}.jsonl"
+                path = folder / subfolder / name
+                write_jsonl(path, lines)
+                files.append({"path": path.relative_to(folder).as_posix(), "rows": len(lines), "kind": kind,
+                              "window": window or None})
+
         # SAP PDM: CDC stream.
         sap_events = []
         for change in by_source.get("sap_pdm", []):
             lsn = self._next_lsn("sap_pdm")
-            sap_events.append({
+            sap_events.append((change.ts, {
                 "event_id": f"sap_pdm-{lsn:012d}", "source": "sap_pdm", "table": change.table, "op": OPS[change.op],
                 "ts": iso_ts(change.ts), "lsn": lsn, "key": json_key(change.table, change.pk),
-                "before": json_row(change.table, change.before), "after": json_row(change.table, change.after)})
-        if sap_events:
-            lines = self._degrade_events(sap_events, drng, injected, "sap_pdm")
-            path = folder / "sap_pdm" / "cdc" / "events.jsonl"
-            write_jsonl(path, lines)
-            files.append({"path": path.relative_to(folder).as_posix(), "rows": len(lines), "kind": "cdc"})
+                "before": json_row(change.table, change.before), "after": json_row(change.table, change.after)}))
+        write_events(sap_events, "sap_pdm/cdc", "events", "cdc", "sap_pdm")
 
         # Part release: workflow events.
         workflow = []
         for change in by_source.get("part_release", []):
             event = self._workflow_event(change)
             if event:
-                workflow.append(event)
-        if workflow:
-            lines = self._degrade_events(workflow, drng, injected, "part_release")
-            path = folder / "part_release" / "events" / "events.jsonl"
-            write_jsonl(path, lines)
-            files.append({"path": path.relative_to(folder).as_posix(), "rows": len(lines), "kind": "events"})
+                workflow.append((change.ts, event))
+        write_events(workflow, "part_release/events", "events", "events", "part_release")
 
         # Windchill: change log behind the REST/OData API.
         log = []
         for change in by_source.get("windchill", []):
             lsn = self._next_lsn("windchill")
             row = change.after if change.after is not None else change.before
-            log.append({"entity": WINDCHILL_ENTITY[change.table], "table": change.table, "op": OPS[change.op],
-                        "lsn": lsn, "modified_at": iso_ts(change.ts), "key": json_key(change.table, change.pk),
-                        "data": json_row(change.table, row)})
-        if log:
-            path = folder / "windchill" / "changelog" / "changes.jsonl"
-            write_jsonl(path, log)
-            files.append({"path": path.relative_to(folder).as_posix(), "rows": len(log), "kind": "changelog"})
+            log.append((change.ts, {
+                "entity": WINDCHILL_ENTITY[change.table], "table": change.table, "op": OPS[change.op], "lsn": lsn,
+                "modified_at": iso_ts(change.ts), "key": json_key(change.table, change.pk),
+                "data": json_row(change.table, row)}))
+        write_events(log, "windchill/changelog", "changes", "changelog")
 
         # BOM management and master data: delta CSV extracts.
-        for source, kind in (("bom_mgmt", "delta"), ("master", "delta")):
+        for source in ("bom_mgmt", "master"):
             per_table = {}
             for change in by_source.get(source, []):
                 row = change.after if change.after is not None else change.before
-                per_table.setdefault(change.table, []).append((OPS[change.op], change.seq, change.ts, row))
-            for table, records in sorted(per_table.items()):
-                if self.dirty and len(records) >= 20:
-                    dupes = [records[drng.randrange(len(records))] for _ in range(max(1, len(records) // 50))]
-                    records = records + dupes
-                    injected[f"{source}_duplicate_rows"] += len(dupes)
-                path = folder / source / "delta" / f"{table}.csv"
-                write_delta_csv(path, table, records)
-                files.append({"path": path.relative_to(folder).as_posix(), "rows": len(records), "kind": "delta"})
+                per_table.setdefault(change.table, []).append((change.ts, (OPS[change.op], change.seq, change.ts, row)))
+            for table, items in sorted(per_table.items()):
+                for window, records in self._grouped(items).items():
+                    if self.dirty:
+                        dupes = [records[drng.randrange(len(records))]
+                                 for _ in range(_expected_count(drng, len(records) * 0.02))]
+                        records = records + dupes
+                        injected[f"{source}_duplicate_rows"] += len(dupes)
+                    name = f"{table}-{window}.csv" if window else f"{table}.csv"
+                    path = folder / source / "delta" / name
+                    write_delta_csv(path, table, records)
+                    files.append({"path": path.relative_to(folder).as_posix(), "rows": len(records),
+                                  "kind": "delta", "window": window or None})
 
-        summary = {"date": day.isoformat(), "dirty": self.dirty, "files": files, "injected": dict(injected),
-                   "changes": len(changes), **(extra or {})}
+        summary = {"date": day.isoformat(), "dirty": self.dirty, "micro_batch_minutes": self.micro_minutes,
+                   "files": files, "injected": dict(injected), "changes": len(changes), **(extra or {})}
         folder.mkdir(parents=True, exist_ok=True)
         (folder / "_batch.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
         return summary
@@ -176,7 +202,8 @@ class Emitter:
         return None
 
     def _degrade_events(self, events, drng, injected, label):
-        """Dirty mode: duplicates, out-of-order delivery, unexpected fields and a corrupt line."""
+        """Dirty mode: duplicates, out-of-order delivery, unexpected fields and a corrupt line.
+        Rates are per event, so a tiny micro-batch file is rarely touched and a big one usually is."""
         if not self.dirty:
             return events
         lines = [dict(e) for e in events]
@@ -184,17 +211,17 @@ class Emitter:
             if drng.random() < 0.03:
                 e["extra"] = {"hint": "unexpected field"}
                 injected[f"{label}_unexpected_field"] += 1
-        dupes = [dict(lines[drng.randrange(len(lines))]) for _ in range(max(1, len(lines) // 50))]
+        dupes = [dict(lines[drng.randrange(len(lines))]) for _ in range(_expected_count(drng, len(lines) * 0.02))]
         injected[f"{label}_duplicate_events"] += len(dupes)
         lines.extend(dupes)
-        for _ in range(max(1, len(lines) // 20)):
+        for _ in range(_expected_count(drng, len(lines) * 0.05)):
             i, j = drng.randrange(len(lines)), drng.randrange(len(lines))
             if i != j:
                 lines[i], lines[j] = lines[j], lines[i]
                 injected[f"{label}_out_of_order_swaps"] += 1
-        if len(lines) >= 10:
+        if drng.random() < min(1.0, len(lines) / 20):
             broken = json.dumps(lines[drng.randrange(len(lines))], separators=(",", ":"))
-            lines.insert(drng.randrange(len(lines)), broken[: len(broken) // 2])
+            lines.insert(drng.randrange(len(lines) + 1), broken[: len(broken) // 2])
             injected[f"{label}_corrupt_lines"] += 1
         return lines
 

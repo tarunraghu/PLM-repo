@@ -26,7 +26,9 @@ PAST_DATE_COLUMNS = [
     ("part_release_release", "released_on"), ("project_docs_document", "uploaded_on"),
     ("bom_mgmt_ebom_line", "effective_from"), ("bom_mgmt_ebom_line", "effective_to"),
 ]
-LEGAL_TRANSITIONS = {("Design", "In Review"), ("In Review", "Released"), ("Released", "Obsolete")}
+# Review can send a part back to Design. Everything else only moves forward.
+LEGAL_TRANSITIONS = {("Design", "In Review"), ("In Review", "Design"), ("In Review", "Released"),
+                     ("Released", "Obsolete")}
 
 
 def tables_from_db(db):

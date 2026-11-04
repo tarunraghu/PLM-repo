@@ -11,8 +11,11 @@ requires-python = ">=3.10"
 dependencies = ["pillow>=10.1"]
 
 [project.optional-dependencies]
-# Used by the tests to check output with real parsers. The generator itself does not need them.
-dev = ["pypdf", "python-docx", "pglast"]
+# The PostgreSQL driver, needed to apply micro-batches to Postgres or Lakebase.
+lakebase = ["psycopg[binary]"]
+# Used by the tests to check output with real parsers and a real local PostgreSQL.
+# The generator itself does not need them.
+dev = ["pypdf", "python-docx", "pglast", "psycopg[binary]", "pgserver"]
 
 [project.scripts]
 plmgen = "plmgen.cli:main"
