@@ -15,83 +15,81 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 3239 >>
+<< /Length 2939 >>
 stream
-BT /F2 18 Tf 56.0 770.0 Td (TEST REPORT) Tj ET
-BT /F2 10 Tf 56.0 746.0 Td (Document ID:) Tj ET
-BT /F1 10 Tf 206.0 746.0 Td (DOC-0002588) Tj ET
-BT /F2 10 Tf 56.0 731.0 Td (Project:) Tj ET
-BT /F1 10 Tf 206.0 731.0 Td (PRJ-003) Tj ET
-BT /F2 10 Tf 56.0 716.0 Td (Uploaded on:) Tj ET
-BT /F1 10 Tf 206.0 716.0 Td (2026-03-14) Tj ET
-BT /F2 10 Tf 56.0 701.0 Td (Uploaded by:) Tj ET
-BT /F1 10 Tf 206.0 701.0 Td (user128) Tj ET
-BT /F2 10 Tf 56.0 686.0 Td (Export class:) Tj ET
-BT /F1 10 Tf 206.0 686.0 Td (EAR99) Tj ET
-BT /F2 10 Tf 56.0 665.0 Td (Report No:) Tj ET
-BT /F1 10 Tf 206.0 665.0 Td (TR-511640) Tj ET
-BT /F2 10 Tf 56.0 650.0 Td (Laboratory:) Tj ET
-BT /F1 10 Tf 206.0 650.0 Td (Central Test) Tj ET
-BT /F2 10 Tf 56.0 635.0 Td (Test Date:) Tj ET
-BT /F1 10 Tf 206.0 635.0 Td (2026-03-14) Tj ET
-BT /F2 12 Tf 56.0 604.0 Td (Part P-100583 rev B.1) Tj ET
-BT /F2 9.5 Tf 59.0 582.0 Td (Test) Tj ET
-BT /F2 9.5 Tf 179.8 582.0 Td (Requirement) Tj ET
-BT /F2 9.5 Tf 300.5 582.0 Td (Measured) Tj ET
-BT /F2 9.5 Tf 421.2 582.0 Td (Result) Tj ET
-0.5 w 56.0 578.0 m 539.0 578.0 l S
-BT /F1 9.5 Tf 59.0 564.0 Td (Dimensional check) Tj ET
-BT /F1 9.5 Tf 179.8 564.0 Td (0.05 - 0.5 mm) Tj ET
-BT /F1 9.5 Tf 300.5 564.0 Td (0.078) Tj ET
-BT /F1 9.5 Tf 421.2 564.0 Td (PASS) Tj ET
-0.5 w 56.0 560.0 m 539.0 560.0 l S
-BT /F1 9.5 Tf 59.0 546.0 Td (Salt spray) Tj ET
-BT /F1 9.5 Tf 179.8 546.0 Td (48 - 500 hours) Tj ET
-BT /F1 9.5 Tf 300.5 546.0 Td (537.432) Tj ET
-BT /F1 9.5 Tf 421.2 546.0 Td (FAIL) Tj ET
-0.5 w 56.0 542.0 m 539.0 542.0 l S
-BT /F1 9.5 Tf 59.0 528.0 Td (Flatness) Tj ET
-BT /F1 9.5 Tf 179.8 528.0 Td (0.01 - 0.2 mm) Tj ET
-BT /F1 9.5 Tf 300.5 528.0 Td (0.164) Tj ET
-BT /F1 9.5 Tf 421.2 528.0 Td (PASS) Tj ET
-0.5 w 56.0 524.0 m 539.0 524.0 l S
-BT /F1 9.5 Tf 59.0 510.0 Td (Hardness) Tj ET
-BT /F1 9.5 Tf 179.8 510.0 Td (20 - 60 HRC) Tj ET
-BT /F1 9.5 Tf 300.5 510.0 Td (46.882) Tj ET
-BT /F1 9.5 Tf 421.2 510.0 Td (PASS) Tj ET
-0.5 w 56.0 506.0 m 539.0 506.0 l S
-BT /F1 10 Tf 56.0 486.0 Td (Overall result for P-100583: FAIL) Tj ET
-BT /F2 12 Tf 56.0 458.0 Td (Part P-101836 rev A.1) Tj ET
-BT /F2 9.5 Tf 59.0 436.0 Td (Test) Tj ET
-BT /F2 9.5 Tf 179.8 436.0 Td (Requirement) Tj ET
-BT /F2 9.5 Tf 300.5 436.0 Td (Measured) Tj ET
-BT /F2 9.5 Tf 421.2 436.0 Td (Result) Tj ET
-0.5 w 56.0 432.0 m 539.0 432.0 l S
-BT /F1 9.5 Tf 59.0 418.0 Td (Thermal cycle) Tj ET
-BT /F1 9.5 Tf 179.8 418.0 Td (50 - 500 cycles) Tj ET
-BT /F1 9.5 Tf 300.5 418.0 Td (211.892) Tj ET
-BT /F1 9.5 Tf 421.2 418.0 Td (PASS) Tj ET
-0.5 w 56.0 414.0 m 539.0 414.0 l S
-BT /F1 9.5 Tf 59.0 400.0 Td (Tensile strength) Tj ET
-BT /F1 9.5 Tf 179.8 400.0 Td (250 - 520 MPa) Tj ET
-BT /F1 9.5 Tf 300.5 400.0 Td (246.976) Tj ET
-BT /F1 9.5 Tf 421.2 400.0 Td (FAIL) Tj ET
-0.5 w 56.0 396.0 m 539.0 396.0 l S
-BT /F1 9.5 Tf 59.0 382.0 Td (Dimensional check) Tj ET
-BT /F1 9.5 Tf 179.8 382.0 Td (0.05 - 0.5 mm) Tj ET
-BT /F1 9.5 Tf 300.5 382.0 Td (0.535) Tj ET
-BT /F1 9.5 Tf 421.2 382.0 Td (FAIL) Tj ET
-0.5 w 56.0 378.0 m 539.0 378.0 l S
-BT /F1 9.5 Tf 59.0 364.0 Td (Hardness) Tj ET
-BT /F1 9.5 Tf 179.8 364.0 Td (20 - 60 HRC) Tj ET
-BT /F1 9.5 Tf 300.5 364.0 Td (41.574) Tj ET
-BT /F1 9.5 Tf 421.2 364.0 Td (PASS) Tj ET
-0.5 w 56.0 360.0 m 539.0 360.0 l S
-BT /F1 10 Tf 56.0 340.0 Td (Overall result for P-101836: FAIL) Tj ET
+1 w 56.0 766.0 483.0 22.0 re S
+BT /F2 11 Tf 64.0 772.0 Td (EXPORT CONTROLLED - ECCN 3A001) Tj ET
+BT /F2 18 Tf 56.0 736.0 Td (DRAWING) Tj ET
+BT /F2 10 Tf 56.0 712.0 Td (Document ID:) Tj ET
+BT /F1 10 Tf 206.0 712.0 Td (DOC-0002588) Tj ET
+BT /F2 10 Tf 56.0 697.0 Td (Project:) Tj ET
+BT /F1 10 Tf 206.0 697.0 Td (PRJ-039) Tj ET
+BT /F2 10 Tf 56.0 682.0 Td (Uploaded on:) Tj ET
+BT /F1 10 Tf 206.0 682.0 Td (2026-03-14) Tj ET
+BT /F2 10 Tf 56.0 667.0 Td (Uploaded by:) Tj ET
+BT /F1 10 Tf 206.0 667.0 Td (user012) Tj ET
+BT /F2 10 Tf 56.0 652.0 Td (Export class:) Tj ET
+BT /F1 10 Tf 206.0 652.0 Td (ECCN-3A001) Tj ET
+BT /F2 12 Tf 56.0 621.0 Td (Drawing DWG-56918) Tj ET
+BT /F2 9.5 Tf 59.0 599.0 Td (Field) Tj ET
+BT /F2 9.5 Tf 300.5 599.0 Td (Value) Tj ET
+0.5 w 56.0 595.0 m 539.0 595.0 l S
+BT /F1 9.5 Tf 59.0 581.0 Td (Part Number) Tj ET
+BT /F1 9.5 Tf 300.5 581.0 Td (P-103946) Tj ET
+0.5 w 56.0 577.0 m 539.0 577.0 l S
+BT /F1 9.5 Tf 59.0 563.0 Td (Revision) Tj ET
+BT /F1 9.5 Tf 300.5 563.0 Td (A.1) Tj ET
+0.5 w 56.0 559.0 m 539.0 559.0 l S
+BT /F1 9.5 Tf 59.0 545.0 Td (Scale) Tj ET
+BT /F1 9.5 Tf 300.5 545.0 Td (2:1) Tj ET
+0.5 w 56.0 541.0 m 539.0 541.0 l S
+BT /F1 9.5 Tf 59.0 527.0 Td (Sheet) Tj ET
+BT /F1 9.5 Tf 300.5 527.0 Td (A4) Tj ET
+0.5 w 56.0 523.0 m 539.0 523.0 l S
+BT /F1 9.5 Tf 59.0 509.0 Td (Length \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 509.0 Td (169.2) Tj ET
+0.5 w 56.0 505.0 m 539.0 505.0 l S
+BT /F1 9.5 Tf 59.0 491.0 Td (Width \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 491.0 Td (148.1) Tj ET
+0.5 w 56.0 487.0 m 539.0 487.0 l S
+BT /F1 9.5 Tf 59.0 473.0 Td (Height \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 473.0 Td (55.2) Tj ET
+0.5 w 56.0 469.0 m 539.0 469.0 l S
+BT /F1 9.5 Tf 59.0 455.0 Td (Mass \(kg\)) Tj ET
+BT /F1 9.5 Tf 300.5 455.0 Td (27.520) Tj ET
+0.5 w 56.0 451.0 m 539.0 451.0 l S
+BT /F2 12 Tf 56.0 421.0 Td (Drawing DWG-45814) Tj ET
+BT /F2 9.5 Tf 59.0 399.0 Td (Field) Tj ET
+BT /F2 9.5 Tf 300.5 399.0 Td (Value) Tj ET
+0.5 w 56.0 395.0 m 539.0 395.0 l S
+BT /F1 9.5 Tf 59.0 381.0 Td (Part Number) Tj ET
+BT /F1 9.5 Tf 300.5 381.0 Td (P-100295) Tj ET
+0.5 w 56.0 377.0 m 539.0 377.0 l S
+BT /F1 9.5 Tf 59.0 363.0 Td (Revision) Tj ET
+BT /F1 9.5 Tf 300.5 363.0 Td (C.1) Tj ET
+0.5 w 56.0 359.0 m 539.0 359.0 l S
+BT /F1 9.5 Tf 59.0 345.0 Td (Scale) Tj ET
+BT /F1 9.5 Tf 300.5 345.0 Td (1:1) Tj ET
+0.5 w 56.0 341.0 m 539.0 341.0 l S
+BT /F1 9.5 Tf 59.0 327.0 Td (Sheet) Tj ET
+BT /F1 9.5 Tf 300.5 327.0 Td (A4) Tj ET
+0.5 w 56.0 323.0 m 539.0 323.0 l S
+BT /F1 9.5 Tf 59.0 309.0 Td (Length \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 309.0 Td (331.3) Tj ET
+0.5 w 56.0 305.0 m 539.0 305.0 l S
+BT /F1 9.5 Tf 59.0 291.0 Td (Width \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 291.0 Td (193.7) Tj ET
+0.5 w 56.0 287.0 m 539.0 287.0 l S
+BT /F1 9.5 Tf 59.0 273.0 Td (Height \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 273.0 Td (62.0) Tj ET
+0.5 w 56.0 269.0 m 539.0 269.0 l S
+BT /F1 9.5 Tf 59.0 255.0 Td (Mass \(kg\)) Tj ET
+BT /F1 9.5 Tf 300.5 255.0 Td (5.423) Tj ET
+0.5 w 56.0 251.0 m 539.0 251.0 l S
 endstream
 endobj
 7 0 obj
-<< /Title (Test Report DOC-0002588 for P-100583 rev B.1) /Producer (plmgen) >>
+<< /Title (Drawing DOC-0002588 for P-103946 rev A.1) /Producer (plmgen) >>
 endobj
 xref
 0 8
@@ -102,9 +100,9 @@ xref
 0000000212 00000 n 
 0000000314 00000 n 
 0000000450 00000 n 
-0000003741 00000 n 
+0000003441 00000 n 
 trailer
 << /Size 8 /Root 1 0 R /Info 7 0 R >>
 startxref
-3835
+3531
 %%EOF
