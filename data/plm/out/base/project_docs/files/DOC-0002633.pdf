@@ -3,7 +3,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+<< /Type /Pages /Kids [5 0 R] /Count 1 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
@@ -15,117 +15,105 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 3765 >>
+<< /Length 3764 >>
 stream
-1 w 56.0 766.0 483.0 22.0 re S
-BT /F2 11 Tf 64.0 772.0 Td (EXPORT CONTROLLED - ECCN 3A001) Tj ET
-BT /F2 18 Tf 56.0 736.0 Td (SPEC) Tj ET
-BT /F2 10 Tf 56.0 712.0 Td (Document ID:) Tj ET
-BT /F1 10 Tf 206.0 712.0 Td (DOC-0002633) Tj ET
-BT /F2 10 Tf 56.0 697.0 Td (Project:) Tj ET
-BT /F1 10 Tf 206.0 697.0 Td (PRJ-031) Tj ET
-BT /F2 10 Tf 56.0 682.0 Td (Uploaded on:) Tj ET
-BT /F1 10 Tf 206.0 682.0 Td (2026-04-07) Tj ET
-BT /F2 10 Tf 56.0 667.0 Td (Uploaded by:) Tj ET
-BT /F1 10 Tf 206.0 667.0 Td (user188) Tj ET
-BT /F2 10 Tf 56.0 652.0 Td (Export class:) Tj ET
-BT /F1 10 Tf 206.0 652.0 Td (ECCN-3A001) Tj ET
-BT /F2 12 Tf 56.0 621.0 Td (Part P-103537 - Fastener B) Tj ET
-BT /F2 10 Tf 56.0 601.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 601.0 Td (P-103537) Tj ET
-BT /F2 10 Tf 56.0 586.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 586.0 Td (A.1) Tj ET
-BT /F2 10 Tf 56.0 571.0 Td (Lifecycle State:) Tj ET
-BT /F1 10 Tf 206.0 571.0 Td (Released) Tj ET
-BT /F2 10 Tf 56.0 556.0 Td (Mass \(kg\):) Tj ET
-BT /F1 10 Tf 206.0 556.0 Td (24.646) Tj ET
-BT /F2 10 Tf 56.0 541.0 Td (Unit of Measure:) Tj ET
-BT /F1 10 Tf 206.0 541.0 Td (KG) Tj ET
-BT /F2 10 Tf 56.0 526.0 Td (Primary Supplier:) Tj ET
-BT /F1 10 Tf 206.0 526.0 Td (Summit Components 171) Tj ET
-BT /F2 10 Tf 56.0 511.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 511.0 Td (PLT03) Tj ET
-BT /F2 10 Tf 56.0 496.0 Td (Material:) Tj ET
-BT /F1 10 Tf 206.0 496.0 Td (Nylon 66) Tj ET
-BT /F2 10 Tf 56.0 481.0 Td (Finish:) Tj ET
-BT /F1 10 Tf 206.0 481.0 Td (Passivated) Tj ET
-BT /F2 10 Tf 56.0 466.0 Td (Tolerance:) Tj ET
-BT /F1 10 Tf 206.0 466.0 Td (+/- 0.2 mm) Tj ET
-BT /F2 10 Tf 56.0 451.0 Td (Operating Temperature:) Tj ET
-BT /F1 10 Tf 206.0 451.0 Td (-40 to 125 C) Tj ET
-BT /F2 12 Tf 56.0 420.0 Td (Part P-100938 - Cover A) Tj ET
-BT /F2 10 Tf 56.0 400.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 400.0 Td (P-100938) Tj ET
-BT /F2 10 Tf 56.0 385.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 385.0 Td (B.1) Tj ET
-BT /F2 10 Tf 56.0 370.0 Td (Lifecycle State:) Tj ET
-BT /F1 10 Tf 206.0 370.0 Td (Released) Tj ET
-BT /F2 10 Tf 56.0 355.0 Td (Mass \(kg\):) Tj ET
-BT /F1 10 Tf 206.0 355.0 Td (26.350) Tj ET
-BT /F2 10 Tf 56.0 340.0 Td (Unit of Measure:) Tj ET
-BT /F1 10 Tf 206.0 340.0 Td (KG) Tj ET
-BT /F2 10 Tf 56.0 325.0 Td (Primary Supplier:) Tj ET
-BT /F1 10 Tf 206.0 325.0 Td (Summit Precision 56) Tj ET
-BT /F2 10 Tf 56.0 310.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 310.0 Td (PLT02) Tj ET
-BT /F2 10 Tf 56.0 295.0 Td (Material:) Tj ET
-BT /F1 10 Tf 206.0 295.0 Td (Copper C110) Tj ET
-BT /F2 10 Tf 56.0 280.0 Td (Finish:) Tj ET
-BT /F1 10 Tf 206.0 280.0 Td (Anodised) Tj ET
-BT /F2 10 Tf 56.0 265.0 Td (Tolerance:) Tj ET
-BT /F1 10 Tf 206.0 265.0 Td (+/- 0.2 mm) Tj ET
-BT /F2 10 Tf 56.0 250.0 Td (Operating Temperature:) Tj ET
-BT /F1 10 Tf 206.0 250.0 Td (-55 to 85 C) Tj ET
-BT /F2 12 Tf 56.0 219.0 Td (Part P-102109 - Sensor X1) Tj ET
-BT /F2 10 Tf 56.0 199.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 199.0 Td (P-102109) Tj ET
-BT /F2 10 Tf 56.0 184.0 Td (Revision:) Tj ET
-BT /F1 10 Tf 206.0 184.0 Td (A.1) Tj ET
-BT /F2 10 Tf 56.0 169.0 Td (Lifecycle State:) Tj ET
-BT /F1 10 Tf 206.0 169.0 Td (Released) Tj ET
-BT /F2 10 Tf 56.0 154.0 Td (Mass \(kg\):) Tj ET
-BT /F1 10 Tf 206.0 154.0 Td (24.599) Tj ET
-BT /F2 10 Tf 56.0 139.0 Td (Unit of Measure:) Tj ET
-BT /F1 10 Tf 206.0 139.0 Td (L) Tj ET
-BT /F2 10 Tf 56.0 124.0 Td (Primary Supplier:) Tj ET
-BT /F1 10 Tf 206.0 124.0 Td (Summit Precision 119) Tj ET
-BT /F2 10 Tf 56.0 109.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 109.0 Td (PLT04) Tj ET
-BT /F2 10 Tf 56.0 94.0 Td (Material:) Tj ET
-BT /F1 10 Tf 206.0 94.0 Td (Copper C110) Tj ET
-BT /F2 10 Tf 56.0 79.0 Td (Finish:) Tj ET
-BT /F1 10 Tf 206.0 79.0 Td (Anodised) Tj ET
-BT /F2 10 Tf 56.0 64.0 Td (Tolerance:) Tj ET
-BT /F1 10 Tf 206.0 64.0 Td (+/- 0.2 mm) Tj ET
+BT /F2 18 Tf 56.0 770.0 Td (SPEC) Tj ET
+BT /F2 10 Tf 56.0 746.0 Td (Document ID:) Tj ET
+BT /F1 10 Tf 206.0 746.0 Td (DOC-0002633) Tj ET
+BT /F2 10 Tf 56.0 731.0 Td (Project:) Tj ET
+BT /F1 10 Tf 206.0 731.0 Td (PRJ-031) Tj ET
+BT /F2 10 Tf 56.0 716.0 Td (Uploaded on:) Tj ET
+BT /F1 10 Tf 206.0 716.0 Td (2026-04-07) Tj ET
+BT /F2 10 Tf 56.0 701.0 Td (Uploaded by:) Tj ET
+BT /F1 10 Tf 206.0 701.0 Td (user188) Tj ET
+BT /F2 10 Tf 56.0 686.0 Td (Export class:) Tj ET
+BT /F1 10 Tf 206.0 686.0 Td (EAR99) Tj ET
+BT /F2 12 Tf 56.0 655.0 Td (Part P-103651 - PCB B) Tj ET
+BT /F2 10 Tf 56.0 635.0 Td (Part Number:) Tj ET
+BT /F1 10 Tf 206.0 635.0 Td (P-103651) Tj ET
+BT /F2 10 Tf 56.0 620.0 Td (Revision:) Tj ET
+BT /F1 10 Tf 206.0 620.0 Td (A.1) Tj ET
+BT /F2 10 Tf 56.0 605.0 Td (Lifecycle State:) Tj ET
+BT /F1 10 Tf 206.0 605.0 Td (Released) Tj ET
+BT /F2 10 Tf 56.0 590.0 Td (Mass \(kg\):) Tj ET
+BT /F1 10 Tf 206.0 590.0 Td (10.191) Tj ET
+BT /F2 10 Tf 56.0 575.0 Td (Unit of Measure:) Tj ET
+BT /F1 10 Tf 206.0 575.0 Td (EA) Tj ET
+BT /F2 10 Tf 56.0 560.0 Td (Primary Supplier:) Tj ET
+BT /F1 10 Tf 206.0 560.0 Td (Vector Precision 136) Tj ET
+BT /F2 10 Tf 56.0 545.0 Td (Plant:) Tj ET
+BT /F1 10 Tf 206.0 545.0 Td (PLT03) Tj ET
+BT /F2 10 Tf 56.0 530.0 Td (Material:) Tj ET
+BT /F1 10 Tf 206.0 530.0 Td (Nylon 66) Tj ET
+BT /F2 10 Tf 56.0 515.0 Td (Finish:) Tj ET
+BT /F1 10 Tf 206.0 515.0 Td (Passivated) Tj ET
+BT /F2 10 Tf 56.0 500.0 Td (Tolerance:) Tj ET
+BT /F1 10 Tf 206.0 500.0 Td (+/- 0.2 mm) Tj ET
+BT /F2 10 Tf 56.0 485.0 Td (Operating Temperature:) Tj ET
+BT /F1 10 Tf 206.0 485.0 Td (-40 to 125 C) Tj ET
+BT /F2 12 Tf 56.0 454.0 Td (Part P-100964 - Sensor X1) Tj ET
+BT /F2 10 Tf 56.0 434.0 Td (Part Number:) Tj ET
+BT /F1 10 Tf 206.0 434.0 Td (P-100964) Tj ET
+BT /F2 10 Tf 56.0 419.0 Td (Revision:) Tj ET
+BT /F1 10 Tf 206.0 419.0 Td (B.1) Tj ET
+BT /F2 10 Tf 56.0 404.0 Td (Lifecycle State:) Tj ET
+BT /F1 10 Tf 206.0 404.0 Td (Released) Tj ET
+BT /F2 10 Tf 56.0 389.0 Td (Mass \(kg\):) Tj ET
+BT /F1 10 Tf 206.0 389.0 Td (34.876) Tj ET
+BT /F2 10 Tf 56.0 374.0 Td (Unit of Measure:) Tj ET
+BT /F1 10 Tf 206.0 374.0 Td (M) Tj ET
+BT /F2 10 Tf 56.0 359.0 Td (Primary Supplier:) Tj ET
+BT /F1 10 Tf 206.0 359.0 Td (Apex Systems 86) Tj ET
+BT /F2 10 Tf 56.0 344.0 Td (Plant:) Tj ET
+BT /F1 10 Tf 206.0 344.0 Td (PLT04) Tj ET
+BT /F2 10 Tf 56.0 329.0 Td (Material:) Tj ET
+BT /F1 10 Tf 206.0 329.0 Td (Copper C110) Tj ET
+BT /F2 10 Tf 56.0 314.0 Td (Finish:) Tj ET
+BT /F1 10 Tf 206.0 314.0 Td (Anodised) Tj ET
+BT /F2 10 Tf 56.0 299.0 Td (Tolerance:) Tj ET
+BT /F1 10 Tf 206.0 299.0 Td (+/- 0.2 mm) Tj ET
+BT /F2 10 Tf 56.0 284.0 Td (Operating Temperature:) Tj ET
+BT /F1 10 Tf 206.0 284.0 Td (-55 to 85 C) Tj ET
+BT /F2 12 Tf 56.0 253.0 Td (Part P-102159 - Bearing B) Tj ET
+BT /F2 10 Tf 56.0 233.0 Td (Part Number:) Tj ET
+BT /F1 10 Tf 206.0 233.0 Td (P-102159) Tj ET
+BT /F2 10 Tf 56.0 218.0 Td (Revision:) Tj ET
+BT /F1 10 Tf 206.0 218.0 Td (A.1) Tj ET
+BT /F2 10 Tf 56.0 203.0 Td (Lifecycle State:) Tj ET
+BT /F1 10 Tf 206.0 203.0 Td (Released) Tj ET
+BT /F2 10 Tf 56.0 188.0 Td (Mass \(kg\):) Tj ET
+BT /F1 10 Tf 206.0 188.0 Td (26.237) Tj ET
+BT /F2 10 Tf 56.0 173.0 Td (Unit of Measure:) Tj ET
+BT /F1 10 Tf 206.0 173.0 Td (L) Tj ET
+BT /F2 10 Tf 56.0 158.0 Td (Primary Supplier:) Tj ET
+BT /F1 10 Tf 206.0 158.0 Td (Harbor Components 164) Tj ET
+BT /F2 10 Tf 56.0 143.0 Td (Plant:) Tj ET
+BT /F1 10 Tf 206.0 143.0 Td (PLT01) Tj ET
+BT /F2 10 Tf 56.0 128.0 Td (Material:) Tj ET
+BT /F1 10 Tf 206.0 128.0 Td (Copper C110) Tj ET
+BT /F2 10 Tf 56.0 113.0 Td (Finish:) Tj ET
+BT /F1 10 Tf 206.0 113.0 Td (Anodised) Tj ET
+BT /F2 10 Tf 56.0 98.0 Td (Tolerance:) Tj ET
+BT /F1 10 Tf 206.0 98.0 Td (+/- 0.2 mm) Tj ET
+BT /F2 10 Tf 56.0 83.0 Td (Operating Temperature:) Tj ET
+BT /F1 10 Tf 206.0 83.0 Td (-55 to 150 C) Tj ET
 endstream
 endobj
 7 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
-endobj
-8 0 obj
-<< /Length 106 >>
-stream
-BT /F2 10 Tf 56.0 776.0 Td (Operating Temperature:) Tj ET
-BT /F1 10 Tf 206.0 776.0 Td (-55 to 150 C) Tj ET
-endstream
-endobj
-9 0 obj
-<< /Title (Spec DOC-0002633 for P-103537 rev A.1) /Producer (plmgen) >>
+<< /Title (Spec DOC-0002633 for P-103651 rev A.1) /Producer (plmgen) >>
 endobj
 xref
-0 10
+0 8
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
-0000000121 00000 n 
-0000000218 00000 n 
-0000000320 00000 n 
-0000000456 00000 n 
-0000004273 00000 n 
-0000004409 00000 n 
-0000004566 00000 n 
+0000000115 00000 n 
+0000000212 00000 n 
+0000000314 00000 n 
+0000000450 00000 n 
+0000004266 00000 n 
 trailer
-<< /Size 10 /Root 1 0 R /Info 9 0 R >>
+<< /Size 8 /Root 1 0 R /Info 7 0 R >>
 startxref
-4653
+4353
 %%EOF
