@@ -15,79 +15,69 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 2835 >>
+<< /Length 2689 >>
 stream
-BT /F2 18 Tf 56.0 770.0 Td (DRAWING) Tj ET
+BT /F2 18 Tf 56.0 770.0 Td (SPEC) Tj ET
 BT /F2 10 Tf 56.0 746.0 Td (Document ID:) Tj ET
 BT /F1 10 Tf 206.0 746.0 Td (DOC-0001197) Tj ET
 BT /F2 10 Tf 56.0 731.0 Td (Project:) Tj ET
-BT /F1 10 Tf 206.0 731.0 Td (PRJ-016) Tj ET
+BT /F1 10 Tf 206.0 731.0 Td (PRJ-005) Tj ET
 BT /F2 10 Tf 56.0 716.0 Td (Uploaded on:) Tj ET
 BT /F1 10 Tf 206.0 716.0 Td (2024-06-09) Tj ET
 BT /F2 10 Tf 56.0 701.0 Td (Uploaded by:) Tj ET
-BT /F1 10 Tf 206.0 701.0 Td (user196) Tj ET
+BT /F1 10 Tf 206.0 701.0 Td (user148) Tj ET
 BT /F2 10 Tf 56.0 686.0 Td (Export class:) Tj ET
 BT /F1 10 Tf 206.0 686.0 Td (EAR99) Tj ET
-BT /F2 12 Tf 56.0 655.0 Td (Drawing DWG-54942) Tj ET
-BT /F2 9.5 Tf 59.0 633.0 Td (Field) Tj ET
-BT /F2 9.5 Tf 300.5 633.0 Td (Value) Tj ET
-0.5 w 56.0 629.0 m 539.0 629.0 l S
-BT /F1 9.5 Tf 59.0 615.0 Td (Part Number) Tj ET
-BT /F1 9.5 Tf 300.5 615.0 Td (P-101232) Tj ET
-0.5 w 56.0 611.0 m 539.0 611.0 l S
-BT /F1 9.5 Tf 59.0 597.0 Td (Revision) Tj ET
-BT /F1 9.5 Tf 300.5 597.0 Td (A.1) Tj ET
-0.5 w 56.0 593.0 m 539.0 593.0 l S
-BT /F1 9.5 Tf 59.0 579.0 Td (Scale) Tj ET
-BT /F1 9.5 Tf 300.5 579.0 Td (2:1) Tj ET
-0.5 w 56.0 575.0 m 539.0 575.0 l S
-BT /F1 9.5 Tf 59.0 561.0 Td (Sheet) Tj ET
-BT /F1 9.5 Tf 300.5 561.0 Td (A2) Tj ET
-0.5 w 56.0 557.0 m 539.0 557.0 l S
-BT /F1 9.5 Tf 59.0 543.0 Td (Length \(mm\)) Tj ET
-BT /F1 9.5 Tf 300.5 543.0 Td (33.1) Tj ET
-0.5 w 56.0 539.0 m 539.0 539.0 l S
-BT /F1 9.5 Tf 59.0 525.0 Td (Width \(mm\)) Tj ET
-BT /F1 9.5 Tf 300.5 525.0 Td (48.3) Tj ET
-0.5 w 56.0 521.0 m 539.0 521.0 l S
-BT /F1 9.5 Tf 59.0 507.0 Td (Height \(mm\)) Tj ET
-BT /F1 9.5 Tf 300.5 507.0 Td (25.0) Tj ET
-0.5 w 56.0 503.0 m 539.0 503.0 l S
-BT /F1 9.5 Tf 59.0 489.0 Td (Mass \(kg\)) Tj ET
-BT /F1 9.5 Tf 300.5 489.0 Td (4.826) Tj ET
-0.5 w 56.0 485.0 m 539.0 485.0 l S
-BT /F2 12 Tf 56.0 455.0 Td (Drawing DWG-21709) Tj ET
-BT /F2 9.5 Tf 59.0 433.0 Td (Field) Tj ET
-BT /F2 9.5 Tf 300.5 433.0 Td (Value) Tj ET
-0.5 w 56.0 429.0 m 539.0 429.0 l S
-BT /F1 9.5 Tf 59.0 415.0 Td (Part Number) Tj ET
-BT /F1 9.5 Tf 300.5 415.0 Td (P-101991) Tj ET
-0.5 w 56.0 411.0 m 539.0 411.0 l S
-BT /F1 9.5 Tf 59.0 397.0 Td (Revision) Tj ET
-BT /F1 9.5 Tf 300.5 397.0 Td (A.1) Tj ET
-0.5 w 56.0 393.0 m 539.0 393.0 l S
-BT /F1 9.5 Tf 59.0 379.0 Td (Scale) Tj ET
-BT /F1 9.5 Tf 300.5 379.0 Td (1:5) Tj ET
-0.5 w 56.0 375.0 m 539.0 375.0 l S
-BT /F1 9.5 Tf 59.0 361.0 Td (Sheet) Tj ET
-BT /F1 9.5 Tf 300.5 361.0 Td (A3) Tj ET
-0.5 w 56.0 357.0 m 539.0 357.0 l S
-BT /F1 9.5 Tf 59.0 343.0 Td (Length \(mm\)) Tj ET
-BT /F1 9.5 Tf 300.5 343.0 Td (294.5) Tj ET
-0.5 w 56.0 339.0 m 539.0 339.0 l S
-BT /F1 9.5 Tf 59.0 325.0 Td (Width \(mm\)) Tj ET
-BT /F1 9.5 Tf 300.5 325.0 Td (191.3) Tj ET
-0.5 w 56.0 321.0 m 539.0 321.0 l S
-BT /F1 9.5 Tf 59.0 307.0 Td (Height \(mm\)) Tj ET
-BT /F1 9.5 Tf 300.5 307.0 Td (87.3) Tj ET
-0.5 w 56.0 303.0 m 539.0 303.0 l S
-BT /F1 9.5 Tf 59.0 289.0 Td (Mass \(kg\)) Tj ET
-BT /F1 9.5 Tf 300.5 289.0 Td (14.770) Tj ET
-0.5 w 56.0 285.0 m 539.0 285.0 l S
+BT /F2 12 Tf 56.0 655.0 Td (Part P-101265 - Gear C) Tj ET
+BT /F2 10 Tf 56.0 635.0 Td (Part Number:) Tj ET
+BT /F1 10 Tf 206.0 635.0 Td (P-101265) Tj ET
+BT /F2 10 Tf 56.0 620.0 Td (Revision:) Tj ET
+BT /F1 10 Tf 206.0 620.0 Td (A.1) Tj ET
+BT /F2 10 Tf 56.0 605.0 Td (Lifecycle State:) Tj ET
+BT /F1 10 Tf 206.0 605.0 Td (Released) Tj ET
+BT /F2 10 Tf 56.0 590.0 Td (Mass \(kg\):) Tj ET
+BT /F1 10 Tf 206.0 590.0 Td (15.322) Tj ET
+BT /F2 10 Tf 56.0 575.0 Td (Unit of Measure:) Tj ET
+BT /F1 10 Tf 206.0 575.0 Td (M) Tj ET
+BT /F2 10 Tf 56.0 560.0 Td (Primary Supplier:) Tj ET
+BT /F1 10 Tf 206.0 560.0 Td (Northwind Industries 24) Tj ET
+BT /F2 10 Tf 56.0 545.0 Td (Plant:) Tj ET
+BT /F1 10 Tf 206.0 545.0 Td (PLT02) Tj ET
+BT /F2 10 Tf 56.0 530.0 Td (Material:) Tj ET
+BT /F1 10 Tf 206.0 530.0 Td (Aluminium 6061) Tj ET
+BT /F2 10 Tf 56.0 515.0 Td (Finish:) Tj ET
+BT /F1 10 Tf 206.0 515.0 Td (Passivated) Tj ET
+BT /F2 10 Tf 56.0 500.0 Td (Tolerance:) Tj ET
+BT /F1 10 Tf 206.0 500.0 Td (+/- 0.05 mm) Tj ET
+BT /F2 10 Tf 56.0 485.0 Td (Operating Temperature:) Tj ET
+BT /F1 10 Tf 206.0 485.0 Td (-55 to 125 C) Tj ET
+BT /F2 12 Tf 56.0 454.0 Td (Part P-100328 - Gasket X1) Tj ET
+BT /F2 10 Tf 56.0 434.0 Td (Part Number:) Tj ET
+BT /F1 10 Tf 206.0 434.0 Td (P-100328) Tj ET
+BT /F2 10 Tf 56.0 419.0 Td (Revision:) Tj ET
+BT /F1 10 Tf 206.0 419.0 Td (B.1) Tj ET
+BT /F2 10 Tf 56.0 404.0 Td (Lifecycle State:) Tj ET
+BT /F1 10 Tf 206.0 404.0 Td (Released) Tj ET
+BT /F2 10 Tf 56.0 389.0 Td (Mass \(kg\):) Tj ET
+BT /F1 10 Tf 206.0 389.0 Td (24.739) Tj ET
+BT /F2 10 Tf 56.0 374.0 Td (Unit of Measure:) Tj ET
+BT /F1 10 Tf 206.0 374.0 Td (KG) Tj ET
+BT /F2 10 Tf 56.0 359.0 Td (Primary Supplier:) Tj ET
+BT /F1 10 Tf 206.0 359.0 Td (Meridian Industries 64) Tj ET
+BT /F2 10 Tf 56.0 344.0 Td (Plant:) Tj ET
+BT /F1 10 Tf 206.0 344.0 Td (PLT02) Tj ET
+BT /F2 10 Tf 56.0 329.0 Td (Material:) Tj ET
+BT /F1 10 Tf 206.0 329.0 Td (Copper C110) Tj ET
+BT /F2 10 Tf 56.0 314.0 Td (Finish:) Tj ET
+BT /F1 10 Tf 206.0 314.0 Td (None) Tj ET
+BT /F2 10 Tf 56.0 299.0 Td (Tolerance:) Tj ET
+BT /F1 10 Tf 206.0 299.0 Td (+/- 0.1 mm) Tj ET
+BT /F2 10 Tf 56.0 284.0 Td (Operating Temperature:) Tj ET
+BT /F1 10 Tf 206.0 284.0 Td (-40 to 85 C) Tj ET
 endstream
 endobj
 7 0 obj
-<< /Title (Drawing DOC-0001197 for P-101232 rev A.1) /Producer (plmgen) >>
+<< /Title (Spec DOC-0001197 for P-101265 rev A.1) /Producer (plmgen) >>
 endobj
 xref
 0 8
@@ -98,9 +88,9 @@ xref
 0000000212 00000 n 
 0000000314 00000 n 
 0000000450 00000 n 
-0000003337 00000 n 
+0000003191 00000 n 
 trailer
 << /Size 8 /Root 1 0 R /Info 7 0 R >>
 startxref
-3427
+3278
 %%EOF
