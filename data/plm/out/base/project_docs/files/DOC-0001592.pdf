@@ -15,7 +15,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 3789 >>
+<< /Length 3790 >>
 stream
 1 w 56.0 766.0 483.0 22.0 re S
 BT /F2 11 Tf 64.0 772.0 Td (EXPORT CONTROLLED - ECCN 3A001) Tj ET
@@ -30,21 +30,21 @@ BT /F2 10 Tf 56.0 667.0 Td (Uploaded by:) Tj ET
 BT /F1 10 Tf 206.0 667.0 Td (user132) Tj ET
 BT /F2 10 Tf 56.0 652.0 Td (Export class:) Tj ET
 BT /F1 10 Tf 206.0 652.0 Td (ECCN-3A001) Tj ET
-BT /F2 12 Tf 56.0 621.0 Td (Part P-101928 - Cover C) Tj ET
+BT /F2 12 Tf 56.0 621.0 Td (Part P-101977 - Housing C) Tj ET
 BT /F2 10 Tf 56.0 601.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 601.0 Td (P-101928) Tj ET
+BT /F1 10 Tf 206.0 601.0 Td (P-101977) Tj ET
 BT /F2 10 Tf 56.0 586.0 Td (Revision:) Tj ET
 BT /F1 10 Tf 206.0 586.0 Td (A.1) Tj ET
 BT /F2 10 Tf 56.0 571.0 Td (Lifecycle State:) Tj ET
 BT /F1 10 Tf 206.0 571.0 Td (Released) Tj ET
 BT /F2 10 Tf 56.0 556.0 Td (Mass \(kg\):) Tj ET
-BT /F1 10 Tf 206.0 556.0 Td (10.121) Tj ET
+BT /F1 10 Tf 206.0 556.0 Td (9.431) Tj ET
 BT /F2 10 Tf 56.0 541.0 Td (Unit of Measure:) Tj ET
-BT /F1 10 Tf 206.0 541.0 Td (M) Tj ET
+BT /F1 10 Tf 206.0 541.0 Td (L) Tj ET
 BT /F2 10 Tf 56.0 526.0 Td (Primary Supplier:) Tj ET
-BT /F1 10 Tf 206.0 526.0 Td (Harbor Components 164) Tj ET
+BT /F1 10 Tf 206.0 526.0 Td (Summit Components 48) Tj ET
 BT /F2 10 Tf 56.0 511.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 511.0 Td (PLT01) Tj ET
+BT /F1 10 Tf 206.0 511.0 Td (PLT04) Tj ET
 BT /F2 10 Tf 56.0 496.0 Td (Material:) Tj ET
 BT /F1 10 Tf 206.0 496.0 Td (Stainless Steel 304) Tj ET
 BT /F2 10 Tf 56.0 481.0 Td (Finish:) Tj ET
@@ -53,21 +53,21 @@ BT /F2 10 Tf 56.0 466.0 Td (Tolerance:) Tj ET
 BT /F1 10 Tf 206.0 466.0 Td (+/- 0.1 mm) Tj ET
 BT /F2 10 Tf 56.0 451.0 Td (Operating Temperature:) Tj ET
 BT /F1 10 Tf 206.0 451.0 Td (-40 to 150 C) Tj ET
-BT /F2 12 Tf 56.0 420.0 Td (Part P-102007 - PCB A) Tj ET
+BT /F2 12 Tf 56.0 420.0 Td (Part P-102056 - Shaft C) Tj ET
 BT /F2 10 Tf 56.0 400.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 400.0 Td (P-102007) Tj ET
+BT /F1 10 Tf 206.0 400.0 Td (P-102056) Tj ET
 BT /F2 10 Tf 56.0 385.0 Td (Revision:) Tj ET
 BT /F1 10 Tf 206.0 385.0 Td (A.1) Tj ET
 BT /F2 10 Tf 56.0 370.0 Td (Lifecycle State:) Tj ET
 BT /F1 10 Tf 206.0 370.0 Td (Released) Tj ET
 BT /F2 10 Tf 56.0 355.0 Td (Mass \(kg\):) Tj ET
-BT /F1 10 Tf 206.0 355.0 Td (21.362) Tj ET
+BT /F1 10 Tf 206.0 355.0 Td (27.142) Tj ET
 BT /F2 10 Tf 56.0 340.0 Td (Unit of Measure:) Tj ET
-BT /F1 10 Tf 206.0 340.0 Td (M) Tj ET
+BT /F1 10 Tf 206.0 340.0 Td (L) Tj ET
 BT /F2 10 Tf 56.0 325.0 Td (Primary Supplier:) Tj ET
-BT /F1 10 Tf 206.0 325.0 Td (Harbor Industries 196) Tj ET
+BT /F1 10 Tf 206.0 325.0 Td (Meridian Precision 186) Tj ET
 BT /F2 10 Tf 56.0 310.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 310.0 Td (PLT04) Tj ET
+BT /F1 10 Tf 206.0 310.0 Td (PLT02) Tj ET
 BT /F2 10 Tf 56.0 295.0 Td (Material:) Tj ET
 BT /F1 10 Tf 206.0 295.0 Td (Titanium Grade 5) Tj ET
 BT /F2 10 Tf 56.0 280.0 Td (Finish:) Tj ET
@@ -76,19 +76,19 @@ BT /F2 10 Tf 56.0 265.0 Td (Tolerance:) Tj ET
 BT /F1 10 Tf 206.0 265.0 Td (+/- 0.2 mm) Tj ET
 BT /F2 10 Tf 56.0 250.0 Td (Operating Temperature:) Tj ET
 BT /F1 10 Tf 206.0 250.0 Td (-20 to 85 C) Tj ET
-BT /F2 12 Tf 56.0 219.0 Td (Part P-100849 - PCB A) Tj ET
+BT /F2 12 Tf 56.0 219.0 Td (Part P-100870 - PCB B) Tj ET
 BT /F2 10 Tf 56.0 199.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 199.0 Td (P-100849) Tj ET
+BT /F1 10 Tf 206.0 199.0 Td (P-100870) Tj ET
 BT /F2 10 Tf 56.0 184.0 Td (Revision:) Tj ET
 BT /F1 10 Tf 206.0 184.0 Td (B.1) Tj ET
 BT /F2 10 Tf 56.0 169.0 Td (Lifecycle State:) Tj ET
 BT /F1 10 Tf 206.0 169.0 Td (Released) Tj ET
 BT /F2 10 Tf 56.0 154.0 Td (Mass \(kg\):) Tj ET
-BT /F1 10 Tf 206.0 154.0 Td (21.985) Tj ET
+BT /F1 10 Tf 206.0 154.0 Td (16.857) Tj ET
 BT /F2 10 Tf 56.0 139.0 Td (Unit of Measure:) Tj ET
-BT /F1 10 Tf 206.0 139.0 Td (KG) Tj ET
+BT /F1 10 Tf 206.0 139.0 Td (EA) Tj ET
 BT /F2 10 Tf 56.0 124.0 Td (Primary Supplier:) Tj ET
-BT /F1 10 Tf 206.0 124.0 Td (Northwind Precision 174) Tj ET
+BT /F1 10 Tf 206.0 124.0 Td (Harbor Components 182) Tj ET
 BT /F2 10 Tf 56.0 109.0 Td (Plant:) Tj ET
 BT /F1 10 Tf 206.0 109.0 Td (PLT02) Tj ET
 BT /F2 10 Tf 56.0 94.0 Td (Material:) Tj ET
@@ -110,7 +110,7 @@ BT /F1 10 Tf 206.0 776.0 Td (-55 to 150 C) Tj ET
 endstream
 endobj
 9 0 obj
-<< /Title (Spec DOC-0001592 for P-101928 rev A.1) /Producer (plmgen) >>
+<< /Title (Spec DOC-0001592 for P-101977 rev A.1) /Producer (plmgen) >>
 endobj
 xref
 0 10
@@ -121,11 +121,11 @@ xref
 0000000218 00000 n 
 0000000320 00000 n 
 0000000456 00000 n 
-0000004297 00000 n 
-0000004433 00000 n 
-0000004590 00000 n 
+0000004298 00000 n 
+0000004434 00000 n 
+0000004591 00000 n 
 trailer
 << /Size 10 /Root 1 0 R /Info 9 0 R >>
 startxref
-4677
+4678
 %%EOF
