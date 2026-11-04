@@ -15,7 +15,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 2782 >>
+<< /Length 2779 >>
 stream
 1 w 56.0 766.0 483.0 22.0 re S
 BT /F2 11 Tf 64.0 772.0 Td (EXPORT CONTROLLED - ECCN 3A001) Tj ET
@@ -30,21 +30,21 @@ BT /F2 10 Tf 56.0 667.0 Td (Uploaded by:) Tj ET
 BT /F1 10 Tf 206.0 667.0 Td (user190) Tj ET
 BT /F2 10 Tf 56.0 652.0 Td (Export class:) Tj ET
 BT /F1 10 Tf 206.0 652.0 Td (ECCN-3A001) Tj ET
-BT /F2 12 Tf 56.0 621.0 Td (Part P-100480 - Valve X1) Tj ET
+BT /F2 12 Tf 56.0 621.0 Td (Part P-100489 - PCB X2) Tj ET
 BT /F2 10 Tf 56.0 601.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 601.0 Td (P-100480) Tj ET
+BT /F1 10 Tf 206.0 601.0 Td (P-100489) Tj ET
 BT /F2 10 Tf 56.0 586.0 Td (Revision:) Tj ET
 BT /F1 10 Tf 206.0 586.0 Td (A.1) Tj ET
 BT /F2 10 Tf 56.0 571.0 Td (Lifecycle State:) Tj ET
 BT /F1 10 Tf 206.0 571.0 Td (Released) Tj ET
 BT /F2 10 Tf 56.0 556.0 Td (Mass \(kg\):) Tj ET
-BT /F1 10 Tf 206.0 556.0 Td (22.662) Tj ET
+BT /F1 10 Tf 206.0 556.0 Td (29.138) Tj ET
 BT /F2 10 Tf 56.0 541.0 Td (Unit of Measure:) Tj ET
-BT /F1 10 Tf 206.0 541.0 Td (EA) Tj ET
+BT /F1 10 Tf 206.0 541.0 Td (KG) Tj ET
 BT /F2 10 Tf 56.0 526.0 Td (Primary Supplier:) Tj ET
-BT /F1 10 Tf 206.0 526.0 Td (Apex Industries 36) Tj ET
+BT /F1 10 Tf 206.0 526.0 Td (Ironclad Systems 129) Tj ET
 BT /F2 10 Tf 56.0 511.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 511.0 Td (PLT04) Tj ET
+BT /F1 10 Tf 206.0 511.0 Td (PLT02) Tj ET
 BT /F2 10 Tf 56.0 496.0 Td (Material:) Tj ET
 BT /F1 10 Tf 206.0 496.0 Td (ABS) Tj ET
 BT /F2 10 Tf 56.0 481.0 Td (Finish:) Tj ET
@@ -53,21 +53,21 @@ BT /F2 10 Tf 56.0 466.0 Td (Tolerance:) Tj ET
 BT /F1 10 Tf 206.0 466.0 Td (+/- 0.2 mm) Tj ET
 BT /F2 10 Tf 56.0 451.0 Td (Operating Temperature:) Tj ET
 BT /F1 10 Tf 206.0 451.0 Td (-20 to 125 C) Tj ET
-BT /F2 12 Tf 56.0 420.0 Td (Part P-100837 - Cover C) Tj ET
+BT /F2 12 Tf 56.0 420.0 Td (Part P-100853 - Bracket C) Tj ET
 BT /F2 10 Tf 56.0 400.0 Td (Part Number:) Tj ET
-BT /F1 10 Tf 206.0 400.0 Td (P-100837) Tj ET
+BT /F1 10 Tf 206.0 400.0 Td (P-100853) Tj ET
 BT /F2 10 Tf 56.0 385.0 Td (Revision:) Tj ET
 BT /F1 10 Tf 206.0 385.0 Td (A.1) Tj ET
 BT /F2 10 Tf 56.0 370.0 Td (Lifecycle State:) Tj ET
 BT /F1 10 Tf 206.0 370.0 Td (Design) Tj ET
 BT /F2 10 Tf 56.0 355.0 Td (Mass \(kg\):) Tj ET
-BT /F1 10 Tf 206.0 355.0 Td (20.248) Tj ET
+BT /F1 10 Tf 206.0 355.0 Td (8.230) Tj ET
 BT /F2 10 Tf 56.0 340.0 Td (Unit of Measure:) Tj ET
-BT /F1 10 Tf 206.0 340.0 Td (EA) Tj ET
+BT /F1 10 Tf 206.0 340.0 Td (L) Tj ET
 BT /F2 10 Tf 56.0 325.0 Td (Primary Supplier:) Tj ET
-BT /F1 10 Tf 206.0 325.0 Td (Northwind Industries 49) Tj ET
+BT /F1 10 Tf 206.0 325.0 Td (Summit Components 48) Tj ET
 BT /F2 10 Tf 56.0 310.0 Td (Plant:) Tj ET
-BT /F1 10 Tf 206.0 310.0 Td (PLT04) Tj ET
+BT /F1 10 Tf 206.0 310.0 Td (PLT02) Tj ET
 BT /F2 10 Tf 56.0 295.0 Td (Material:) Tj ET
 BT /F1 10 Tf 206.0 295.0 Td (Nylon 66) Tj ET
 BT /F2 10 Tf 56.0 280.0 Td (Finish:) Tj ET
@@ -79,7 +79,7 @@ BT /F1 10 Tf 206.0 250.0 Td (-55 to 125 C) Tj ET
 endstream
 endobj
 7 0 obj
-<< /Title (Spec DOC-0000562 for P-100480 rev A.1) /Producer (plmgen) >>
+<< /Title (Spec DOC-0000562 for P-100489 rev A.1) /Producer (plmgen) >>
 endobj
 xref
 0 8
@@ -90,9 +90,9 @@ xref
 0000000212 00000 n 
 0000000314 00000 n 
 0000000450 00000 n 
-0000003284 00000 n 
+0000003281 00000 n 
 trailer
 << /Size 8 /Root 1 0 R /Info 7 0 R >>
 startxref
-3371
+3368
 %%EOF

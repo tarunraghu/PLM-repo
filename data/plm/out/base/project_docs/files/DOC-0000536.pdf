@@ -15,7 +15,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 3967 >>
+<< /Length 3968 >>
 stream
 1 w 56.0 766.0 483.0 22.0 re S
 BT /F2 11 Tf 64.0 772.0 Td (EXPORT CONTROLLED - ECCN 3A001) Tj ET
@@ -35,7 +35,7 @@ BT /F2 9.5 Tf 59.0 599.0 Td (Field) Tj ET
 BT /F2 9.5 Tf 300.5 599.0 Td (Value) Tj ET
 0.5 w 56.0 595.0 m 539.0 595.0 l S
 BT /F1 9.5 Tf 59.0 581.0 Td (Part Number) Tj ET
-BT /F1 9.5 Tf 300.5 581.0 Td (P-100559) Tj ET
+BT /F1 9.5 Tf 300.5 581.0 Td (P-100569) Tj ET
 0.5 w 56.0 577.0 m 539.0 577.0 l S
 BT /F1 9.5 Tf 59.0 563.0 Td (Revision) Tj ET
 BT /F1 9.5 Tf 300.5 563.0 Td (A.1) Tj ET
@@ -56,14 +56,14 @@ BT /F1 9.5 Tf 59.0 473.0 Td (Height \(mm\)) Tj ET
 BT /F1 9.5 Tf 300.5 473.0 Td (96.6) Tj ET
 0.5 w 56.0 469.0 m 539.0 469.0 l S
 BT /F1 9.5 Tf 59.0 455.0 Td (Mass \(kg\)) Tj ET
-BT /F1 9.5 Tf 300.5 455.0 Td (7.154) Tj ET
+BT /F1 9.5 Tf 300.5 455.0 Td (10.793) Tj ET
 0.5 w 56.0 451.0 m 539.0 451.0 l S
 BT /F2 12 Tf 56.0 421.0 Td (Drawing DWG-26635) Tj ET
 BT /F2 9.5 Tf 59.0 399.0 Td (Field) Tj ET
 BT /F2 9.5 Tf 300.5 399.0 Td (Value) Tj ET
 0.5 w 56.0 395.0 m 539.0 395.0 l S
 BT /F1 9.5 Tf 59.0 381.0 Td (Part Number) Tj ET
-BT /F1 9.5 Tf 300.5 381.0 Td (P-100484) Tj ET
+BT /F1 9.5 Tf 300.5 381.0 Td (P-100493) Tj ET
 0.5 w 56.0 377.0 m 539.0 377.0 l S
 BT /F1 9.5 Tf 59.0 363.0 Td (Revision) Tj ET
 BT /F1 9.5 Tf 300.5 363.0 Td (A.1) Tj ET
@@ -84,7 +84,7 @@ BT /F1 9.5 Tf 59.0 273.0 Td (Height \(mm\)) Tj ET
 BT /F1 9.5 Tf 300.5 273.0 Td (28.9) Tj ET
 0.5 w 56.0 269.0 m 539.0 269.0 l S
 BT /F1 9.5 Tf 59.0 255.0 Td (Mass \(kg\)) Tj ET
-BT /F1 9.5 Tf 300.5 255.0 Td (16.663) Tj ET
+BT /F1 9.5 Tf 300.5 255.0 Td (14.384) Tj ET
 0.5 w 56.0 251.0 m 539.0 251.0 l S
 BT /F2 12 Tf 56.0 221.0 Td (Drawing DWG-42435) Tj ET
 BT /F2 9.5 Tf 59.0 199.0 Td (Field) Tj ET
@@ -125,7 +125,7 @@ BT /F1 9.5 Tf 300.5 774.0 Td (10.573) Tj ET
 endstream
 endobj
 9 0 obj
-<< /Title (Drawing DOC-0000536 for P-100559 rev A.1) /Producer (plmgen) >>
+<< /Title (Drawing DOC-0000536 for P-100569 rev A.1) /Producer (plmgen) >>
 endobj
 xref
 0 10
@@ -136,11 +136,11 @@ xref
 0000000218 00000 n 
 0000000320 00000 n 
 0000000456 00000 n 
-0000004475 00000 n 
-0000004611 00000 n 
-0000004788 00000 n 
+0000004476 00000 n 
+0000004612 00000 n 
+0000004789 00000 n 
 trailer
 << /Size 10 /Root 1 0 R /Info 9 0 R >>
 startxref
-4878
+4879
 %%EOF
