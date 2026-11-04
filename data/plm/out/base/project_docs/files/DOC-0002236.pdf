@@ -1,0 +1,78 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 1669 >>
+stream
+BT /F2 18 Tf 56.0 770.0 Td (DRAWING) Tj ET
+BT /F2 10 Tf 56.0 746.0 Td (Document ID:) Tj ET
+BT /F1 10 Tf 206.0 746.0 Td (DOC-0002236) Tj ET
+BT /F2 10 Tf 56.0 731.0 Td (Project:) Tj ET
+BT /F1 10 Tf 206.0 731.0 Td (PRJ-028) Tj ET
+BT /F2 10 Tf 56.0 716.0 Td (Uploaded on:) Tj ET
+BT /F1 10 Tf 206.0 716.0 Td (2025-10-01) Tj ET
+BT /F2 10 Tf 56.0 701.0 Td (Uploaded by:) Tj ET
+BT /F1 10 Tf 206.0 701.0 Td (user061) Tj ET
+BT /F2 10 Tf 56.0 686.0 Td (Export class:) Tj ET
+BT /F1 10 Tf 206.0 686.0 Td (EAR99) Tj ET
+BT /F2 12 Tf 56.0 655.0 Td (Drawing DWG-45068) Tj ET
+BT /F2 9.5 Tf 59.0 633.0 Td (Field) Tj ET
+BT /F2 9.5 Tf 300.5 633.0 Td (Value) Tj ET
+0.5 w 56.0 629.0 m 539.0 629.0 l S
+BT /F1 9.5 Tf 59.0 615.0 Td (Part Number) Tj ET
+BT /F1 9.5 Tf 300.5 615.0 Td (P-100927) Tj ET
+0.5 w 56.0 611.0 m 539.0 611.0 l S
+BT /F1 9.5 Tf 59.0 597.0 Td (Revision) Tj ET
+BT /F1 9.5 Tf 300.5 597.0 Td (A.1) Tj ET
+0.5 w 56.0 593.0 m 539.0 593.0 l S
+BT /F1 9.5 Tf 59.0 579.0 Td (Scale) Tj ET
+BT /F1 9.5 Tf 300.5 579.0 Td (1:5) Tj ET
+0.5 w 56.0 575.0 m 539.0 575.0 l S
+BT /F1 9.5 Tf 59.0 561.0 Td (Sheet) Tj ET
+BT /F1 9.5 Tf 300.5 561.0 Td (A2) Tj ET
+0.5 w 56.0 557.0 m 539.0 557.0 l S
+BT /F1 9.5 Tf 59.0 543.0 Td (Length \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 543.0 Td (78.7) Tj ET
+0.5 w 56.0 539.0 m 539.0 539.0 l S
+BT /F1 9.5 Tf 59.0 525.0 Td (Width \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 525.0 Td (132.4) Tj ET
+0.5 w 56.0 521.0 m 539.0 521.0 l S
+BT /F1 9.5 Tf 59.0 507.0 Td (Height \(mm\)) Tj ET
+BT /F1 9.5 Tf 300.5 507.0 Td (47.9) Tj ET
+0.5 w 56.0 503.0 m 539.0 503.0 l S
+BT /F1 9.5 Tf 59.0 489.0 Td (Mass \(kg\)) Tj ET
+BT /F1 9.5 Tf 300.5 489.0 Td (5.702) Tj ET
+0.5 w 56.0 485.0 m 539.0 485.0 l S
+endstream
+endobj
+7 0 obj
+<< /Title (Drawing DOC-0002236 for P-100927 rev A.1) /Producer (plmgen) >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000212 00000 n 
+0000000314 00000 n 
+0000000450 00000 n 
+0000002171 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R /Info 7 0 R >>
+startxref
+2261
+%%EOF

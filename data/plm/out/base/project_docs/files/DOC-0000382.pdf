@@ -1,0 +1,71 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 1595 >>
+stream
+BT /F2 18 Tf 56.0 770.0 Td (WORK INSTRUCTION) Tj ET
+BT /F2 10 Tf 56.0 746.0 Td (Document ID:) Tj ET
+BT /F1 10 Tf 206.0 746.0 Td (DOC-0000382) Tj ET
+BT /F2 10 Tf 56.0 731.0 Td (Project:) Tj ET
+BT /F1 10 Tf 206.0 731.0 Td (PRJ-030) Tj ET
+BT /F2 10 Tf 56.0 716.0 Td (Uploaded on:) Tj ET
+BT /F1 10 Tf 206.0 716.0 Td (2023-05-02) Tj ET
+BT /F2 10 Tf 56.0 701.0 Td (Uploaded by:) Tj ET
+BT /F1 10 Tf 206.0 701.0 Td (user184) Tj ET
+BT /F2 10 Tf 56.0 686.0 Td (Export class:) Tj ET
+BT /F1 10 Tf 206.0 686.0 Td (EAR99) Tj ET
+BT /F2 12 Tf 56.0 655.0 Td (Assembly of P-100246 at plant PLT01) Tj ET
+BT /F2 10 Tf 56.0 635.0 Td (Part Number:) Tj ET
+BT /F1 10 Tf 206.0 635.0 Td (P-100246) Tj ET
+BT /F2 10 Tf 56.0 620.0 Td (Revision:) Tj ET
+BT /F1 10 Tf 206.0 620.0 Td (A.1) Tj ET
+BT /F2 10 Tf 56.0 605.0 Td (Plant:) Tj ET
+BT /F1 10 Tf 206.0 605.0 Td (PLT01) Tj ET
+BT /F2 10 Tf 56.0 590.0 Td (Station:) Tj ET
+BT /F1 10 Tf 206.0 590.0 Td (ST-29) Tj ET
+BT /F2 10 Tf 56.0 575.0 Td (Torque \(Nm\):) Tj ET
+BT /F1 10 Tf 206.0 575.0 Td (12) Tj ET
+BT /F2 10 Tf 56.0 560.0 Td (Cycle time \(s\):) Tj ET
+BT /F1 10 Tf 206.0 560.0 Td (67) Tj ET
+BT /F1 10 Tf 56.0 539.0 Td (Step 1: Apply thread locker) Tj ET
+BT /F1 10 Tf 56.0 521.0 Td (Step 2: Record result) Tj ET
+BT /F1 10 Tf 56.0 503.0 Td (Step 3: Move to next station) Tj ET
+BT /F1 10 Tf 56.0 485.0 Td (Step 4: Apply thread locker) Tj ET
+BT /F1 10 Tf 56.0 467.0 Td (Step 5: Record result) Tj ET
+BT /F1 10 Tf 56.0 449.0 Td (Step 6: Fit fasteners) Tj ET
+BT /F1 10 Tf 56.0 431.0 Td (Step 7: Move to next station) Tj ET
+BT /F1 10 Tf 56.0 413.0 Td (Step 8: Record result) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Title (Work Instruction DOC-0000382 for P-100246 rev A.1) /Producer (plmgen) >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000212 00000 n 
+0000000314 00000 n 
+0000000450 00000 n 
+0000002097 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R /Info 7 0 R >>
+startxref
+2196
+%%EOF

@@ -1,0 +1,88 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 2474 >>
+stream
+BT /F2 18 Tf 56.0 770.0 Td (WORK INSTRUCTION) Tj ET
+BT /F2 10 Tf 56.0 746.0 Td (Document ID:) Tj ET
+BT /F1 10 Tf 206.0 746.0 Td (DOC-0002974) Tj ET
+BT /F2 10 Tf 56.0 731.0 Td (Project:) Tj ET
+BT /F1 10 Tf 206.0 731.0 Td (PRJ-031) Tj ET
+BT /F2 10 Tf 56.0 716.0 Td (Uploaded on:) Tj ET
+BT /F1 10 Tf 206.0 716.0 Td (2026-09-23) Tj ET
+BT /F2 10 Tf 56.0 701.0 Td (Uploaded by:) Tj ET
+BT /F1 10 Tf 206.0 701.0 Td (user110) Tj ET
+BT /F2 10 Tf 56.0 686.0 Td (Export class:) Tj ET
+BT /F1 10 Tf 206.0 686.0 Td (EAR99) Tj ET
+BT /F2 12 Tf 56.0 655.0 Td (Assembly of P-102722 at plant PLT03) Tj ET
+BT /F2 10 Tf 56.0 635.0 Td (Part Number:) Tj ET
+BT /F1 10 Tf 206.0 635.0 Td (P-102722) Tj ET
+BT /F2 10 Tf 56.0 620.0 Td (Revision:) Tj ET
+BT /F1 10 Tf 206.0 620.0 Td (A.1) Tj ET
+BT /F2 10 Tf 56.0 605.0 Td (Plant:) Tj ET
+BT /F1 10 Tf 206.0 605.0 Td (PLT03) Tj ET
+BT /F2 10 Tf 56.0 590.0 Td (Station:) Tj ET
+BT /F1 10 Tf 206.0 590.0 Td (ST-45) Tj ET
+BT /F2 10 Tf 56.0 575.0 Td (Torque \(Nm\):) Tj ET
+BT /F1 10 Tf 206.0 575.0 Td (5) Tj ET
+BT /F2 10 Tf 56.0 560.0 Td (Cycle time \(s\):) Tj ET
+BT /F1 10 Tf 206.0 560.0 Td (171) Tj ET
+BT /F1 10 Tf 56.0 539.0 Td (Step 1: Clean mating surface) Tj ET
+BT /F1 10 Tf 56.0 521.0 Td (Step 2: Move to next station) Tj ET
+BT /F1 10 Tf 56.0 503.0 Td (Step 3: Torque to specification) Tj ET
+BT /F1 10 Tf 56.0 485.0 Td (Step 4: Record result) Tj ET
+BT /F1 10 Tf 56.0 467.0 Td (Step 5: Apply thread locker) Tj ET
+BT /F1 10 Tf 56.0 449.0 Td (Step 6: Clean mating surface) Tj ET
+BT /F1 10 Tf 56.0 431.0 Td (Step 7: Fit fasteners) Tj ET
+BT /F2 12 Tf 56.0 403.0 Td (Assembly of P-103394 at plant PLT02) Tj ET
+BT /F2 10 Tf 56.0 383.0 Td (Part Number:) Tj ET
+BT /F1 10 Tf 206.0 383.0 Td (P-103394) Tj ET
+BT /F2 10 Tf 56.0 368.0 Td (Revision:) Tj ET
+BT /F1 10 Tf 206.0 368.0 Td (A.1) Tj ET
+BT /F2 10 Tf 56.0 353.0 Td (Plant:) Tj ET
+BT /F1 10 Tf 206.0 353.0 Td (PLT02) Tj ET
+BT /F2 10 Tf 56.0 338.0 Td (Station:) Tj ET
+BT /F1 10 Tf 206.0 338.0 Td (ST-16) Tj ET
+BT /F2 10 Tf 56.0 323.0 Td (Torque \(Nm\):) Tj ET
+BT /F1 10 Tf 206.0 323.0 Td (12) Tj ET
+BT /F2 10 Tf 56.0 308.0 Td (Cycle time \(s\):) Tj ET
+BT /F1 10 Tf 206.0 308.0 Td (87) Tj ET
+BT /F1 10 Tf 56.0 287.0 Td (Step 1: Clean mating surface) Tj ET
+BT /F1 10 Tf 56.0 269.0 Td (Step 2: Move to next station) Tj ET
+BT /F1 10 Tf 56.0 251.0 Td (Step 3: Torque to specification) Tj ET
+BT /F1 10 Tf 56.0 233.0 Td (Step 4: Inspect incoming part) Tj ET
+BT /F1 10 Tf 56.0 215.0 Td (Step 5: Inspect incoming part) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Title (Work Instruction DOC-0002974 for P-102722 rev A.1) /Producer (plmgen) >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000212 00000 n 
+0000000314 00000 n 
+0000000450 00000 n 
+0000002976 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R /Info 7 0 R >>
+startxref
+3075
+%%EOF

@@ -1,0 +1,85 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [5 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 2109 >>
+stream
+1 w 56.0 766.0 483.0 22.0 re S
+BT /F2 11 Tf 64.0 772.0 Td (EXPORT CONTROLLED - ECCN 3A001) Tj ET
+BT /F2 18 Tf 56.0 736.0 Td (TEST REPORT) Tj ET
+BT /F2 10 Tf 56.0 712.0 Td (Document ID:) Tj ET
+BT /F1 10 Tf 206.0 712.0 Td (DOC-0001311) Tj ET
+BT /F2 10 Tf 56.0 697.0 Td (Project:) Tj ET
+BT /F1 10 Tf 206.0 697.0 Td (PRJ-027) Tj ET
+BT /F2 10 Tf 56.0 682.0 Td (Uploaded on:) Tj ET
+BT /F1 10 Tf 206.0 682.0 Td (2024-07-30) Tj ET
+BT /F2 10 Tf 56.0 667.0 Td (Uploaded by:) Tj ET
+BT /F1 10 Tf 206.0 667.0 Td (user009) Tj ET
+BT /F2 10 Tf 56.0 652.0 Td (Export class:) Tj ET
+BT /F1 10 Tf 206.0 652.0 Td (ECCN-3A001) Tj ET
+BT /F2 10 Tf 56.0 631.0 Td (Report No:) Tj ET
+BT /F1 10 Tf 206.0 631.0 Td (TR-619908) Tj ET
+BT /F2 10 Tf 56.0 616.0 Td (Laboratory:) Tj ET
+BT /F1 10 Tf 206.0 616.0 Td (Central Test) Tj ET
+BT /F2 10 Tf 56.0 601.0 Td (Test Date:) Tj ET
+BT /F1 10 Tf 206.0 601.0 Td (2024-07-30) Tj ET
+BT /F2 12 Tf 56.0 570.0 Td (Part P-100632 rev A.1) Tj ET
+BT /F2 9.5 Tf 59.0 548.0 Td (Test) Tj ET
+BT /F2 9.5 Tf 179.8 548.0 Td (Requirement) Tj ET
+BT /F2 9.5 Tf 300.5 548.0 Td (Measured) Tj ET
+BT /F2 9.5 Tf 421.2 548.0 Td (Result) Tj ET
+0.5 w 56.0 544.0 m 539.0 544.0 l S
+BT /F1 9.5 Tf 59.0 530.0 Td (Flatness) Tj ET
+BT /F1 9.5 Tf 179.8 530.0 Td (0.01 - 0.2 mm) Tj ET
+BT /F1 9.5 Tf 300.5 530.0 Td (0.075) Tj ET
+BT /F1 9.5 Tf 421.2 530.0 Td (PASS) Tj ET
+0.5 w 56.0 526.0 m 539.0 526.0 l S
+BT /F1 9.5 Tf 59.0 512.0 Td (Salt spray) Tj ET
+BT /F1 9.5 Tf 179.8 512.0 Td (48 - 500 hours) Tj ET
+BT /F1 9.5 Tf 300.5 512.0 Td (232.025) Tj ET
+BT /F1 9.5 Tf 421.2 512.0 Td (PASS) Tj ET
+0.5 w 56.0 508.0 m 539.0 508.0 l S
+BT /F1 9.5 Tf 59.0 494.0 Td (Hardness) Tj ET
+BT /F1 9.5 Tf 179.8 494.0 Td (20 - 60 HRC) Tj ET
+BT /F1 9.5 Tf 300.5 494.0 Td (25.481) Tj ET
+BT /F1 9.5 Tf 421.2 494.0 Td (PASS) Tj ET
+0.5 w 56.0 490.0 m 539.0 490.0 l S
+BT /F1 9.5 Tf 59.0 476.0 Td (Dimensional check) Tj ET
+BT /F1 9.5 Tf 179.8 476.0 Td (0.05 - 0.5 mm) Tj ET
+BT /F1 9.5 Tf 300.5 476.0 Td (0.355) Tj ET
+BT /F1 9.5 Tf 421.2 476.0 Td (PASS) Tj ET
+0.5 w 56.0 472.0 m 539.0 472.0 l S
+BT /F1 10 Tf 56.0 452.0 Td (Overall result for P-100632: PASS) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Title (Test Report DOC-0001311 for P-100632 rev A.1) /Producer (plmgen) >>
+endobj
+xref
+0 8
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000212 00000 n 
+0000000314 00000 n 
+0000000450 00000 n 
+0000002611 00000 n 
+trailer
+<< /Size 8 /Root 1 0 R /Info 7 0 R >>
+startxref
+2705
+%%EOF

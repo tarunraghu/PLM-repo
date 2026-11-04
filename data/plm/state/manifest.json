@@ -1,0 +1,27 @@
+{
+  "lsn": {},
+  "event_seq": 0,
+  "history": {
+    "events": false,
+    "dirty": false
+  },
+  "version": 1,
+  "config": {
+    "seed": 42,
+    "profile": "small",
+    "start": "2022-11-04",
+    "as_of": "2026-11-03",
+    "history_days": 1460,
+    "parts": 5000,
+    "suppliers": 200,
+    "changes": 800,
+    "documents": 3000,
+    "assemblies_ratio": 0.12,
+    "bom_depth": 10,
+    "min_children": 2,
+    "max_children": 12,
+    "activity": 1.0,
+    "scan_share": 0.1,
+    "volume_path": "/Volumes/plm_poc/raw/project_docs"
+  }
+}
