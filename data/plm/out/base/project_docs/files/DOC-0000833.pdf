@@ -15,110 +15,49 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
 endobj
 6 0 obj
-<< /Length 4475 >>
+<< /Length 1780 >>
 stream
-BT /F2 18 Tf 56.0 770.0 Td (TEST REPORT) Tj ET
+BT /F2 18 Tf 56.0 770.0 Td (CERTIFICATE) Tj ET
 BT /F2 10 Tf 56.0 746.0 Td (Document ID:) Tj ET
 BT /F1 10 Tf 206.0 746.0 Td (DOC-0000833) Tj ET
 BT /F2 10 Tf 56.0 731.0 Td (Project:) Tj ET
-BT /F1 10 Tf 206.0 731.0 Td (PRJ-023) Tj ET
+BT /F1 10 Tf 206.0 731.0 Td (PRJ-033) Tj ET
 BT /F2 10 Tf 56.0 716.0 Td (Uploaded on:) Tj ET
 BT /F1 10 Tf 206.0 716.0 Td (2023-12-07) Tj ET
 BT /F2 10 Tf 56.0 701.0 Td (Uploaded by:) Tj ET
-BT /F1 10 Tf 206.0 701.0 Td (user035) Tj ET
+BT /F1 10 Tf 206.0 701.0 Td (user056) Tj ET
 BT /F2 10 Tf 56.0 686.0 Td (Export class:) Tj ET
 BT /F1 10 Tf 206.0 686.0 Td (EAR99) Tj ET
-BT /F2 10 Tf 56.0 665.0 Td (Report No:) Tj ET
-BT /F1 10 Tf 206.0 665.0 Td (TR-886398) Tj ET
-BT /F2 10 Tf 56.0 650.0 Td (Laboratory:) Tj ET
-BT /F1 10 Tf 206.0 650.0 Td (Lab North) Tj ET
-BT /F2 10 Tf 56.0 635.0 Td (Test Date:) Tj ET
-BT /F1 10 Tf 206.0 635.0 Td (2023-12-07) Tj ET
-BT /F2 12 Tf 56.0 604.0 Td (Part P-100827 rev A.1) Tj ET
-BT /F2 9.5 Tf 59.0 582.0 Td (Test) Tj ET
-BT /F2 9.5 Tf 179.8 582.0 Td (Requirement) Tj ET
-BT /F2 9.5 Tf 300.5 582.0 Td (Measured) Tj ET
-BT /F2 9.5 Tf 421.2 582.0 Td (Result) Tj ET
-0.5 w 56.0 578.0 m 539.0 578.0 l S
-BT /F1 9.5 Tf 59.0 564.0 Td (Flatness) Tj ET
-BT /F1 9.5 Tf 179.8 564.0 Td (0.01 - 0.2 mm) Tj ET
-BT /F1 9.5 Tf 300.5 564.0 Td (0.136) Tj ET
-BT /F1 9.5 Tf 421.2 564.0 Td (PASS) Tj ET
-0.5 w 56.0 560.0 m 539.0 560.0 l S
-BT /F1 9.5 Tf 59.0 546.0 Td (Tensile strength) Tj ET
-BT /F1 9.5 Tf 179.8 546.0 Td (250 - 520 MPa) Tj ET
-BT /F1 9.5 Tf 300.5 546.0 Td (559.696) Tj ET
-BT /F1 9.5 Tf 421.2 546.0 Td (FAIL) Tj ET
-0.5 w 56.0 542.0 m 539.0 542.0 l S
-BT /F1 9.5 Tf 59.0 528.0 Td (Dimensional check) Tj ET
-BT /F1 9.5 Tf 179.8 528.0 Td (0.05 - 0.5 mm) Tj ET
-BT /F1 9.5 Tf 300.5 528.0 Td (0.483) Tj ET
-BT /F1 9.5 Tf 421.2 528.0 Td (PASS) Tj ET
-0.5 w 56.0 524.0 m 539.0 524.0 l S
-BT /F1 9.5 Tf 59.0 510.0 Td (Thermal cycle) Tj ET
-BT /F1 9.5 Tf 179.8 510.0 Td (50 - 500 cycles) Tj ET
-BT /F1 9.5 Tf 300.5 510.0 Td (221.305) Tj ET
-BT /F1 9.5 Tf 421.2 510.0 Td (PASS) Tj ET
-0.5 w 56.0 506.0 m 539.0 506.0 l S
-BT /F1 10 Tf 56.0 486.0 Td (Overall result for P-100827: FAIL) Tj ET
-BT /F2 12 Tf 56.0 458.0 Td (Part P-101315 rev A.1) Tj ET
-BT /F2 9.5 Tf 59.0 436.0 Td (Test) Tj ET
-BT /F2 9.5 Tf 179.8 436.0 Td (Requirement) Tj ET
-BT /F2 9.5 Tf 300.5 436.0 Td (Measured) Tj ET
-BT /F2 9.5 Tf 421.2 436.0 Td (Result) Tj ET
-0.5 w 56.0 432.0 m 539.0 432.0 l S
-BT /F1 9.5 Tf 59.0 418.0 Td (Salt spray) Tj ET
-BT /F1 9.5 Tf 179.8 418.0 Td (48 - 500 hours) Tj ET
-BT /F1 9.5 Tf 300.5 418.0 Td (233.255) Tj ET
-BT /F1 9.5 Tf 421.2 418.0 Td (PASS) Tj ET
-0.5 w 56.0 414.0 m 539.0 414.0 l S
-BT /F1 9.5 Tf 59.0 400.0 Td (Tensile strength) Tj ET
-BT /F1 9.5 Tf 179.8 400.0 Td (250 - 520 MPa) Tj ET
-BT /F1 9.5 Tf 300.5 400.0 Td (504.325) Tj ET
-BT /F1 9.5 Tf 421.2 400.0 Td (PASS) Tj ET
-0.5 w 56.0 396.0 m 539.0 396.0 l S
-BT /F1 9.5 Tf 59.0 382.0 Td (Dimensional check) Tj ET
-BT /F1 9.5 Tf 179.8 382.0 Td (0.05 - 0.5 mm) Tj ET
-BT /F1 9.5 Tf 300.5 382.0 Td (0.382) Tj ET
-BT /F1 9.5 Tf 421.2 382.0 Td (PASS) Tj ET
-0.5 w 56.0 378.0 m 539.0 378.0 l S
-BT /F1 9.5 Tf 59.0 364.0 Td (Hardness) Tj ET
-BT /F1 9.5 Tf 179.8 364.0 Td (20 - 60 HRC) Tj ET
-BT /F1 9.5 Tf 300.5 364.0 Td (36.583) Tj ET
-BT /F1 9.5 Tf 421.2 364.0 Td (PASS) Tj ET
-0.5 w 56.0 360.0 m 539.0 360.0 l S
-BT /F1 10 Tf 56.0 340.0 Td (Overall result for P-101315: PASS) Tj ET
-BT /F2 12 Tf 56.0 312.0 Td (Part P-101073 rev A.1) Tj ET
-BT /F2 9.5 Tf 59.0 290.0 Td (Test) Tj ET
-BT /F2 9.5 Tf 179.8 290.0 Td (Requirement) Tj ET
-BT /F2 9.5 Tf 300.5 290.0 Td (Measured) Tj ET
-BT /F2 9.5 Tf 421.2 290.0 Td (Result) Tj ET
-0.5 w 56.0 286.0 m 539.0 286.0 l S
-BT /F1 9.5 Tf 59.0 272.0 Td (Hardness) Tj ET
-BT /F1 9.5 Tf 179.8 272.0 Td (20 - 60 HRC) Tj ET
-BT /F1 9.5 Tf 300.5 272.0 Td (44.455) Tj ET
-BT /F1 9.5 Tf 421.2 272.0 Td (PASS) Tj ET
-0.5 w 56.0 268.0 m 539.0 268.0 l S
-BT /F1 9.5 Tf 59.0 254.0 Td (Dimensional check) Tj ET
-BT /F1 9.5 Tf 179.8 254.0 Td (0.05 - 0.5 mm) Tj ET
-BT /F1 9.5 Tf 300.5 254.0 Td (0.319) Tj ET
-BT /F1 9.5 Tf 421.2 254.0 Td (PASS) Tj ET
-0.5 w 56.0 250.0 m 539.0 250.0 l S
-BT /F1 9.5 Tf 59.0 236.0 Td (Salt spray) Tj ET
-BT /F1 9.5 Tf 179.8 236.0 Td (48 - 500 hours) Tj ET
-BT /F1 9.5 Tf 300.5 236.0 Td (332.488) Tj ET
-BT /F1 9.5 Tf 421.2 236.0 Td (PASS) Tj ET
-0.5 w 56.0 232.0 m 539.0 232.0 l S
-BT /F1 9.5 Tf 59.0 218.0 Td (Tensile strength) Tj ET
-BT /F1 9.5 Tf 179.8 218.0 Td (250 - 520 MPa) Tj ET
-BT /F1 9.5 Tf 300.5 218.0 Td (546.295) Tj ET
-BT /F1 9.5 Tf 421.2 218.0 Td (FAIL) Tj ET
-0.5 w 56.0 214.0 m 539.0 214.0 l S
-BT /F1 10 Tf 56.0 194.0 Td (Overall result for P-101073: FAIL) Tj ET
+BT /F1 10 Tf 56.0 665.0 Td (This certifies that the items listed below conform to the applicable drawing and specification.) Tj ET
+BT /F2 9.5 Tf 59.0 645.0 Td (Part Number) Tj ET
+BT /F2 9.5 Tf 155.6 645.0 Td (Revision) Tj ET
+BT /F2 9.5 Tf 252.2 645.0 Td (Lot) Tj ET
+BT /F2 9.5 Tf 348.8 645.0 Td (Quantity) Tj ET
+BT /F2 9.5 Tf 445.4 645.0 Td (Supplier) Tj ET
+0.5 w 56.0 641.0 m 539.0 641.0 l S
+BT /F1 9.5 Tf 59.0 627.0 Td (P-100845) Tj ET
+BT /F1 9.5 Tf 155.6 627.0 Td (A.1) Tj ET
+BT /F1 9.5 Tf 252.2 627.0 Td (LOT-886398) Tj ET
+BT /F1 9.5 Tf 348.8 627.0 Td (100) Tj ET
+BT /F1 9.5 Tf 445.4 627.0 Td (Ironclad Industrie) Tj ET
+0.5 w 56.0 623.0 m 539.0 623.0 l S
+BT /F1 9.5 Tf 59.0 609.0 Td (P-101101) Tj ET
+BT /F1 9.5 Tf 155.6 609.0 Td (A.1) Tj ET
+BT /F1 9.5 Tf 252.2 609.0 Td (LOT-428200) Tj ET
+BT /F1 9.5 Tf 348.8 609.0 Td (50) Tj ET
+BT /F1 9.5 Tf 445.4 609.0 Td (Apex Precision 203) Tj ET
+0.5 w 56.0 605.0 m 539.0 605.0 l S
+BT /F1 9.5 Tf 59.0 591.0 Td (P-100697) Tj ET
+BT /F1 9.5 Tf 155.6 591.0 Td (A.1) Tj ET
+BT /F1 9.5 Tf 252.2 591.0 Td (LOT-469604) Tj ET
+BT /F1 9.5 Tf 348.8 591.0 Td (100) Tj ET
+BT /F1 9.5 Tf 445.4 591.0 Td (Meridian Systems 1) Tj ET
+0.5 w 56.0 587.0 m 539.0 587.0 l S
+BT /F1 10 Tf 56.0 567.0 Td (Certificate No CERT-730459. Issued 2023-12-07.) Tj ET
 endstream
 endobj
 7 0 obj
-<< /Title (Test Report DOC-0000833 for P-100827 rev A.1) /Producer (plmgen) >>
+<< /Title (Certificate DOC-0000833 for P-100845 rev A.1) /Producer (plmgen) >>
 endobj
 xref
 0 8
@@ -129,9 +68,9 @@ xref
 0000000212 00000 n 
 0000000314 00000 n 
 0000000450 00000 n 
-0000004977 00000 n 
+0000002282 00000 n 
 trailer
 << /Size 8 /Root 1 0 R /Info 7 0 R >>
 startxref
-5071
+2376
 %%EOF
