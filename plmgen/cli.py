@@ -168,7 +168,7 @@ def cmd_validate(args):
         cfg = Config.from_json(manifest["config"])
         directory = ws.out / "base" if args.base else ws.state
         as_of_date = date_from(manifest["config"]["as_of"]) if not args.base else date_from(
-            json.loads((ws.out / "base" / "_base.json").read_text())["as_of"])
+            json.loads(next((ws.out / "base").glob("_base_*.json")).read_text())["as_of"])
         max_depth = cfg.bom_depth
     report = validate(tables_from_dir(directory), as_of_date, max_depth)
     print(json.dumps(report, indent=2))
@@ -432,7 +432,7 @@ def build_parser():
     d.add_argument("--source", required=True, help="a folder of part files, for example data/plm/out/base")
     d.add_argument("--target", required=True, help="landing folder to deliver into")
     d.add_argument("--interval", type=float, default=0.0, help="seconds between rounds (default: no pause)")
-    d.add_argument("--pattern", default="part-*.csv")
+    d.add_argument("--pattern", default="*.csv", help="file name pattern to deliver")
     d.add_argument("--max-ticks", type=int, help="stop after this many rounds")
     d.set_defaults(func=cmd_drip)
 

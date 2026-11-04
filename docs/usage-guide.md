@@ -19,7 +19,7 @@ To get files into a Unity Catalog volume you can use the Databricks CLI, for exa
 
 ### 1. Bronze batch load, all at once or in parts
 
-Each table in `out/base/<source>/<table>/` is split into numbered files (`part-00001.csv`, `part-00002.csv`, ...) of 2,000 rows each (`init --base-part-rows N` changes that, and `0` writes one file per table). Every part has a header, and rows run oldest first. The CSVs are plain text, so declare types: `python -m plmgen schema --format ddl-spark` gives Spark DDL, and `--format spark-json` gives a schema per table. Empty fields are nulls.
+Each table in `out/base/<source>/<table>/` is split into numbered files (`master_part_20261103_00001.csv`, `master_part_20261103_00002.csv`, ...; the name is the table, the as-of date and the part number) of 2,000 rows each (`init --base-part-rows N` changes that, and `0` writes one file per table). Every part has a header, and rows run oldest first. The CSVs are plain text, so declare types: `python -m plmgen schema --format ddl-spark` gives Spark DDL, and `--format spark-json` gives a schema per table. Empty fields are nulls.
 
 To load incrementally, let the parts arrive over time in a landing folder:
 
@@ -27,20 +27,20 @@ To load incrementally, let the parts arrive over time in a landing folder:
 python -m plmgen drip --source data/plm/out/base --target data/plm/landing --interval 30
 ```
 
-Round 1 delivers `part-00001.csv` of every table, round 2 delivers `part-00002.csv`, and so on. Files appear atomically, so a reader that tracks loaded files, such as Auto Loader or `COPY INTO`, picks up only the new ones. A part load is not a change feed: the parts are slices of one snapshot. For real changes, use the daily batches.
+Round 1 delivers the `_00001` file of every table, round 2 delivers the `_00002` file, and so on. Files appear atomically, so a reader that tracks loaded files, such as Auto Loader or `COPY INTO`, picks up only the new ones. A part load is not a change feed: the parts are slices of one snapshot. For real changes, use the daily batches.
 
-Check: row counts across all parts equal `row_counts` in `out/base/_base.json`. Partway through a drip, foreign keys may be unresolved because a child can arrive before its parent.
+Check: row counts across all parts equal `row_counts` in `out/base/_base_<date>.json`. Partway through a drip, foreign keys may be unresolved because a child can arrive before its parent.
 
 ### 2. Micro-batch ingestion
 
-With `advance --micro-batch-minutes N`, each day's changes are split into one file per window, named by the window start: `events-0615.jsonl` covers 06:15 up to the next window. Events are timestamped across the working day, so windows are meaningful. Empty windows produce no file.
+With `advance --micro-batch-minutes N`, each day's changes are split into one file per window, named by the day and the window start: `sap_pdm_cdc_20261104_0615.jsonl` covers 06:15 up to the next window. Events are timestamped across the working day, so windows are meaningful. Empty windows produce no file.
 
 | What | Where | Key fields |
 |---|---|---|
-| SAP CDC | `sap_pdm/cdc/events-HHMM.jsonl` | `event_id`, `lsn`, `table`, `op` (`c`, `u`, `d`), `key`, `before`, `after`, `ts` |
-| Workflow events | `part_release/events/events-HHMM.jsonl` | `event_type`, `sequence`, `aggregate_id`, `payload` |
-| Windchill change log | `windchill/changelog/changes-HHMM.jsonl` | `entity`, `op`, `lsn`, `modified_at`, `key`, `data` |
-| BOM and master deltas | `bom_mgmt/delta/<table>-HHMM.csv`, `master/delta/...` | `_op`, `_seq`, `_ts`, then the table's columns |
+| SAP CDC | `sap_pdm/cdc/sap_pdm_cdc_<date>_<HHMM>.jsonl` | `event_id`, `lsn`, `table`, `op` (`c`, `u`, `d`), `key`, `before`, `after`, `ts` |
+| Workflow events | `part_release/events/part_release_events_<date>_<HHMM>.jsonl` | `event_type`, `sequence`, `aggregate_id`, `payload` |
+| Windchill change log | `windchill/changelog/windchill_changelog_<date>_<HHMM>.jsonl` | `entity`, `op`, `lsn`, `modified_at`, `key`, `data` |
+| BOM and master deltas | `bom_mgmt/delta/<table>_<date>_<HHMM>.csv`, `master/delta/...` | `_op`, `_seq`, `_ts`, then the table's columns |
 
 To feed a job as the windows would arrive, release a batch window by window:
 
@@ -147,7 +147,7 @@ Documents and parts carry `export_control_class` (EAR99, ECCN-3A001, ITAR-USML-X
 | Change on a part that is not Released | `windchill_change_affected_item` | data-quality rule |
 | Missing file, truncated file, wrong part number in text, orphan file | `project_docs` | checksum check, link check, text-to-link check, orphan report |
 
-Rates scale with file size, so a tiny micro-batch file is rarely touched and a busy one usually is. Each batch's `_batch.json` lists the exact counts injected.
+Rates scale with file size, so a tiny micro-batch file is rarely touched and a busy one usually is. Each batch's `_batch_<date>.json` lists the exact counts injected.
 
 ## What it does not do
 

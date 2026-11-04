@@ -49,7 +49,7 @@ def tables_from_dir(directory):
         elif single.exists():
             tables[name] = list(read_rows(single, spec))
         elif parts.is_dir():
-            tables[name] = [row for part in sorted(parts.glob("part-*.csv")) for row in read_rows(part, spec)]
+            tables[name] = [row for part in sorted(parts.glob("*.csv")) for row in read_rows(part, spec)]
         else:
             raise FileNotFoundError(f"no data for {name} under {directory}")
     return tables

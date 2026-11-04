@@ -48,7 +48,7 @@ Tested here against SQLite and a local PostgreSQL 16 server. **Not yet run again
 ```
 data/plm/
   state/                     the truth: one typed CSV per table, plus manifest.json
-  out/base/<source>/<table>/ the initial extract, split into part-00001.csv, part-00002.csv, ... (2,000 rows each)
+  out/base/<source>/<table>/ the initial extract, split into master_part_20261103_00001.csv, ..._00002.csv, ... (2,000 rows each)
   out/base/project_docs/     document files (PDF, DOCX, scanned PNG) plus a metadata JSONL
   out/batches/batch=DATE/    one folder per advanced day (see below)
   truth/questions.jsonl      questions with known answers, for Genie and RAG benchmarks
@@ -60,14 +60,16 @@ Each source reaches the lakehouse the way the diagram describes:
 
 | Source | Delivered as | Where, inside `out/batches/batch=DATE/` |
 |---|---|---|
-| SAP PDM | CDC events, Debezium-style JSON lines | `sap_pdm/cdc/events[-HHMM].jsonl` |
-| Part Release | workflow events, JSON lines | `part_release/events/events[-HHMM].jsonl` |
-| PTC Windchill | REST/OData API, plus a change log | `windchill/changelog/changes[-HHMM].jsonl` and `python -m plmgen serve` |
-| BOM Management | batch extracts with `_op`, `_seq`, `_ts` | `bom_mgmt/delta/*[-HHMM].csv` |
-| Master data | batch extracts | `master/delta/*[-HHMM].csv` |
+| SAP PDM | CDC events, Debezium-style JSON lines | `sap_pdm/cdc/sap_pdm_cdc_<date>[_<HHMM>].jsonl` |
+| Part Release | workflow events, JSON lines | `part_release/events/part_release_events_<date>[_<HHMM>].jsonl` |
+| PTC Windchill | REST/OData API, plus a change log | `windchill/changelog/windchill_changelog_<date>[_<HHMM>].jsonl` and `python -m plmgen serve` |
+| BOM Management | batch extracts with `_op`, `_seq`, `_ts` | `bom_mgmt/delta/<table>_<date>[_<HHMM>].csv` |
+| Master data | batch extracts | `master/delta/<table>_<date>[_<HHMM>].csv` |
 | Project Docs | file drops with a metadata JSONL | `project_docs/files/` and `project_docs/metadata/` |
 
-With `--micro-batch-minutes 15`, each source's day is split into one file per 15-minute window (`-0615` means 06:15 to 06:30), and events are timestamped across the working day. Without it there is one file per source per day.
+With `--micro-batch-minutes 15`, each source's day is split into one file per 15-minute window (`_0615` means 06:15 to 06:30), and events are timestamped across the working day. Without it there is one file per source per day.
+
+**File names say what a file is and when it is from**, so they stay identifiable after being copied into one folder: `<table or feed>_<YYYYMMDD>[_<HHMM>].<ext>` for batches, such as `sap_pdm_cdc_20261104_0615.jsonl`, and `<table>_<YYYYMMDD>_<NNNNN>.csv` for base extract parts, such as `master_part_20261103_00001.csv`, where the date is the as-of date. No two delivered files share a name, and a test enforces it.
 
 ## Commands
 
@@ -93,7 +95,7 @@ Run any command with `--help`. Invalid settings are rejected with a message.
 - **Incremental equals one-shot.** History to day N then `advance` N+k days gives byte-identical data to simulating N+k days at once, including after deletes. This is tested.
 - **Reproducible.** The same seed and settings always give the same data.
 - **Deletes are real.** Deleted keys are never reused, because the workspace saves its ID counters.
-- **Dirty mode.** `--dirty` adds a fixed, recorded set of problems to what is *delivered*, never to the truth: duplicate and out-of-order events, corrupt lines, unexpected fields, orphan keys, lifecycle-breaking BOM lines, time-travelling changes, mass in grams, missing or truncated documents, orphan files. Every batch records what it injected in `_batch.json`.
+- **Dirty mode.** `--dirty` adds a fixed, recorded set of problems to what is *delivered*, never to the truth: duplicate and out-of-order events, corrupt lines, unexpected fields, orphan keys, lifecycle-breaking BOM lines, time-travelling changes, mass in grams, missing or truncated documents, orphan files. Every batch records what it injected in `_batch_<date>.json`.
 - **A clean answer key.** Applying the micro-batches, with duplicates dropped and corrupt lines skipped, reproduces the true state exactly, even in dirty mode.
 
 ## Documents

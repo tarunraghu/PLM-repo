@@ -28,13 +28,13 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 
 from .db import read_rows
+from .naming import parse_batch_file
 from .schema import POSTGRES_TYPES, TABLES, format_value, parse_value
 
 # Tables that carry product lifecycle: state, revision, and the part records in SAP and Windchill.
 LIFECYCLE_TABLES = ("master_part", "master_part_lifecycle_history", "sap_pdm_material", "windchill_part",
                     "windchill_part_revision")
 SQLITE_TYPES = {"str": "TEXT", "int": "INTEGER", "float": "REAL", "date": "TEXT", "ts": "TEXT", "bool": "INTEGER"}
-WINDOW = re.compile(r"-(\d{4})\.(?:jsonl|csv)$")
 BOOKKEEPING = ("_lsn", "_source_ts", "_applied_at")
 
 
@@ -207,8 +207,8 @@ def read_window_records(files, tables):
                     records.append({"table": e["table"], "op": e["op"], "key": key, "lsn": e["lsn"], "ts": ts,
                                     "row": _json_row(e["table"], row) if e["op"] != "d" else None, "uid": uid})
         elif path.suffix == ".csv":
-            table = WINDOW.sub("", path.name) if WINDOW.search(path.name) else path.stem
-            table = re.sub(r"\.csv$", "", table)
+            parsed = parse_batch_file(path.name)
+            table = parsed[0] if parsed else path.stem
             if table not in tables:
                 continue
             spec = TABLES[table]
@@ -284,8 +284,8 @@ def window_groups(batch_dir):
             continue
         if path.parent.name not in ("cdc", "changelog", "events", "delta"):
             continue
-        match = WINDOW.search(path.name)
-        groups[match.group(1) if match else ""].append(path)
+        parsed = parse_batch_file(path.name)
+        groups[parsed[2] if parsed else ""].append(path)
     return dict(sorted(groups.items()))
 
 

@@ -11,7 +11,7 @@ How each source reaches the lakehouse (matching the architecture diagram):
 The base extract is a full snapshot of every table, one folder per source.
 
 Dirty mode adds known problems to what is delivered, never to the truth in state/. Each
-batch records exactly what it injected in _batch.json, so tests can assert on it.
+batch records exactly what it injected in _batch_<date>.json, so tests can assert on it.
 """
 
 import csv
@@ -22,6 +22,7 @@ from datetime import timedelta
 from pathlib import Path
 
 from .db import write_rows
+from .naming import SAP_FEED, WINDCHILL_FEED, WORKFLOW_FEED, base_part_name, batch_file_name
 from .schema import TABLES, format_value, to_json_value
 from .util import bom_key, idx_from_bom_key, pn_idx, pn_of, seq_of, wt_id_of
 
@@ -84,7 +85,7 @@ def _expected_count(drng, expected):
 class Emitter:
     def __init__(self, out_dir, manifest, seed, dirty=False, micro_minutes=0):
         """micro_minutes > 0 splits each day's output into one file per time window of that many minutes
-        (events-0615.jsonl holds 06:15 up to the next window). 0 writes one file per source per day."""
+        (sap_pdm_cdc_20261104_0615.jsonl holds 06:15 up to the next window). 0 writes one file per source per day."""
         self.out = Path(out_dir)
         self.manifest = manifest
         self.seed = seed
@@ -112,7 +113,7 @@ class Emitter:
         return dict(sorted(groups.items()))
 
     def emit_day(self, day, changes, folder=None, extra=None):
-        """Write one day's deliveries. Returns a summary dict (also written as _batch.json).
+        """Write one day's deliveries. Returns a summary dict (also written as _batch_<date>.json).
         `extra` is merged into the summary, for example the document counts."""
         folder = Path(folder) if folder else self.out / "batches" / f"batch={day.isoformat()}"
         drng = random.Random(f"{self.seed}:{day}:dirty")
@@ -125,8 +126,7 @@ class Emitter:
         def write_events(items, subfolder, stem, kind, label=None):
             for window, events in self._grouped(items).items():
                 lines = self._degrade_events(events, drng, injected, label) if label else events
-                name = f"{stem}-{window}.jsonl" if window else f"{stem}.jsonl"
-                path = folder / subfolder / name
+                path = folder / subfolder / batch_file_name(stem, day, window, "jsonl")
                 write_jsonl(path, lines)
                 files.append({"path": path.relative_to(folder).as_posix(), "rows": len(lines), "kind": kind,
                               "window": window or None})
@@ -139,7 +139,7 @@ class Emitter:
                 "event_id": f"sap_pdm-{lsn:012d}", "source": "sap_pdm", "table": change.table, "op": OPS[change.op],
                 "ts": iso_ts(change.ts), "lsn": lsn, "key": json_key(change.table, change.pk),
                 "before": json_row(change.table, change.before), "after": json_row(change.table, change.after)}))
-        write_events(sap_events, "sap_pdm/cdc", "events", "cdc", "sap_pdm")
+        write_events(sap_events, "sap_pdm/cdc", SAP_FEED, "cdc", "sap_pdm")
 
         # Part release: workflow events.
         workflow = []
@@ -147,7 +147,7 @@ class Emitter:
             event = self._workflow_event(change)
             if event:
                 workflow.append((change.ts, event))
-        write_events(workflow, "part_release/events", "events", "events", "part_release")
+        write_events(workflow, "part_release/events", WORKFLOW_FEED, "events", "part_release")
 
         # Windchill: change log behind the REST/OData API.
         log = []
@@ -158,7 +158,7 @@ class Emitter:
                 "entity": WINDCHILL_ENTITY[change.table], "table": change.table, "op": OPS[change.op], "lsn": lsn,
                 "modified_at": iso_ts(change.ts), "key": json_key(change.table, change.pk),
                 "data": json_row(change.table, row)}))
-        write_events(log, "windchill/changelog", "changes", "changelog")
+        write_events(log, "windchill/changelog", WINDCHILL_FEED, "changelog")
 
         # BOM management and master data: delta CSV extracts.
         for source in ("bom_mgmt", "master"):
@@ -173,8 +173,7 @@ class Emitter:
                                  for _ in range(_expected_count(drng, len(records) * 0.02))]
                         records = records + dupes
                         injected[f"{source}_duplicate_rows"] += len(dupes)
-                    name = f"{table}-{window}.csv" if window else f"{table}.csv"
-                    path = folder / source / "delta" / name
+                    path = folder / source / "delta" / batch_file_name(table, day, window, "csv")
                     write_delta_csv(path, table, records)
                     files.append({"path": path.relative_to(folder).as_posix(), "rows": len(records),
                                   "kind": "delta", "window": window or None})
@@ -182,7 +181,7 @@ class Emitter:
         summary = {"date": day.isoformat(), "dirty": self.dirty, "micro_batch_minutes": self.micro_minutes,
                    "files": files, "injected": dict(injected), "changes": len(changes), **(extra or {})}
         folder.mkdir(parents=True, exist_ok=True)
-        (folder / "_batch.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+        (folder / f"_batch_{day:%Y%m%d}.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
         return summary
 
     def _workflow_event(self, change):
@@ -246,7 +245,7 @@ def write_base(tables, cfg, out_dir, dirty=False, part_rows=0):
     """Write the full snapshot, one folder per source. Returns what was injected.
 
     With part_rows > 0 each table becomes a folder of numbered part files
-    (<source>/<table>/part-00001.csv, ...), oldest rows first, each with a header, so the
+    (<source>/<table>/<table>_<as-of date>_00001.csv, ...), oldest rows first, each with a header, so the
     initial load can be done a piece at a time. With 0 each table is a single CSV file."""
     out_dir = Path(out_dir)
     issues = Counter()
@@ -262,12 +261,13 @@ def write_base(tables, cfg, out_dir, dirty=False, part_rows=0):
             count = max(1, -(-len(rows) // part_rows))
             for n in range(count):
                 (folder / name).mkdir(exist_ok=True)
-                write_rows(folder / name / f"part-{n + 1:05d}.csv", spec, rows[n * part_rows:(n + 1) * part_rows])
+                write_rows(folder / name / base_part_name(name, cfg.as_of_date, n + 1), spec,
+                           rows[n * part_rows:(n + 1) * part_rows])
             parts[name] = count
         else:
             write_rows(folder / f"{name}.csv", spec, rows)
             parts[name] = 1
-    (out_dir / "_base.json").write_text(json.dumps({
+    (out_dir / f"_base_{cfg.as_of_date:%Y%m%d}.json").write_text(json.dumps({
         "as_of": cfg.as_of, "dirty": dirty, "injected": dict(issues), "part_rows": part_rows, "parts": parts,
         "row_counts": {name: len(rows) for name, rows in snapshot.items()}}, indent=2), encoding="utf-8")
     return dict(issues), snapshot

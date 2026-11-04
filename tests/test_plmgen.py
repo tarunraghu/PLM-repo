@@ -29,6 +29,7 @@ from plmgen.api import make_server
 from plmgen.config import Config
 from plmgen.db import Database, read_rows
 from plmgen.engine import Workspace, simulate_days, simulate_history
+from plmgen.naming import base_part_name, parse_batch_file
 from plmgen.lakebase import (LIFECYCLE_TABLES, Target, apply_records, create_tables, lag_summary, verify, watch)
 from plmgen.outputs import Emitter, inject_snapshot_problems, write_base
 from plmgen.questions import build_questions
@@ -282,13 +283,14 @@ class OutputTests(unittest.TestCase):
         write_base(tables, self.cfg, self.root / "single", part_rows=0)
         write_base(tables, self.cfg, self.root / "parts", part_rows=50)
         single, parts = tables_from_dir(self.root / "single"), tables_from_dir(self.root / "parts")
-        meta = json.loads((self.root / "parts" / "_base.json").read_text())
+        meta = json.loads(next((self.root / "parts").glob("_base_*.json")).read_text())
         for name, spec in schema.TABLES.items():
             key = lambda r: tuple(str(r[c]) for c in spec.pk)
             self.assertEqual(sorted(single[name], key=key), sorted(parts[name], key=key), name)
-            files = sorted((self.root / "parts" / spec.source / name).glob("part-*.csv"))
+            files = sorted((self.root / "parts" / spec.source / name).glob("*.csv"))
             self.assertEqual(len(files), meta["parts"][name], name)
-            self.assertEqual([f.name for f in files], [f"part-{n:05d}.csv" for n in range(1, len(files) + 1)])
+            self.assertEqual([f.name for f in files],
+                             [base_part_name(name, self.cfg.as_of_date, n) for n in range(1, len(files) + 1)])
             for f in files:
                 lines = f.read_text().splitlines()
                 self.assertEqual(lines[0].split(","), spec.col_names)
@@ -320,12 +322,13 @@ class OutputTests(unittest.TestCase):
         landing = self.root / "landing"
         rounds = drip(self.root / "base", landing, max_ticks=1)
         self.assertEqual(len(rounds), 1)
-        self.assertTrue(all(p.name == "part-00001.csv" for p in rounds[0]))
+        self.assertTrue(all(p.name.endswith("_20261103_00001.csv") for p in rounds[0]))
+        self.assertTrue(all(p.name.startswith(p.parent.name + "_") for p in rounds[0]))
         self.assertEqual(len(rounds[0]), len(schema.TABLES))
         everything = drip(self.root / "base", self.root / "all")
         self.assertGreater(len(everything), 3)
         self.assertEqual(sorted(p.relative_to(self.root / "all") for r in everything for p in r),
-                         sorted(p.relative_to(self.root / "base") for p in (self.root / "base").rglob("part-*.csv")))
+                         sorted(p.relative_to(self.root / "base") for p in (self.root / "base").rglob("*.csv")))
         # Loading round by round only ever adds rows, and the last round has everything.
         counts = []
         for n in range(1, len(everything) + 1):
@@ -365,7 +368,7 @@ class OutputTests(unittest.TestCase):
         emitter = Emitter(self.root, {}, self.cfg.seed, dirty)
         first = self.cfg.as_of_date + timedelta(days=1)
         simulate_days(world, first, first + timedelta(days=60), on_day=lambda d, ch: emitter.emit_day(d, ch))
-        files = sorted(self.root.glob("batches/batch=*/sap_pdm/cdc/events.jsonl"))
+        files = sorted(self.root.glob("batches/batch=*/sap_pdm/cdc/sap_pdm_cdc_*.jsonl"))
         ignored = apply_cdc(state, read_events(files))
         truth = {t: rows_to_json_state(t, db.rows(t)) for t in ("sap_pdm_material", "sap_pdm_vendor")}
         self.assertEqual(state, truth)
@@ -386,12 +389,12 @@ class OutputTests(unittest.TestCase):
         emitter = Emitter(self.root, {}, self.cfg.seed)
         first = self.cfg.as_of_date + timedelta(days=1)
         simulate_days(world, first, first + timedelta(days=90), on_day=lambda d, ch: emitter.emit_day(d, ch))
-        kinds = {f["kind"] for p in self.root.glob("batches/*/_batch.json") for f in json.loads(p.read_text())["files"]}
+        kinds = {f["kind"] for p in self.root.glob("batches/*/_batch_*.json") for f in json.loads(p.read_text())["files"]}
         self.assertEqual(kinds, {"cdc", "events", "changelog", "delta"})
-        events = [json.loads(line) for p in self.root.glob("batches/*/part_release/events/events.jsonl")
+        events = [json.loads(line) for p in self.root.glob("batches/*/part_release/events/part_release_events_*.jsonl")
                   for line in p.read_text().splitlines()]
         self.assertTrue({"TaskAssigned", "TaskDecided"} <= {e["event_type"] for e in events})
-        delta = next(self.root.glob("batches/*/bom_mgmt/delta/bom_mgmt_ebom_line.csv")).read_text().splitlines()[0]
+        delta = next(self.root.glob("batches/*/bom_mgmt/delta/bom_mgmt_ebom_line_*.csv")).read_text().splitlines()[0]
         self.assertTrue(delta.startswith("_op,_seq,_ts,ebom_line_id"))
 
     def test_lsn_continues_across_runs(self):
@@ -400,7 +403,7 @@ class OutputTests(unittest.TestCase):
         emitter = Emitter(self.root, manifest, self.cfg.seed)
         first = self.cfg.as_of_date + timedelta(days=1)
         simulate_days(world, first, first + timedelta(days=10), on_day=lambda d, ch: emitter.emit_day(d, ch))
-        lsns = [json.loads(line)["lsn"] for p in sorted(self.root.glob("batches/*/sap_pdm/cdc/events.jsonl"))
+        lsns = [json.loads(line)["lsn"] for p in sorted(self.root.glob("batches/*/sap_pdm/cdc/sap_pdm_cdc_*.jsonl"))
                 for line in p.read_text().splitlines()]
         self.assertEqual(lsns, list(range(1, len(lsns) + 1)))
         self.assertEqual(manifest["lsn"]["sap_pdm"], len(lsns))
@@ -572,19 +575,45 @@ class CliTests(unittest.TestCase):
             self.assertEqual(status["as_of"], "2026-11-10")
             self.assertTrue((Path(ws) / "truth" / "questions.jsonl").exists())
 
+    def test_no_two_delivered_files_share_a_name(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            ws = Path(tmp) / "ws"
+            self.assertEqual(run_cli("init", "--profile", "tiny", "--workspace", str(ws), "--base-part-rows", "100")[0], 0)
+            self.assertEqual(run_cli("advance", "--workspace", str(ws), "--days", "6", "--micro-batch-minutes", "60",
+                                     "--activity", "10")[0], 0)
+            names = [p.name for p in (ws / "out").rglob("*") if p.is_file()]
+            repeated = sorted(n for n in set(names) if names.count(n) > 1)
+            self.assertEqual(repeated, [], "a delivered file name appears in more than one place")
+            for p in (ws / "out" / "base").rglob("*.csv"):
+                if p.parent.name in schema.TABLES:
+                    self.assertTrue(p.name.startswith(p.parent.name + "_"), p.name)
+            for p in (ws / "out" / "batches").rglob("*.jsonl"):
+                if p.parent.name in ("cdc", "events", "changelog"):
+                    feed, day, window, ext = parse_batch_file(p.name)
+                    self.assertIn(f"batch={day.isoformat()}", p.as_posix())
+                    self.assertTrue(feed.endswith(("_cdc", "_events", "_changelog")), p.name)
+
+    def test_names_round_trip(self):
+        self.assertEqual(parse_batch_file("sap_pdm_cdc_20261104_0615.jsonl"),
+                         ("sap_pdm_cdc", date(2026, 11, 4), "0615", "jsonl"))
+        self.assertEqual(parse_batch_file("bom_mgmt_ebom_line_20261104.csv"),
+                         ("bom_mgmt_ebom_line", date(2026, 11, 4), "", "csv"))
+        self.assertEqual(base_part_name("master_part", date(2026, 11, 3), 7), "master_part_20261103_00007.csv")
+        self.assertIsNone(parse_batch_file("part-00001.csv"))
+
     def test_init_splits_the_base_extract_into_parts_by_default(self):
         with tempfile.TemporaryDirectory() as tmp:
             ws = Path(tmp) / "ws"
             self.assertEqual(run_cli("init", "--profile", "tiny", "--workspace", str(ws), "--no-docs",
                                      "--base-part-rows", "100")[0], 0)
-            self.assertTrue((ws / "out" / "base" / "master" / "master_part" / "part-00001.csv").exists())
+            self.assertTrue((ws / "out" / "base" / "master" / "master_part" / "master_part_20261103_00001.csv").exists())
             self.assertFalse((ws / "out" / "base" / "master" / "master_part.csv").exists())
             self.assertEqual(run_cli("validate", "--workspace", str(ws), "--base")[0], 0)
             code, out, _ = run_cli("drip", "--source", str(ws / "out" / "base"), "--target", str(ws / "landing"),
                                    "--max-ticks", "2")
             self.assertEqual(code, 0)
             self.assertEqual(json.loads(out)["rounds"], 2)
-            self.assertTrue((ws / "landing" / "master" / "master_part" / "part-00002.csv").exists())
+            self.assertTrue((ws / "landing" / "master" / "master_part" / "master_part_20261103_00002.csv").exists())
             # One file per table is still available.
             ws2 = Path(tmp) / "ws2"
             self.assertEqual(run_cli("init", "--profile", "tiny", "--workspace", str(ws2), "--no-docs",
@@ -715,13 +744,14 @@ class LifecycleChangeTests(unittest.TestCase):
 
             self.assertEqual(event_ids(Path(tmp) / "d", "batches/*/sap_pdm/cdc/*.jsonl"),
                              event_ids(Path(tmp) / "w", "batches/*/sap_pdm/cdc/*.jsonl"))
-            for p in (Path(tmp) / "w").glob("batches/*/sap_pdm/cdc/events-*.jsonl"):
-                start = int(p.stem.split("-")[1][:2]) * 60 + int(p.stem.split("-")[1][2:])
+            for p in (Path(tmp) / "w").glob("batches/*/sap_pdm/cdc/sap_pdm_cdc_*_*.jsonl"):
+                window = p.stem.rsplit("_", 1)[1]
+                start = int(window[:2]) * 60 + int(window[2:])
                 for line in p.read_text().splitlines():
                     ts = datetime.fromisoformat(json.loads(line)["ts"].rstrip("Z"))
                     self.assertTrue(start <= ts.hour * 60 + ts.minute < start + 15, p.name)
-            many = list((Path(tmp) / "w").glob("batches/*/sap_pdm/cdc/events-*.jsonl"))
-            self.assertGreater(len(many), len(list((Path(tmp) / "d").glob("batches/*/sap_pdm/cdc/events.jsonl"))))
+            many = list((Path(tmp) / "w").glob("batches/*/sap_pdm/cdc/sap_pdm_cdc_*_*.jsonl"))
+            self.assertGreater(len(many), len(list((Path(tmp) / "d").glob("batches/*/sap_pdm/cdc/sap_pdm_cdc_*.jsonl"))))
 
 
 class LakebaseHarnessTests(unittest.TestCase):
@@ -815,7 +845,7 @@ class LakebaseHarnessTests(unittest.TestCase):
             self.assertGreaterEqual(lag["apply_lag_seconds_oldest_event"]["p50"], 0)
             self.assertEqual(verify(target, list(LIFECYCLE_TABLES), Path(ws) / "state")["problems"], 0)
             target.close()
-            sample = next((Path(tmp) / "landing").rglob("cdc/events-*.jsonl")).read_text().splitlines()[0]
+            sample = next((Path(tmp) / "landing").rglob("cdc/sap_pdm_cdc_*_*.jsonl")).read_text().splitlines()[0]
             event = json.loads(sample)
             self.assertIn("orig_ts", event)
             self.assertNotEqual(event["ts"], event["orig_ts"])

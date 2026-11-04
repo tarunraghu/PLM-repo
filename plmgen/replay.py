@@ -59,10 +59,10 @@ def rows_to_json_state(table, rows):
     return {tuple(json_key(table, tuple(r[c] for c in spec.pk)).values()): json_row(table, r) for r in rows}
 
 
-def drip(source_dir, target_dir, interval=0.0, pattern="part-*.csv", max_ticks=None):
+def drip(source_dir, target_dir, interval=0.0, pattern="*.csv", max_ticks=None):
     """Deliver part files into target_dir in rounds, keeping the folder structure.
 
-    Round 1 delivers the first part of every table, round 2 the second part, and so on, so each
+    Round 1 delivers the first part file of every table, round 2 the second, and so on, so each
     round adds a slice of every table, as an incremental initial load would. Files appear atomically.
     Returns the list of files delivered in each round."""
     import shutil
