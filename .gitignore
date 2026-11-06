@@ -1,6 +1,5 @@
-# The generated workspace under data/ is committed on purpose. Only throwaway output is ignored.
-data/*/landing/
-data/venv*/
+# Generated workspace data is not tracked.
+data/
 __pycache__/
 *.pyc
 .venv/
