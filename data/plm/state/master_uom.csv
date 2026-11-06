@@ -1,6 +1,0 @@
-uom_code,uom_name,dimension
-EA,Each,count
-G,Gram,mass
-KG,Kilogram,mass
-L,Litre,volume
-M,Metre,length

@@ -1,6 +1,0 @@
-from_uom,to_uom,factor
-EA,EA,1.0
-G,KG,0.001
-KG,KG,1.0
-L,L,1.0
-M,M,1.0
